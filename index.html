@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Landy's Project</title>
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/mycolor1.css">
+   <style>
+      body{
+         font-family: "LXGW WenKai TC", cursive;
+      }
+      .section{
+         height: 100vh;
+         background-color: white;
+         position: relative;
+      }         
+      .box01{
+         position: absolute;
+         width: 200px;
+         height: 200px;
+         background-color: var(--mylandywebcolor02);
+         top: 0;
+         left: 0;
+      }
+      .box02{
+         position: absolute;
+         width: 200px;
+         height: 200px;
+         background-color: var(--mylandywebcolor03);
+         top: 0;
+         right: 0;
+      }
+      .box03{
+         position: absolute;
+         width: 200px;
+         height: 200px;
+         background-color: var(--mylandywebcolor04);
+         bottom: 0;
+         left: 0;
+      }
+      .box04{
+         position: absolute;
+         width: 200px;
+         height: 200px;
+         background-color: var(--mylandywebcolor05);
+         bottom: 0;
+         right: 0;
+      }
+      .userimg{
+         position: absolute;
+         top: 50px;
+         bottom: 50px;
+         left: 50px;
+         right: 50px;
+         background-color: var(--mylandywebcolor06);
+         background-image: url(images/landyphoto.JPG);
+         background-position: center center;
+         background-repeat: no-repeat;
+         background-size: cover;
+      }
+      .usertext{
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%,-50%);
+         background-image: linear-gradient(120deg,rgba(255, 0, 0, 0.151),rgba(0, 0, 255, 0.151));
+         padding: 70px;
+      }
+      .usertext h1{
+         color: #FFFFFF;
+         text-align: center;
+      }
+      .usertext h2{
+         color: rgba(15,59,139);
+         text-align: center;
+      }
+      .usertext p{
+         color: #FFFFFF;
+         text-align: center;
+         font-size: 20px;
+      }
+      .banner{
+         position: relative;
+         background-color: var(--mylandywebcolor01);
+         background-image: url(images/bannerphoto3.PNG);
+         background-position: center center;
+         background-size: cover;
+         background-repeat: no-repeat;
+         height: 100vh;   
+      }
+      .project01{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100%;
+      }
+      .project01 button{
+         height: 100px;
+         line-height: 100px;
+         width: 900px;
+         margin-top: 5px;
+         text-align: center;
+         font-size: 22px;
+         border: none;
+         background-color: #c7c7c770;
+         border-radius: 8px;
+      }
+      .project01 button:hover{
+         background-color: #FFFFFF;
+         color: var(--mylandywebcolor03);
+      }
+      @media screen and (min-width: 768px){
+         .project01 button{
+            text-align: center;
+            height: 220px;
+            width: 220px;
+            line-height: 220px;
+            font-size: 22px;
+            margin-top: 20px;
+            background-color: #c7c7c770;
+            border-radius: 50%; 
+            border: none;
+         }
+      }
+      @media screen and (min-width: 992px){
+         .project01 button{
+            text-align: center;
+            height: 250px;
+            width: 250px;
+            line-height: 250px;
+            font-size: 22px;
+            margin-top: 20px;
+            background-color: #c7c7c770;
+            border-radius: 50%; 
+            border: none;
+         }
+      }
+      @media screen and (min-width: 1200px){
+         .project01 button{
+            text-align: center;
+            height: 300px;
+            width: 300px;
+            line-height: 300px;
+            font-size: 25px;
+            margin-top: 20px;
+            background-color: #c7c7c770;
+            border-radius: 50%; 
+            border: none;
+         }
+      }
+   </style>
+</head>
+<body>
+   <div class="section">
+      <div class="box01"></div>
+      <div class="box02"></div>
+      <div class="box03"></div>
+      <div class="box04"></div>
+      <div class="userimg"></div>
+      <div class="usertext" title="113年雲端技術應用實務班第2期3號陳俞蓁">
+         <h1>陳俞蓁 LandyChen</h1>
+         <hr>
+         <h2>Make each day your masterpiece.</h2>
+         <p><b>There are so many beautiful reasons to be happy. </b></p>
+      </div>
+   </div>
+   <div class="banner">
+      <div class="row">
+         <div class="banner01 col-md-6 col-lg-3 col-xl-3 col-xxl-3">
+            <div class="project01 fw-900">
+               <button type="button" onclick="window.open('/food', '_blank')">01.香噗噗燒烤店</button>
+            </div>            
+         </div>
+         <div class="banner01 col-md-6 col-lg-3 col-xl-3 col-xxl-3">
+            <div class="project01 fw-900">
+               <button type="button" onclick="window.open('/food1', '_blank')">02.特色美食</button>
+            </div>
+         </div>
+         <div class="banner01 col-md-6 col-lg-3 col-xl-3 col-xxl-3">
+            <div class="project01 fw-900">
+               <button type="button" onclick="window.open('/food2', '_blank')">03.特色美食選單</button>
+            </div>
+         </div>
+         <div class="banner01 col-md-6 col-lg-3 col-xl-3 col-xxl-3">
+            <div class="project01 fw-900">
+               <button type="button" onclick="window.open('/youbike', '_blank')">04.Youbike即時資訊
+            </div>
+         </div>
+         <div class="col-md-6 col-lg-3 col-xl-3 col-xxl-3">
+            <div class="project01 fw-900">
+               <button type="button" onclick="window.open('/phpMyAdmin', '_blank')">05.PhpMyAdmin</button>
+            </div>
+         </div>
+         <div class="col-md-6 col-lg-3 col-xl-3 col-xxl-3">
+            <div class="project01 fw-900">
+               <button type="button" onclick="window.open('/orderSystem', '_blank')">06.訂購系統</button>
+            </div>
+         </div>
+         <div class="col-md-6 col-lg-3 col-xl-3 col-xxl-3">
+            <div class="project01 fw-900">
+               <button type="button" onclick="window.open('/party', '_blank')">07.派對公司</button>
+            </div>
+         </div>
+         <div class="col-md-6 col-lg-3 col-xl-3 col-xxl-3">
+            <div class="project01 fw-900">
+               <button type="button" onclick="window.open('/office', '_blank')">08_1.專題-得昌行</button>
+            </div>
+         </div>
+         <div class="col-md-6 col-lg-3 col-xl-3 col-xxl-3">
+            <div class="project01 fw-900">
+               <button type="button" onclick="window.open('#', '_blank')">09.建置中...</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container"></div>
+   <div class="footer"></div>
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.7.1.min.js"></script>
+</body>
+</html>
