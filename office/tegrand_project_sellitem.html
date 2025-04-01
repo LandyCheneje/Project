@@ -1,0 +1,2983 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>得昌行|捷獅---中古機械售賣</title>
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/mycolor-tegrand.css">
+   <link rel="stylesheet" href="css/all.min.css">
+   <link rel="stylesheet" href="css/animate.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css"
+      integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous">
+   <!--滾動條樣式 (OverlayScrollbars)-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
+      integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
+   <!--Bootstrap Icons（圖示庫）-->
+   <link rel="stylesheet" href="css/adminlte.css"> <!--AdminLTE（後台管理模板 CSS）-->
+   <link rel="icon" href="images/MajorProject/捷獅.webp" type="image/png">
+   <style>
+      /*連結底線顯示none*/
+      a {
+         text-decoration: none;
+      }
+
+      /* 管理系統(與購物車btn同位置) */
+      #controlPanel {
+         position: fixed;
+         bottom: 100px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      }
+
+      /* 會員系統 */
+      #memberSystem {
+         position: fixed;
+         bottom: 260px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      }
+
+      /* 查看機台清單 */
+      #moreitem {
+         position: fixed;
+         bottom: 180px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      }
+
+      /* 購物車(與管理系統btn同位置) */
+      #shopping {
+         position: fixed;
+         bottom: 100px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      }
+
+      /* 回到頁面頂部 */
+      #backToTop {
+         position: fixed;
+         bottom: 20px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      }
+
+      #backToTop:hover,
+      #controlPanel:hover,
+      #memberSystem:hover,
+      #moreitem:hover,
+      #shopping:hover {
+         background-color: var(--myjumpcolor02);
+      }
+
+      /* s01 */
+      #s01 {
+         background-color: var(--myjumpcolor03);
+         height: auto;
+      }
+
+      .s01-icon {
+         color: var(--myjumpcolor01);
+         font-size: 40px;
+      }
+
+      .s01-icon-fb {
+         color: #1877f2;
+         font-size: 50px;
+      }
+
+      .s01-icon-line {
+         color: #00b900;
+         font-size: 45px;
+      }
+
+      .s01-icon-ig {
+         color: #833ab4;
+         font-size: 50px;
+      }
+
+      .s01-icon-threads {
+         color: #000000;
+         font-size: 50px;
+      }
+
+      .s01-span {
+         font-size: 30px;
+         line-height: 1;
+      }
+
+      .s01-sup {
+         font-size: 15px;
+      }
+
+      /* s02 */
+      .navbar {
+         background-color: var(--myjumpcolor01);
+      }
+
+      .navbar-brand-img {
+         width: 120px;
+         border-radius: 20px;
+      }
+
+      .navbar-brand-name {
+         font-size: 60px;
+         color: white;
+      }
+
+      .nav-link {
+         border-radius: 10px;
+         color: white;
+      }
+
+      .s02-icon {
+         color: white;
+      }
+
+      .s02-icon-span {
+         color: white;
+         font-size: 30px;
+      }
+
+      .s02-icon-dropdown {
+         color: var(--myjumpcolor01);
+         font-size: 25px;
+      }
+
+      .s02-icon-dropdown-span {
+         color: var(--myjumpcolor01);
+         font-size: 30px;
+      }
+
+      /* section02 banner按鍵動作 */
+      .navbar a:hover,
+      .navbar button:hover {
+         background-color: var(--myjumpcolor03);
+         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+         transform: translateY(-2px);
+         transition: all 0.3s ease-in-out;
+      }
+
+      .navbar a:active,
+      .navbar button:active {
+         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+         transform: translateY(6px);
+         transition: all 0.2s ease-in-out;
+      }
+
+      .navbar-toggler {
+         background-color: white;
+      }
+
+      /* secction03 Carousel */
+      .carousel-item {
+         background-position: center;
+         background-size: cover;
+         background-repeat: no-repeat;
+         height: 75.1vh;
+         /* 根據需要調整高度 */
+         position: relative;
+         /* 設置相對定位，讓子元素可以絕對定位 */
+      }
+
+      .carousel-item-1 {
+         background-image: url('images/MajorProject/carousel01.png');
+      }
+
+      .carousel-item-2 {
+         background-image: url('images/MajorProject/carousel02.png');
+      }
+
+      .carousel-item-3 {
+         background-image: url('images/MajorProject/carousel03.png');
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+         width: 50px;
+      }
+
+      .carousel-caption {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         /* 精確居中 */
+         text-align: center;
+         /* 文字居中 */
+         width: 80%;
+         /* 讓 caption 寬度和圖片相同 */
+         color: white;
+         /* 設置文字顏色，根據背景圖片需要調整 */
+         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.9);
+         /* 更強烈的陰影效果 */
+      }
+
+      .box01 {
+         background-color: #0000007c;
+      }
+
+      .box01_1 {
+         font-size: 100px;
+         font-weight: bold;
+      }
+
+      .box01_2 {
+         font-size: 50px;
+      }
+
+      /* section04 */
+      /* s04背景圖 */
+      .box04bg {
+         background-image: url(images/MajorProject/box04bg.png);
+         background-attachment: fixed;
+         position: relative;
+         z-index: 1;
+      }
+
+      .box04bg::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(255, 255, 255, 0.6);
+         z-index: -1;
+      }
+
+      /* s04卡片懸停效果 */
+      .card04 {
+         width: 95%;
+         border: 1px solid #ddd;
+         border-radius: 8px;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         overflow: hidden;
+         margin: 20px auto;
+         transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .card04:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* s04文字 */
+      .s04-item {
+         font-size: 33px;
+         font-weight: bolder;
+      }
+
+      /* s04公司歷程 */
+      .timeline-section {
+         position: relative;
+      }
+
+      .establishTime:hover {
+         background-color: rgba(168, 189, 215, 0.5);
+         transition: all 0.3s ease-in-out;
+         padding: 10px;
+         box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .timeline-section::before {
+         position: absolute;
+         content: "";
+         width: 4px;
+         background-color: var(--myjumpcolor01);
+         top: 0;
+         bottom: 0;
+         left: 0;
+         transform: translateX(-350%);
+      }
+
+      .timeline-section-pointer {
+         position: relative;
+      }
+
+      .timeline-section-pointer::before {
+         position: absolute;
+         content: "";
+         width: 20px;
+         height: 20px;
+         background-color: var(--myjumpcolor01);
+         left: 60px;
+         top: 50px;
+         transform: translate(-350%, -250%);
+         border-radius: 50%;
+         border: 5px solid var(--myjumpcolor01);
+      }
+
+      .timeline-section-pointer:hover:before {
+         width: 20px;
+         height: 20px;
+         background-color: var(--mylandywebcolor02);
+      }
+
+      /* s04營業項目 */
+      .box04item:hover {
+         background-color: rgba(168, 189, 215, 0.5);
+         transition: all 0.3s ease-in-out;
+         padding: 15px;
+         box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      /* s04技師介紹 */
+      .s04eng {
+         height: 370px;
+      }
+
+      .s04engineer {
+         width: 300px;
+         flex-shrink: 0;
+         flex-grow: 0;
+         position: relative;
+         overflow: hidden;
+         background-color: #7591AD;
+         border-radius: 20px;
+         display: flex;
+         justify-content: flex-start;
+         align-items: center;
+         flex-direction: center;
+         box-shadow: 0 0 30px #2C2C2C;
+         color: white;
+      }
+
+      .s04photo {
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         top: 0;
+         left: 0;
+         border-radius: 0%;
+         overflow: hidden;
+         transition: 0.5s;
+      }
+
+      .s04photo::before {
+         position: absolute;
+         content: "";
+         width: 100%;
+         height: 100%;
+         background-image: linear-gradient(to top, #33333365, transparent);
+      }
+
+      .s04engineer:hover .s04photo::before {
+         display: none;
+      }
+
+      .s04photo img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+
+      .s04engineer:hover .s04photo {
+         width: 160px;
+         height: 160px;
+         top: 30px;
+         left: 70px;
+         border-radius: 50%;
+         box-shadow: 0 0 20px #111;
+      }
+
+      .s04engineer h1 {
+         position: absolute;
+         top: 400px;
+         left: 45px;
+         transition: 0.5s;
+      }
+
+      .s04engineer:hover h1 {
+         position: absolute;
+         top: 210px;
+         left: 15%;
+      }
+
+      /* s04卡片 */
+      /* engineer01 */
+      .s04engineer01 {
+         height: 130px;
+         width: 300px;
+         flex-shrink: 0;
+         flex-grow: 0;
+         overflow: hidden;
+         background-color: #7591AD;
+         border-radius: 20px;
+         margin: 10px;
+         align-items: center;
+         box-shadow: 0 0 30px #2C2C2C;
+         color: white;
+         font-size: 40px;
+      }
+
+      /* engineer02*/
+      .s04engineer02 {
+         height: 130px;
+         width: 300px;
+         flex-shrink: 0;
+         flex-grow: 0;
+         overflow: hidden;
+         background-color: #7591AD;
+         border-radius: 20px;
+         margin: 10px;
+         align-items: center;
+         box-shadow: 0 0 30px #2C2C2C;
+         color: white;
+         font-size: 40px;
+      }
+
+      .s04engineer01:hover,
+      .s04engineer02:hover {
+         background-color: var(--myjumpcolor01);
+      }
+
+      /* s05最新消息 */
+      .s05card {
+         background-color: rgba(0, 0, 0, 0.2);
+         padding: 15px;
+      }
+
+      /* s05跑馬燈效果 */
+      #marquee {
+         width: 100%;
+         height: 70px;
+         overflow: hidden;
+         white-space: nowrap;
+         background: #f0f0f0;
+         border: 1px solid #ddd;
+         position: relative;
+         line-height: 70px;
+      }
+
+      #marquee span {
+         display: inline-block;
+         position: absolute;
+         left: 100%;
+         font-size: 40px;
+         font-weight: bold;
+         background: linear-gradient(90deg, red, blue);
+         -webkit-background-clip: text;
+         background-clip: text;
+         color: transparent;
+      }
+
+      /* s05 hot效果 */
+      .fa-fire {
+         display: inline-block;
+         transform: rotate(10deg) skew(-5deg, -5deg);
+      }
+
+      /* section06 */
+      /* s06背景圖 */
+      .box06bg {
+         background-image: url(images/MajorProject/box06bg.png);
+         background-attachment: fixed;
+         position: relative;
+         z-index: 1;
+      }
+
+      .box06bg::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(255, 255, 255, 0.6);
+         z-index: -1;
+      }
+
+      /* s06卡片懸停內容展開效果 */
+      .card06 {
+         width: 96%;
+         max-height: 200px;
+         margin: 20px auto;
+         border-radius: 15px;
+         overflow: hidden;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         transition: max-height 0.5s ease-in-out;
+         background: #fff;
+         cursor: pointer;
+      }
+
+      .card06:hover {
+         max-height: 600px;
+      }
+
+      .card06-content {
+         padding: 10px 15px;
+         opacity: 0;
+         transition: opacity 0.5s ease-in-out;
+      }
+
+      .card06 img {
+         width: 100%;
+         height: 150px;
+         object-fit: cover;
+      }
+
+      .card06:hover .card06-content {
+         opacity: 1;
+      }
+
+      .card06-content a {
+         margin: 0;
+         font-size: 1.4rem;
+      }
+
+      /* s06服務項目hover、click效果 */
+      .s06-a,
+      #s06 button {
+         color: var(--myjumpcolor01);
+      }
+
+      .s06-a:hover,
+      #s06 button:hover {
+         background-color: var(--myjumpcolor01);
+         color: white;
+         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+         transform: translateY(-2px);
+         transition: all 0.3s ease-in-out;
+         padding: 8px;
+         border-radius: 5px;
+      }
+
+      .s06-a:active,
+      #s06 button:active {
+         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+         transform: translateY(6px);
+         transition: all 0.2s ease-in-out;
+      }
+
+      /* s07 */
+      dt {
+         background-color: rgba(168, 189, 215, 0.5);
+         border-radius: 8px;
+         padding: 10px;
+         transition: background-color 0.3s ease-in-out;
+      }
+
+      dl hr {
+         border-top: 4px dashed rgba(0, 0, 0, 0.8);
+         margin: 10px 0;
+      }
+
+      .dtdd dt,
+      .dtdd dd {
+         transition: background-color 0.3s ease;
+         /* 平滑過渡 */
+      }
+
+      .dtdd:hover dt {
+         background-color: rgba(168, 189, 215);
+      }
+
+      .dtdd:hover dd {
+         background-color: rgba(168, 189, 215, 0.5);
+         border-radius: 8px;
+      }
+
+      /* s08 */
+      #s08 {
+         background-image: url(images/MajorProject/buyservice.png);
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-attachment: fixed;
+         position: relative;
+         z-index: 1;
+      }
+
+      #s08:before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(255, 255, 255, 0.4);
+         z-index: -1;
+      }
+
+      /* s08卡片翻轉 */
+      .flip-card {
+         background-color: transparent;
+         width: 280px;
+         height: 280px;
+         perspective: 1000px;
+      }
+
+      .flip-card-inner {
+         position: relative;
+         width: 100%;
+         height: 100%;
+         transition: transform 1.5s;
+         transform-style: preserve-3d;
+         background-color: white;
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      .s08q {
+         background-color: rgba(0, 0, 0, 0.7);
+         color: white;
+         border-radius: 5px;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         text-align: center;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 90%;
+         height: 35%;
+      }
+
+      .flip-card:hover .flip-card-inner {
+         transform: rotateY(180deg);
+      }
+
+      .flip-card-front,
+      .flip-card-back {
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         -webkit-backface-visibility: hidden;
+         backface-visibility: hidden;
+      }
+
+      .flip-card-back {
+         background-color: var(--myjumpcolor01);
+         color: white;
+         transform: rotateY(180deg);
+      }
+
+      .flip-card-back hr {
+         border: 0;
+         border-top: 5px solid white;
+         margin: 4px 0;
+      }
+
+      .flip-card-inner ul {
+         list-style: none;
+         padding: 10px;
+      }
+
+      .flip-card-inner li {
+         margin: 5px;
+         font-size: 23px;
+         font-weight: bold;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100%;
+         line-height: 1.5;
+         padding: 1px;
+      }
+
+      /* s09 */
+      #s09 {
+         background-image: url(images/MajorProject/buyservice.png);
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-attachment: fixed;
+         position: relative;
+         z-index: 1;
+      }
+
+      #s09:before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(255, 255, 255, 0.4);
+         z-index: -1;
+      }
+
+      .step1 button,
+      .step2 button,
+      .step3 button,
+      .step4 button {
+         background-color: white;
+      }
+
+      .step1:hover button,
+      .step2:hover button,
+      .step3:hover button,
+      .step4:hover button {
+         background-color: red;
+      }
+
+      .stepimg:hover {
+         background-color: rgba(255, 255, 255, 0.5);
+      }
+
+      .step1 .stepimg img,
+      .step2 .stepimg img,
+      .step3 .stepimg img,
+      .step4 .stepimg img {
+         height: 30px;
+         width: auto;
+      }
+
+      .step1:hover .stepimg img,
+      .step2:hover .stepimg img,
+      .step3:hover .stepimg img,
+      .step4:hover .stepimg img {
+         height: 70px;
+         background-color: white;
+         border-radius: 50%;
+         padding: 5px;
+         transition: height 0.3s ease;
+      }
+
+      .step1 li,
+      .step2 li,
+      .step3 li,
+      .step4 li {
+         color: var(--myjumpcolor03);
+         font-size: 20px;
+      }
+
+      .step1:hover li,
+      .step2:hover li,
+      .step3:hover li,
+      .step4:hover li {
+         color: var(--myjumpcolor01);
+         font-size: 25px;
+      }
+
+      /* s10 */
+      #s10 {
+         background-image: url(images/MajorProject/buyservice.png);
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-attachment: fixed;
+         position: relative;
+         z-index: 1;
+      }
+
+      #s10:before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(255, 255, 255, 0.4);
+         z-index: -1;
+      }
+
+      /* s10定義動畫 */
+      @keyframes gradientAnimation {
+         0% {
+            background-position: 0% 50%;
+            opacity: 0.8;
+         }
+
+         50% {
+            background-position: 100% 50%;
+            opacity: 1;
+         }
+
+         100% {
+            background-position: 0% 50%;
+            opacity: 0.8;
+         }
+      }
+
+      .s10-container {
+         background: linear-gradient(45deg, var(--myjumpcolor04), #D9A071, #D98350, var(--myjumpcolor03));
+         background-size: 400% 400%;
+         animation: gradientAnimation 8s linear infinite;
+         border-radius: 20px;
+         /* 讓區塊有圓角 */
+      }
+
+      /* s10 wrap */
+      /* wrap pen */
+      .wrap input {
+         display: block;
+         padding: 15px 0 15px 12px;
+         font-weight: 400;
+         color: white;
+         background: rgba(0, 0, 0, 0.3);
+         border: 1px solid rgba(0, 0, 0, 0.3);
+         border-radius: 4px;
+         box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+         text-indent: 60px;
+         transition: all 0.3s ease-in-out;
+         outline: none;
+         font-size: 20px;
+      }
+
+      .wrap input:focus {
+         text-indent: 12px;
+         box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
+      }
+
+      .wrap label {
+         display: block;
+         position: static;
+
+         height: 34px;
+         position: relative;
+         bottom: -5px;
+         overflow: hidden;
+      }
+
+      .wrap textarea {
+         display: block;
+         width: 100%;
+         /* 設置為 100% 以確保寬度一致 */
+         padding: 15px 12px;
+         /* 設置內邊距 */
+         font-weight: 400;
+         color: white;
+         background: rgba(0, 0, 0, 0.3);
+         border: 1px solid rgba(0, 0, 0, 0.3);
+         border-radius: 4px;
+         box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+         transition: all 0.3s ease-in-out;
+         outline: none;
+         font-size: 20px;
+         min-height: 100px;
+         /* 設定最小高度以使其看起來更合適 */
+      }
+
+      .wrap textarea:focus {
+         box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
+      }
+
+      @media (max-width: 1500px) {
+         .nav-link-icon {
+            display: inline-block;
+            width: 100px;
+            text-align: center;
+            margin-left: 10px;
+            background-color: var(--myjumpcolor04);
+         }
+
+         .nav-link-span {
+            display: none;
+         }
+      }
+
+      @media (max-width: 1215px) {
+         .s04-item {
+            font-size: 28px;
+         }
+      }
+
+      @media (max-width: 1200px) {
+         .box01_1 {
+            font-size: 80px;
+         }
+
+         .box01_2 {
+            font-size: 40px;
+         }
+
+         .s04engineer01,
+         .s04engineer02 {
+            font-size: 35px;
+            width: 250px;
+         }
+      }
+
+      @media (max-width: 1100px) {
+         .navbar-brand-name {
+            font-size: 50px;
+         }
+
+         .s04-item {
+            font-size: 25px;
+         }
+      }
+
+      @media (max-width: 992px) {
+         .box01_1 {
+            font-size: 60px;
+         }
+
+         .box01_2 {
+            font-size: 30px;
+         }
+
+         .nav-link-icon {
+            width: 80%;
+            height: 90px;
+            text-align: center;
+            margin-left: 10px;
+            background-color: var(--myjumpcolor03);
+            margin-top: 10px;
+         }
+
+         .nav-link-span {
+            display: inline;
+         }
+
+         .navbar-brand-img {
+            width: 80px !important;
+            border-radius: 10px;
+         }
+
+         #marquee span {
+            font-size: 25px;
+         }
+
+         .s04eng {
+            height: 620px;
+         }
+
+         .s04engineer01,
+         .s04engineer02 {
+            font-size: 25px;
+            width: 100%;
+         }
+
+         /* 隱藏背景圖片 */
+         #s08 {
+            background: none;
+         }
+
+         /* 讓 flip-card 變成普通區塊顯示文字 */
+         .flip-card {
+            width: 100%;
+            height: auto;
+            perspective: none;
+            /* 移除 3D 效果 */
+         }
+
+         /* 隱藏翻轉前的圖片區塊 */
+         .flip-card-front {
+            display: none;
+         }
+
+         /* 讓翻轉後的內容直接顯示 */
+         .flip-card-inner {
+            transform: none !important;
+            /* 移除翻轉效果 */
+         }
+
+         .flip-card-back {
+            position: relative;
+            width: 100%;
+            height: auto;
+            background-color: white;
+            color: black;
+            transform: none;
+            box-shadow: none;
+            padding: 20px;
+            border: 1px solid #ddd;
+            text-align: center;
+         }
+
+         /* 讓文字區塊間距更適合小螢幕 */
+         .flip-card-back ul {
+            padding: 0;
+         }
+
+         .flip-card-back li {
+            font-size: 18px;
+            margin: 10px 0;
+         }
+
+         /* 讓卡片以列表方式排列 */
+         .row {
+            flex-direction: column;
+            align-items: center;
+         }
+      }
+
+      @media (max-width: 640px) {
+         .navbar-brand-name {
+            font-size: 30px;
+         }
+
+         .box01_1 {
+            font-size: 46px;
+         }
+
+         .box01_2 {
+            font-size: 23px;
+         }
+      }
+
+      @media (min-width: 1024px) {
+         .s04hr {
+            display: none;
+         }
+      }
+   </style>
+</head>
+
+<body oncontextmenu="window.event.returnValue=false">
+   <!-- section01 頁首連結&登入登出連結&時間提醒 -->
+   <section id="s01" class="py-2">
+      <div class="row mx-3 align-items-center text-center text-md-start d-none d-md-block">
+         <div class="col-12 d-flex flex-wrap justify-content-center justify-content-md-between align-items-center">
+            <div class="d-flex align-items-center">
+               <a href="tel:+886-04-8654937" title="得昌行電話" class="me-3">
+                  <i class="fa-solid fa-phone s01-icon"></i>
+               </a>
+               <a href="tel:+886-933562438" title="捷獅電話" class="me-3">
+                  <i class="fa-solid fa-mobile-screen-button s01-icon"></i>
+               </a>
+               <a href="mailto:XXX@gmail.com" title="Email電子信箱">
+                  <i class="fa-solid fa-envelopes-bulk s01-icon"></i>
+               </a>
+            </div>
+            <div class="mx-3 d-flex align-items-center flex-wrap justify-content-center justify-content-md-end">
+               <a href="#" class="me-2" title="Facebook">
+                  <i class="fa-brands fa-square-facebook s01-icon-fb"></i>
+               </a>
+               <a href="#" class="me-2" title="Line">
+                  <i class="fa-brands fa-line s01-icon-line"></i>
+               </a>
+               <a href="#" class="me-2" title="IG">
+                  <i class="fa-brands fa-square-instagram s01-icon-ig"></i>
+               </a>
+               <a href="#" class="me-2" title="Threads">
+                  <i class="fa-brands fa-square-threads s01-icon-threads"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+      <div class="row mx-3 mt-2 align-items-center">
+         <div class="col-lg-6 order-2 order-md-1 text-center text-md-start mt-2 d-none d-lg-block">
+            <span class="ms-2 s01-span">
+               <b>
+                  <span id="datetime"></span>（<span id="weekday"></span>）
+               </b>
+            </span>
+         </div>
+         <div class="col-lg-6 order-1 order-md-2 text-center text-md-end">
+            <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+               <span class="me-3 s01-span d-none" id="s01_username_showspan">
+                  <b><span id="s01_username_span"></span>，您好!</b>
+               </span>
+               <button class="btn btn-lg btn-outline-warning me-2" data-bs-toggle="modal"
+                  data-bs-target="#registerModal" id="s01_reg_btn_1">註冊</button>
+               <button class="btn btn-lg btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#loginModal"
+                  id="s01_login_btn_1">登入</button>
+               <button class="btn btn-lg btn-outline-danger me-2 d-none" id="s01_logout_btn">登出</button>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- registerModal -->
+   <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+      data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+         <div class="modal-content">
+            <div class="modal-header text-bg-warning">
+               <h1 class="modal-title fs-4 fw-900" id="exampleModalLabel">會員註冊</h1>
+               <button type="button" class="btn-close" id="close_btn_reg" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <div class="row">
+                  <div class="col-4">
+                     <div class="d-flex flex-column h-100 w-100">
+                        <div class="display-6 fw-900 my-3">會員守則</div>
+                        <p>1.請提供真實資訊，並保持信息的更新。</p>
+                        <p>2.不得使用不當手段進行交易或互動。</p>
+                        <p>3.請妥善保管帳號信息，並對所有活動負責。</p>
+                        <p>4.本站保留隨時修改會員守則之權利。</p>
+                        <p>5.會員資料將根據隱私政策進行保護。</p>
+                        <p>6.若違反上述規則，本站有權終止會員資格。</p>
+                        <div class="row mt-auto">
+                           <div class="col-6">
+                              <div class="form-check form-switch">
+                                 <input type="checkbox" class="form-check-input is-invalid" role="switch" id="chk01"
+                                    name="chk01">
+                                 <label for="chk01" class="form-check-label">不同意</label>
+                                 <div class="valid-feedback">.</div>
+                                 <div class="invalid-feedback">須同意始能註冊!</div>
+                              </div>
+                           </div>
+                           <div class="col-6 text-danger">
+                              <sup class="s01-sup">*</sup>為必填項目
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-8">
+                     <div class="mb-2">
+                        <label for="username_reg" class="form-label" style="margin-bottom: 2px;">帳號<sup
+                              class="s01-sup text-danger">*</sup></label>
+                        <input type="text" class="form-control is-invalid" id="username_reg" name="username_reg"
+                           placeholder="3-15字數">
+                        <div class="valid-feedback" id="regModal_username_valid_feedback">符合規則</div>
+                        <div class="invalid-feedback" id="regModal_username_invalid_feedback">不符合規則</div>
+                     </div>
+                     <div class="mb-2">
+                        <label for="password_reg" class="form-label" style="margin-bottom: 2px;">密碼<sup
+                              class="s01-sup text-danger">*</sup></label>
+                        <div class="input-group" style="display: flex;align-items: center;">
+                           <input type="password" class="form-control is-invalid" id="password_reg" name="password_reg"
+                              placeholder="8-20字數">
+                           <i class="toggle-password fas fa-eye-slash ms-2" id="togglePassword1"></i>
+                           <div class="valid-feedback">符合規則</div>
+                           <div class="invalid-feedback">不符合規則</div>
+                        </div>
+                     </div>
+                     <div class="mb-2">
+                        <label for="re_password_reg" class="form-label" style="margin-bottom: 2px;">確認密碼<sup
+                              class="s01-sup text-danger">*</sup></label>
+                        <div class="input-group" style="display: flex;align-items: center;">
+                           <input type="password" class="form-control" id="re_password_reg" name="re_password_reg">
+                           <i class="toggle-password fas fa-eye-slash ms-2" id="togglePassword1"></i>
+                           <div class="valid-feedback">密碼相符</div>
+                           <div class="invalid-feedback">與密碼不符</div>
+                        </div>
+                     </div>
+                     <div class="mb-2">
+                        <label for="email_reg" class="form-label" style="margin-bottom: 2px;">Email<sup
+                              class="s01-sup text-danger">*</sup></label>
+                        <input type="email" class="form-control" id="email_reg" name="email_reg">
+                        <div class="valid-feedback">Email格式正確</div>
+                        <div class="invalid-feedback">Email格式不正確</div>
+                     </div>
+                     <div class="mb-2">
+                        <label for="address_reg" class="form-label" style="margin-bottom: 2px;">地址</label>
+                        <div class="mb-2 d-flex align-items-center">
+                           <select name="selectCity" id="selectCity" class="form-select" style="margin-bottom: 1px;">
+                              <!-- <option value="" class="text-center" selected disabled>---選擇縣市---</option>
+                              <option value="臺中市" class="text-center">臺中市</option> -->
+                           </select>
+                           <div class="invalid-feedback d-none" id="selectCityError">請選擇縣市</div>
+                           <select name="selectArea" id="selectArea" class="form-select ms-2">
+                              <!-- <option value="" class="text-center" selected disabled>---選擇鄉鎮市區---</option>
+                              <option value="太平區" class="text-center">太平區</option> -->
+                           </select>
+                           <div class="invalid-feedback d-none" id="selectAreaError">請選擇鄉鎮市區</div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="請輸入地址" id="address_reg" name="address_reg">
+                        <div class="invalid-feedback d-none" id="addressError">請輸入完整地址</div>
+                     </div>
+                     <div class="mb-2">
+                        <label for="phone_reg" class="form-label" style="margin-bottom: 2px;">手機號碼</label>
+                        <input type="tel" class="form-control" placeholder="填入數字，不含符號" id="phone_reg" name="phone_reg">
+                        <div class="invalid-feedback">手機號碼格式不正確</div>
+                     </div>
+                     <div class="mb-2">
+                        <label for="telephone_reg" class="form-label" style="margin-bottom: 2px;">座機號碼</label>
+                        <input type="tel" class="form-control" placeholder="填入數字，不含符號" id="telephone_reg"
+                           name="telephone_reg">
+                        <div class="invalid-feedback">座機號碼格式不正確</div>
+                     </div>
+                     <div class="mb-2">
+                        <label for="fax_reg" class="form-label" style="margin-bottom: 2px;">傳真電話號碼</label>
+                        <input type="tel" class="form-control" placeholder="填入數字，不含符號" id="fax_reg" name="fax_reg">
+                        <div class="invalid-feedback">傳真電話號碼格式不正確</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button class="btn btn-success me-auto" id="s01_login_btn_2">已成為會員</button>
+               <button type="button" class="btn btn-secondary" id="cancel_btn_reg" data-bs-dismiss="modal">取消</button>
+               <button type="button" class="btn btn-primary" id="ok_btn_reg">確認</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- loginModal -->
+   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+      data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+         <div class="modal-content">
+            <div class="modal-header text-bg-success">
+               <h1 class="modal-title  fs-4 fw-900" id="exampleModalLabel">會員登入</h1>
+               <button type="button" class="btn-close" id="close_btn_login" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <div class="mb-3">
+                  <label for="username_login" class="form-label">帳號</label>
+                  <input type="text" class="form-control is-invalid" id="username_login" name="username_login">
+                  <div class="invalid-feedback">請輸入帳號</div>
+               </div>
+               <div class="mb-3">
+                  <label for="password_login" class="form-label">密碼</label>
+                  <div class="input-group" style="display: flex;align-items: center;">
+                     <input type="password" class="form-control is-invalid" id="password_login" name="password_login">
+                     <i class="toggle-password fas fa-eye-slash ms-2" id="togglePassword1"></i>
+                     <div class="invalid-feedback">請輸入密碼</div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button class="btn btn-warning me-auto" data-bs-toggle="modal" data-bs-target="#registerModal"
+                  id="s01_reg_btn_2">尚未註冊會員</button>
+               <button type="button" class="btn btn-secondary" id="cancel_btn_login" data-bs-dismiss="modal">取消</button>
+               <button type="button" class="btn btn-primary" id="ok_btn_login">確認</button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- section02 banner -->
+   <section id="s02">
+      <nav class="navbar navbar-expand-lg">
+         <div class="container-fluid">
+            <div class="navbar-brand fw-900 d-flex align-items-center">
+               <img class="navbar-brand-img" src="images/MajorProject/捷獅.webp" alt="得昌行-捷獅">
+               <span class="navbar-brand-name ms-1">得昌行-捷獅</span>
+            </div>
+            <button class="navbar-toggler border border-3 p-2" type="button" data-bs-toggle="collapse"
+               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+               aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav w-100 d-flex justify-content-around mb-2 mb-lg-0">
+                  <!-- 首頁 -->
+                  <li class="nav-item active ms-1">
+                     <a class="nav-link p-4 nav-link-icon" aria-current="page" href="tegrand_project_v4.html"
+                        title="首頁">
+                        <i class="s02-icon fa-solid fa-house fa-2xl"></i>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>首頁</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 公司簡介 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#s04" title="公司簡介">
+                        <i class="s02-icon fa-solid fa-building fa-2xl"></i>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>公司簡介</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 最新消息 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#s05" title="最新消息">
+                        <i class="s02-icon fa-solid fa-star fa-2xl"></i>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>最新消息</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 服務項目 Dropdown -->
+                  <li class="nav-item dropdown ms-1">
+                     <a class="nav-link dropdown-toggle p-4 nav-link-icon" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" title="服務項目">
+                        <i class="s02-icon fa-solid fa-gear fa-2xl"></i>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>服務項目</b>
+                        </span>
+                     </a>
+                     <ul class="dropdown-menu">
+                        <li>
+                           <a class="dropdown-item" href="#s06_1">
+                              <i class="s02-icon-dropdown fa-solid fa-gears" title="中古機械"></i>
+                              <span class="s02-icon-dropdown-span">
+                                 <b>中古機械</b>
+                              </span>
+                           </a>
+                        </li>
+                        <li>
+                           <a class="dropdown-item" href="#s06_2">
+                              <i class="s02-icon-dropdown fa-solid fa-wrench" title="機台收購、客製化服務"></i>
+                              <span class="s02-icon-dropdown-span">
+                                 <b>機台收購、客製化服務</b>
+                              </span>
+                           </a>
+                        </li>
+                        <li>
+                           <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                           <a class="dropdown-item" href="#s06">
+                              <i class="s02-icon-dropdown fa-solid fa-people-arrows" title="機台收購"></i>
+                              <span class="s02-icon-dropdown-span">
+                                 <b>機台收購</b>
+                              </span>
+                           </a>
+                        </li>
+                        <li>
+                           <a class="dropdown-item" href="#s08">
+                              <i class="s02-icon-dropdown fa-solid fa-screwdriver-wrench" title="購機服務"></i>
+                              <span class="s02-icon-dropdown-span">
+                                 <b>購機服務</b>
+                              </span>
+                           </a>
+                        </li>
+                        <li>
+                           <a class="dropdown-item" href="#s09">
+                              <i class="s02-icon-dropdown fa-solid fa-user-gear" title="機台功能客製化"></i>
+                              <span class="s02-icon-dropdown-span">
+                                 <b>機台功能客製化</b>
+                              </span>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <!-- 聯絡我們 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#s10" title="聯絡我們">
+                        <i class="s02-icon fa-solid fa-comments fa-2xl"></i>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>聯絡我們</b>
+                        </span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+   </section>
+
+   <!-- section03 Carousel -->
+   <section id="s03" class="carousel">
+      <div id="carouselExampleCaptions" class="carousel slide">
+         <!-- 圖片下方橫線 -->
+         <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+               aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+               aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+               aria-label="Slide 3"></button>
+         </div>
+         <!-- 圖片 -->
+         <div class="carousel-inner">
+            <div class="carousel-item carousel-item-1 active">
+               <div class="box01 carousel-caption p-1 rounded-4 shadow-lg align-content-center">
+                  <div class="box01_1 wow animate__backInRight" data-wow-duration="1s" data-wow-delay="0s"
+                     data-wow-iteration="1">專營中古機械買賣</div>
+                  <div class="box01_2 mt-3 wow animate__zoomInUp" data-wow-duration="1s" data-wow-delay="0s"
+                     data-wow-iteration="1">用中古的價錢，買到經濟實惠的設備</div>
+               </div>
+            </div>
+            <div class="carousel-item carousel-item-2">
+               <div class="box01 carousel-caption p-1 rounded-4 shadow-lg align-content-center">
+                  <div class="box01_1 wow animate__backInRight" data-wow-duration="1s" data-wow-delay="0s"
+                     data-wow-iteration="1">專業技術機械維修</div>
+                  <div class="box01_2 mt-3 wow animate__zoomInUp" data-wow-duration="1s" data-wow-delay="0s"
+                     data-wow-iteration="1">技師35年經驗，全方位解決設備問題</div>
+               </div>
+            </div>
+            <div class="carousel-item carousel-item-3">
+               <div class="box01 carousel-caption p-1 rounded-4 shadow-lg align-content-center">
+                  <div class="box01_1 wow animate__backInRight" data-wow-duration="1s" data-wow-delay="0s"
+                     data-wow-iteration="1">踏實服務價格合理</div>
+                  <div class="box01_2 mt-3 wow animate__zoomInUp" data-wow-duration="1s" data-wow-delay="0s"
+                     data-wow-iteration="1">快速報價，全台到府服務</div>
+               </div>
+            </div>
+         </div>
+         <!-- 圖片左右切換 -->
+         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+         </button>
+         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+         </button>
+      </div>
+   </section>
+
+   <!-- section04 公司、技師簡介(公司歷程、營業項目--相關數據呈現) -->
+   <section id="s04" class="bg-cover box04bg py-3">
+      <div class="container-fluid p-3">
+         <div class="card04">
+            <div class="display-4 fw-900 text-center mt-3" style="color: var(--myjumpcolor01);">關於得昌行</div>
+            <div class="row m-3">
+               <!-- 公司歷程 -->
+               <div class="col-3 col-lg-2 bg-cover">
+                  <img src="images/MajorProject/officehistory.png" alt="" style="width: 100%; border-radius: 50%;">
+               </div>
+               <div class="col-9 col-lg-4 mb-3 mb-lg-0">
+                  <div class="h1 text-center text-primary fw-600">公司歷程</div>
+                  <div class="container">
+                     <div class="timeline-section">
+                        <div class="row timeline-section-pointer">
+                           <div class="col-lg-11 establishTime">
+                              <span class="s04-item fw-500">設立日期</span>
+                              <br>
+                              <span class="s04-item ms-1" style="color: var(--myjumpcolor01);">2016年1月5日</span>
+                           </div>
+                        </div>
+                        <div class="row timeline-section-pointer mt-3">
+                           <div class="col-lg-11 establishTime">
+                              <span class="s04-item fw-500">轉型營業</span>
+                              <br>
+                              <span class="s04-item ms-1" style="color: var(--myjumpcolor01);">2016年9月25日</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <hr class="s04hr">
+               <!-- 營業項目 -->
+               <div class="col-3 col-lg-2 bg-cover mt-3 mt-lg-0">
+                  <img src="images/MajorProject/serviceitem.png" alt="" style="width: 100%;border-radius: 50%;">
+               </div>
+               <div class="col-9 col-lg-4">
+                  <div class="h1 text-center text-primary fw-600">營業項目</div>
+                  <div class="container text-center mt-3 box04item">
+                     <div class="s04-item">機械設備製造</div>
+                     <div class="s04-item">機械設備維修.安裝</div>
+                  </div>
+               </div>
+            </div>
+            <!-- 技師經驗介紹 -->
+            <div class="container s04eng my-3" style="background-color: rgba(181, 164, 154, 0.5); border-radius: 20px;">
+               <div class="container" style="height: 100%;">
+                  <div class="display-6 fw-900 text-center text-primary pt-3">技師介紹</div>
+                  <div class="row d-flex justify-content-evenly align-items-center">
+                     <div class="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
+                        <div class="s04engineer" style="height: 260px;">
+                           <div class="s04photo">
+                              <img src="images/MajorProject/engineer.JPG" alt="">
+                           </div>
+                           <div class="text-center mt-3 fw-900">
+                              <h1 class="fw-900">捷獅-陳進得</h1>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
+                        <div class="row d-flex justify-content-evenly align-items-center">
+                           <div
+                              class="col-6 s04engineer01 d-flex flex-column justify-content-center align-items-center">
+                              <div class="fw-900 counter01"><span>從業時間</span>35<span>年</span></div>
+                           </div>
+                           <div
+                              class="col-6 s04engineer02 d-flex flex-column justify-content-center align-items-center">
+                              <div class="fw-900 counter02"><span>年均維修機械</span>100<span>+臺</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- section05 最新消息 -->
+   <section id="s05" style="background-color: rgb(168,189,215,0.5)">
+      <div class="container-fluid p-2">
+         <div class="card04 s05card">
+            <div class="display-4 fw-900 text-center mt-3 wow animate__heartBeat" style="color: var(--myjumpcolor01);"
+               data-wow-duration="1.5s" data-wow-delay="1s" data-wow-iteration="infinite"><i
+                  class="fa-solid fa-fire ms-3" style="color: rgba(255, 0, 0, 0.514)"></i><span
+                  class="ms-3">最新消息</span><i class="fa-solid fa-fire ms-3" style="color: rgba(255, 0, 0, 0.514)"></i>
+            </div>
+            <div id="marquee" class="text-danger fw-900 mt-3" style="background-color: white;"></div>
+         </div>
+      </div>
+   </section>
+
+   <!-- section06 服務項目(中古機械|機械製造、維修、安裝) -->
+   <section id="s06" class="bg-cover box06bg">
+      <div class="row">
+         <div class="col-md-3 d-none d-md-block bottom-0 top-0 bg-cover" style="background-image: url(images/MajorProject/s06bigimg.png);mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+         -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+         background-size: cover;
+         background-position: center;border-radius: 10px;height: 610px;"></div>
+         <div class="col-md-8 col-sm-12">
+            <div class="row">
+               <div class="display-4 fw-900 text-center mt-3" style="color: var(--myjumpcolor01);">服務項目</div>
+               <div id="s06_1" class="col-12 col-xl-6">
+                  <div class="card06">
+                     <img src="images/MajorProject/s06_01img.png" alt="">
+                     <h3 class="text-center mt-2 fw-900">中古機械</h3>
+                     <hr>
+                     <div class="card06-content text-center">
+                        <div class="row fw-700">
+                           <div class="col-12 col-md-6">
+                              <a class="s06-a" href="">中古車床</a>
+                           </div>
+                           <div class="col-12 col-md-6">
+                              <a class="s06-a" href="#">中古銑床</a>
+                           </div>
+                           <div class="col-12 col-md-6">
+                              <a class="s06-a" href="#">中古鑽床</a>
+                           </div>
+                           <div class="col-12 col-md-6">
+                              <a class="s06-a" href="#">中古磨床</a>
+                           </div>
+                           <div class="col-12 col-md-6">
+                              <a class="s06-a" href="#">中古鋸床</a>
+                           </div>
+                           <div class="col-12 col-md-6">
+                              <a class="s06-a" href="#">中古加工機</a>
+                           </div>
+                           <div class="col-12 col-md-6">
+                              <a class="s06-a" href="#">中古沖床</a>
+                           </div>
+                           <div class="col-12 col-md-6">
+                              <a class="s06-a" href="#">中古鉋床</a>
+                           </div>
+                           <div class="col-12 col-md-6">
+                              <a class="s06-a" href="#">其他中古機械</a>
+                           </div>
+                           <div class="col-12 col-md-6">
+                              <a class="s06-a" href="#">新機代理</a>
+                           </div>
+                        </div>
+                        <div class="h5 mt-3" id="s06-more"><b>請<a class="btn btn-success mx-1" data-bs-toggle="modal"
+                                 data-bs-target="#loginModal"><i class="fa-solid fa-user"></i>登入會員</a>後，查看更多中古機械!</b>
+                        </div>
+                        <a class="btn btn-primary mt-3 d-none w-100" id="s06-more-logined"
+                           href="tegrand_project_moreitem.html">查看更多</a>
+                     </div>
+                  </div>
+               </div>
+               <div id="s06_2" class="col-12 col-xl-6">
+                  <div class="card06">
+                     <img src="images/MajorProject/s06_02img.png" alt="">
+                     <h3 class="text-center mt-2 fw-900">機台收購、客製化服務</h3>
+                     <hr>
+                     <div class="card06-content text-center fw-700">
+                        <div class="mt-3">
+                           <a class="s06-a" href="#s07">機台收購</a>
+                        </div>
+                        <div class="mt-3">
+                           <a class="s06-a" href="#s08">購機服務</a>
+                        </div>
+                        <div class="mt-3">
+                           <a class="s06-a" href="#s09">機台功能客製化</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+   </section>
+
+   <!-- section07 機台收購 -->
+   <!-- 初步評估與意向確認
+            接受客戶的機台出售需求，並收集機台的基本信息：型號、規格、使用年限、運行情況等。
+            認機台是否符合收購條件，並初步估算價值範圍。
+            雙方確認收購意向，安排後續評估。
+            
+            現場檢查與價值評估
+            派遣專業人員到現場對機台進行詳細檢查，包括外觀狀況、運行性能、維修記錄等。
+            根據市場行情、機台狀況以及折舊率進行價格評估，給出正式收購報價。
+            雙方就價格與交易條件進行談判並達成協議。
+            
+            簽訂合約與付款
+            起草並簽署正式收購合同，明確收購條款，包括付款方式、交貨時間及責任分工。
+            根據合同條款進行付款，通常包括訂金與尾款支付。
+            
+            拆卸、運輸與後續處理
+            安排專業團隊對機台進行拆卸、包裝和運輸，確保安全轉移至收購方指定地點。
+            如需對機台進行翻新、升級或改裝，可根據需求進一步處理。 -->
+   <section id="s07" class="bg-cover box06bg">
+      <div class="row flex-row-reverse">
+         <div class="col-md-3 d-none d-md-block bottom-0 top-0 bg-cover" style="background-image: url(images/MajorProject/DALL·E\ 2025-01-09\ 16.16.40\ -\ A\ detailed\ industrial\ workshop\ featuring\ a\ lathe\ machine\,\ a\ punch\ press\,\ a\ grinding\ machine\,\ and\ a\ drilling\ machine.\ Each\ machine\ is\ accurately\ depict.webp);mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+                           -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+                           background-size: cover;
+                           background-position: center;border-radius: 10px;">
+         </div>
+         <div class="col-md-8 col-sm-12">
+            <div class="container">
+               <div class="row">
+                  <div class="display-4 fw-900 text-center" style="color: var(--myjumpcolor01);">機台收購流程</div>
+                  <div class="p-3 m-1"
+                     style="font-size: 20px;background-color: rgba(255, 255, 255, 0.774);border-radius: 5px;">
+                     <div class="dtdd">
+                        <dl class="row">
+                           <dt class="h4 col-md-3 text-center d-flex align-items-center justify-content-center fw-bold">
+                              初步評估與確認
+                           </dt>
+                           <dd class="col-md-9 d-flex align-items-center">
+                              <div class="flex-grow-1 d-flex flex-column justify-content-center">
+                                 <span class="d-block">提供機台的基本資訊：型號、規格、使用年限、運行情況等。</span>
+                                 <span class="d-block">確認機台是否符合收購條件，並初步估算價值範圍。</span>
+                              </div>
+                           </dd>
+                        </dl>
+                     </div>
+                     <hr>
+                     <div class="dtdd">
+                        <dl class="row">
+                           <dt class="h4 col-md-3 text-center d-flex align-items-center justify-content-center fw-bold">
+                              現場檢查與估價
+                           </dt>
+                           <dd class="col-md-9 d-flex align-items-center">
+                              <div class="flex-grow-1 d-flex flex-column justify-content-center">
+                                 <span class="d-block">由專業人員到現場詳細檢查機台，包括外觀狀況、運行性能、維修記錄等。</span>
+                                 <span class="d-block">根據市場行情、機台狀況以及折舊率進行價格評估，給出正式收購報價。</span>
+                              </div>
+                           </dd>
+                        </dl>
+                     </div>
+                     <hr>
+                     <div class="dtdd">
+                        <dl class="row">
+                           <dt class="h4 col-md-3 text-center d-flex align-items-center justify-content-center fw-bold">
+                              簽訂合約與付款
+                           </dt>
+                           <dd class="col-md-9 d-flex align-items-center">
+                              <div class="flex-grow-1 d-flex flex-column justify-content-center">
+                                 <span class="d-block">簽署正式收購合同，明確收購條款，含付款方式、交貨時間及責任分工。</span>
+                                 <span class="d-block">根據合同條款進行付款，包括訂金與尾款支付。</span>
+                              </div>
+                           </dd>
+                        </dl>
+                     </div>
+                     <hr>
+                     <div class="dtdd">
+                        <dl class="row">
+                           <dt class="h4 col-md-3 text-center d-flex align-items-center justify-content-center fw-bold">
+                              運輸與後續處理
+                           </dt>
+                           <dd class="col-md-9 d-flex align-items-center">
+                              <div class="flex-grow-1 d-flex flex-column justify-content-center">
+                                 <span class="d-block">安排專業團隊對機台進行拆卸、包裝和運輸，轉移至收購方指定地點。</span>
+                                 <span class="d-block">如需對機台進行翻新、升級或改裝，可根據需求進一步處理。</span>
+                              </div>
+                           </dd>
+                        </dl>
+                     </div>
+                  </div>
+                  <div class="text-center my-2 fw-700" style="font-size: 25px;">
+                     <div id="s07_login_btn">請<button class="btn btn-lg btn-success m-1" data-bs-toggle="modal"
+                           data-bs-target="#loginModal"><i class="fa-solid fa-user"></i>登入會員</button>後，提供舊機資訊！</div>
+                     <div class="d-none" id="s07_item_information"><button class="btn btn-lg btn-secondary m-1"><i
+                              class="fa-solid fa-pen-nib"></i>填寫舊機資訊
+                        </button>，將有專員與您聯繫！</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- section08 購機客戶服務 -->
+   <!-- 售前諮詢與建議
+            提供專業顧問服務，根據客戶需求推薦最適合的機台型號與規格。
+            解答產品特性、運行效率及應用場景的疑問，並提供現場演示或案例參考。
+            
+            運輸與安裝服務
+            提供安全可靠的運輸方案，確保機台完整交付至客戶指定地點。
+            安排專業技術人員進行現場安裝、調試，確保機台正常運行。
+            
+            操作培訓與技術支援
+            為客戶提供全面的操作培訓，包括基礎操作、故障排除和安全使用守則。
+            設立技術支援熱線或線上客服，快速解決客戶使用中的疑問與問題。
+            
+            售後保固與維修
+            提供機台的保固服務，包括免費檢修和零件更換（依據保固範圍）。
+            提供定期維護檢查服務，預防性維修以延長機台壽命。
+            提供保固期外的付費維修或升級服務，確保機台性能與時俱進。 -->
+   <section id="s08">
+      <div class="container-fluid py-1">
+         <div class="card04 s05card" style="height: auto;">
+            <div class="display-4 fw-900 text-center" style="color: var(--myjumpcolor01);">購機服務</div>
+            <div class="row d-flex justify-content-between">
+               <div class="col-xl-3 col-lg-6 mt-3 d-flex justify-content-center align-items-xl-center">
+                  <div class="flip-card">
+                     <div class="flip-card-inner rounded-5">
+                        <div class="flip-card-front bg-cover"
+                           style="background-image: url(images/MajorProject/售前諮詢與建議.png);">
+                           <div class="s08q">
+                              <h3>售前諮詢<br>與建議</h3>
+                           </div>
+                        </div>
+                        <div class="flip-card-back rounded-5">
+                           <ul>
+                              <li>
+                                 根據需求推薦最適合的機台型號與規格。
+                              </li>
+                           </ul>
+                           <hr>
+                           <ul>
+                              <li>
+                                 說明產品特性、運行效率及應用場景，並提供現場演示或案例參考。
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-6 mt-3 d-flex justify-content-center align-items-xl-center">
+                  <div class="flip-card">
+                     <div class="flip-card-inner rounded-5">
+                        <div class="flip-card-front bg-cover"
+                           style="background-image: url(images/MajorProject/運輸與安裝服務.png);">
+                           <div class="s08q">
+                              <h3>運輸與<br>安裝服務</h3>
+                           </div>
+                        </div>
+                        <div class="flip-card-back rounded-5">
+                           <ul>
+                              <li>
+                                 以安全的運輸方式，交付至指定地點。
+                              </li>
+                           </ul>
+                           <hr>
+                           <ul>
+                              <li>
+                                 安排專業技術人員進行現場安裝、調試，確保機台正常運行。
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-6 mt-3 d-flex justify-content-center align-items-xl-center">
+                  <div class="flip-card">
+                     <div class="flip-card-inner rounded-5">
+                        <div class="flip-card-front bg-cover"
+                           style="background-image: url(images/MajorProject/操作培訓與技術支援.png);">
+                           <div class="s08q">
+                              <h3>操作培訓<br>與技術支援</h3>
+                           </div>
+                        </div>
+                        <div class="flip-card-back rounded-5">
+                           <ul>
+                              <li>
+                                 提供全面的操作培訓，包括基礎操作、故障排除和安全使用守則。
+                              </li>
+                           </ul>
+                           <hr>
+                           <ul>
+                              <li>
+                                 迅速技術支援，解決操作窒礙。
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-6 mt-3 d-flex justify-content-center align-items-xl-center">
+                  <div class="flip-card">
+                     <div class="flip-card-inner rounded-5">
+                        <div class="flip-card-front bg-cover"
+                           style="background-image: url(images/MajorProject/售後保固與維修.png);">
+                           <div class="s08q">
+                              <h3>售後保固<br>與維修</h3>
+                           </div>
+                        </div>
+                        <div class="flip-card-back rounded-5">
+                           <ul>
+                              <li>
+                                 依據保固範圍，提供免費檢修和零件更換。
+                              </li>
+                           </ul>
+                           <hr>
+                           <ul>
+                              <li>
+                                 提供付費維修、升級服務，確保機台性能與時俱進。
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- section09 機台功能客製化程序 -->
+   <!-- 機台功能客製化程序
+            需求分析與確認
+            與客戶討論並明確機台功能需求，包括操作邏輯、性能指標、使用環境等。
+            提供需求規格書並確認客戶需求細節，如硬體配置、軟體功能、介面需求等。
+
+            設計與評估
+            制定設計方案，包括硬體改造、軟體開發或控制邏輯設計。
+            進行技術評估，確保方案可行性，並估算所需資源、成本與開發時間。
+            提交設計圖或模擬方案，與客戶確認。
+
+            開發與實施
+            依據設計方案進行硬體改裝或軟體開發，確保與現有系統兼容。
+            進行功能測試，確保新增或修改的功能運行正常且穩定。
+            與客戶共同進行驗收測試，調整至符合需求。
+            
+            安裝與維護
+            將客製化的機台部署於客戶現場，進行安裝與調試。
+            提供操作培訓與文件（如使用手冊、維修指南）。
+            提供售後支援與定期維護服務，確保機台長期穩定運行。 -->
+   <section id="s09">
+      <div class="container-fluid py-1">
+         <div class="card04 s05card" style="min-height: 450px">
+            <div class="display-4 fw-900 text-center mb-3" style="color: var(--myjumpcolor01);">機台功能客製化</div>
+            <div class="container mt-3">
+               <div class="mb-5 position-relative">
+                  <div class="progress" style="height: 4px;">
+                     <div class="progress-bar" style="width: 0%;background-color: red;"></div>
+                  </div>
+                  <!-- 1 -->
+                  <div class="step1">
+                     <button class="btn rounded-circle position-absolute start-0 top-0 translate-middle"
+                        style="width: 25px; height: 25px;color: white;" title="Step1"></button>
+                     <div class="position-absolute stepimg"
+                        style="transform: translate(-50%,15px);font-size: 30px; text-align: center; width: 400px;">
+                        <img src="images/MajorProject/number-1.png" alt="" class="bg-cover">
+                        <div class="fw-900 mt-3" style="font-size: 30px;">需求分析與確認</div>
+                        <ul class="fw-900">
+                           <li style="text-align: start">分析機台功能需求，包括操作邏輯、性能指標、使用環境等。</li>
+                           <li style="text-align: start">提供需求規格並確認細節，如硬體配置、軟體功能、介面需求等。</li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!-- 2 -->
+                  <div class="step2">
+                     <button class="btn rounded-circle position-absolute top-0 translate-middle"
+                        style="width: 25px; height: 25px;left: 33.33%;color: white;" title="Step2"></button>
+                     <div class="position-absolute stepimg"
+                        style="left: 33.33%; transform: translate(-50%, 15px);font-size: 30px; text-align: center; width: 400px;">
+                        <img src="images/MajorProject/number-2.png" alt="" class="bg-cover">
+                        <div class="fw-900 mt-3" style="font-size: 30px;">設計與評估</div>
+                        <ul class="fw-900">
+                           <li style="text-align: start">制定設計方案，包括硬體改造、軟體開發或控制邏輯設計。</li>
+                           <li style="text-align: start">進行技術評估，並提交設計圖或模擬方案。</li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!-- 3 -->
+                  <div class="step3">
+                     <button class="btn rounded-circle position-absolute  top-0 translate-middle"
+                        style="width: 25px; height: 25px;left: 66.66%;color: white;" title="Step3"></button>
+                     <div class="position-absolute stepimg"
+                        style="top: 50%; left: 66.66%; transform: translate(-50%, 15px);font-size: 30px; text-align: center; width: 400px;">
+                        <img src="images/MajorProject/number-3.png" alt="" class="bg-cover">
+                        <div class="fw-900 mt-3" style="font-size: 30px;">開發與實施</div>
+                        <ul class="fw-900">
+                           <li style="text-align: start">依據設計方案進行硬體改裝或軟體開發，確保系統兼容。</li>
+                           <li style="text-align: start">進行功能測試，確保新增或修改的功能運行正常且穩定。</li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!-- 4 -->
+                  <div class="step4">
+                     <button class="btn rounded-circle position-absolute start-100 top-0 translate-middle"
+                        style="width: 25px; height: 25px;color: white;" title="Step3"></button>
+                     <div class="position-absolute stepimg"
+                        style="left: 100%;transform: translate(-50%, 15px);font-size: 30px; text-align: center; width: 400px;">
+                        <img src="images/MajorProject/number-4.png" alt="" class="bg-cover">
+                        <div class="fw-900 mt-3" style="font-size: 30px;">安裝與維護</div>
+                        <ul class="fw-900">
+                           <li style="text-align: start">機台安裝與調試。</li>
+                           <li style="text-align: start">提供操作培訓與文件（如使用手冊、維修指南）。</li>
+                           <li style="text-align: start">提供售後支援，確保機台長期穩定運行</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- section10 聯絡我們 -->
+   <section id="s10">
+      <div class="container-fluid p-5">
+         <div class="s10-container p-5">
+            <div class="row">
+               <div class="col-md-5">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d299.8769145687039!2d120.45066473587839!3d24.003022766006925!3m2!1i1024!2i768!4f13.1!5e1!3m2!1szh-TW!2stw!4v1743004005700!5m2!1szh-TW!2stw" width="680" height="710" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="得昌行地址"></iframe>
+               </div>
+               <div class="col-md-7">
+                  <div class="card card-secondary card-outline s10-container">
+                     <div class="card-header text-center">
+                        <div class="card-title">
+                           <span class="display-4 fw-900" style="color: var(--myjumpcolor01);">
+                              <b>聯絡得昌行|捷獅</b>
+                           </span>
+                        </div>
+                     </div>
+                     <div class="wrap">
+                        <form>
+                           <div class="card-body">
+                              <div class="mb-3">
+                                 <label for="customerName" class="form-label fw-600" style="font-size: 20px;">姓名</label>
+                                 <input type="text" class="form-control" id="customerName" placeholder="請輸入姓名">
+                              </div>
+                              <div class="mb-3">
+                                 <label for="customerPhone" class="form-label fw-600"
+                                    style="font-size: 20px;">電話</label>
+                                 <input type="tel" class="form-control" id="customerPhone" placeholder="請輸入聯絡電話">
+                              </div>
+                              <div class="mb-3">
+                                 <label for="customerEmail" class="form-label fw-600"
+                                    style="font-size: 20px;">E-mail</label>
+                                 <input type="email" class="form-control" id="customerEmail" placeholder="請輸入聯絡信箱">
+                              </div>
+                              <div class="mb-3">
+                                 <label for="customerEmail" class="form-label fw-600"
+                                    style="font-size: 20px;">留言</label>
+                                 <textarea class="form-control" placeholder="請輸入留言"></textarea>
+                              </div>
+                           </div>
+                           <div class="card-footer">
+                              <div class="row">
+                                 <div class="col-6 text-center">
+                                    <button class="btn text-bg-secondary fw-600 w-100" id="s10-contact-rewrite"
+                                       title="重新填寫">重新填寫<i class="ms-2 fa-solid fa-reply"></i></button>
+                                 </div>
+                                 <div class="col-6 text-center">
+                                    <button class="btn text-bg-primary fw-600 w-100" id="s10-contact-btn"
+                                       title="聯繫得昌行">送出後，將有專員與您聯繫<i
+                                          class="ms-2 fa-solid fa-right-to-bracket"></i></button>
+                                 </div>
+                              </div>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- section11 徵才公告 -->
+   <section id="s11">
+      <div class="row">
+         <div class="col-md-6 bg-cover" style="background-image: url(images/MajorProject/s1101.png);">
+            <div class="row">
+               <div class="col-md-9 m-3 p-3 text-white rounded-3 shadow-lg"
+                  style="background-color: rgba(0, 0, 0, 0.4);">
+                  <small class="badge text-bg-primary">加入我們</small>
+                  <div class="h2 text-white fw-900 my-1">徵求<span class="display-5 text-white"><b>機電工程師</b></span>二名
+                  </div>
+                  <div class="h2">經歷: <span class="display-5 text-white">相關經驗佳</span></div>
+                  <div class="h2">學歷: <span class="display-5 text-white">高中以上</span></div>
+                  <p class="text-white h5">無經驗可，肯學習，負責機械設備維修、異常處理， 具工作熱忱，諳焊接者佳。</p>
+                  <button class="btn btn-danger btn-lg">加入我們</button>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-6 bg-cover" style="background-image: url(images/MajorProject/s1102.png);">
+            <div class="row">
+               <div class="col-md-9 m-3 p-3 text-white rounded-3 shadow-lg"
+                  style="background-color: rgba(0, 0, 0, 0.4);">
+                  <small class="badge text-bg-primary">加入我們</small>
+                  <div class="h2 text-white fw-900 my-1">徵求<span class="display-5 text-white"><b>機械維修學徒</b></span>ㄧ名
+                  </div>
+                  <div class="h2">經歷: <span class="display-5 text-white">不拘</span></div>
+                  <div class="h2">學歷: <span class="display-5 text-white">不拘</span></div>
+                  <p class="text-white h5">具熱誠、願意培養專業技能者皆可。</p>
+                  <button class="btn btn-danger btn-lg">加入我們</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- sectionEND 其他連結和網頁版權 -->
+   <section id="s0end" class="bg-secondary">
+      <div class="container align-items-center">
+         <ul class="nav">
+            <li class="nav-item">
+               <a class="nav-link disabled" style="color: white;">PowerBy 113年雲端技術應用實務班第2期3號陳俞蓁</a>
+            </li>
+            <li class="nav-item">
+               <a href="https://gcis.nat.gov.tw/mainNew/" class="nav-link active" aria-current="page" target="_blank"
+                  style="color: white;" rel="noopener noreferrer">全國商工行政服務入口網</a>
+            </li>
+         </ul>
+      </div>
+   </section>
+
+   <!-- 控制台 -->
+   <button class="d-none" id="controlPanel" title="控制台"><i class="fa-solid fa-list-check fa-lg"></i></button>
+
+   <!-- 會員系統 -->
+   <button class="d-none" id="memberSystem" title="會員系統"><i class="fa-solid fa-user fa-lg"></i></button>
+
+   <!-- 查看機台清單 -->
+   <button class="d-none" id="moreitem" title="查看機台清單"><i class="fa-regular fa-rectangle-list"></i></button>
+
+   <!-- 購物車 -->
+   <button class="d-none" id="shopping" title="購物車"><i class="fa-solid fa-cart-shopping fa-lg"></i></button>
+
+   <!-- 回到頁面頂部 -->
+   <button id="backToTop" title="回到頁面頂部"><i class="fa-solid fa-angles-up fa-lg"></i></button>
+
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.7.1.min.js"></script>
+   <script src="js/jquery.transit.min.js"></script>
+   <script src="js/wow.min.js"></script>
+   <script src="js/counterup2.js"></script>
+   <script src="js/CityCountyData.json"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script>
+      // section01 日期時間功能
+      function updateDateTime() {
+         const now = new Date();
+         const formattedDateTime = now.toLocaleString(); // 取得日期時間
+         const weekdays = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+         const weekday = weekdays[now.getDay()]; // 取得星期幾
+
+         document.getElementById("datetime").textContent = formattedDateTime;
+         document.getElementById("weekday").textContent = weekday;
+      }
+
+      updateDateTime(); // 頁面載入時執行
+      setInterval(updateDateTime, 1000); // 每秒更新
+
+      // Carousel畫面自動跳轉
+      var myCarousel = document.querySelector('#carouselExampleCaptions');
+      var carousel = new bootstrap.Carousel(myCarousel, {
+         interval: 4000, // 每4秒跳轉
+         ride: 'carousel' // 自動播放
+      });
+
+      // 回到頁面頂部
+      document.getElementById("backToTop").addEventListener("click", function () {
+         window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+         });
+      });
+
+      // s04 counterup2
+      $(function () {
+         //counterup2         
+         const counterUp = window.counterUp.default
+
+         const callback = entries => {
+            entries.forEach(entry => {
+               const el = entry.target
+               if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                  counterUp(el, {
+                     duration: 2000,
+                     delay: 16,
+                  })
+                  el.classList.add('is-visible')
+               }
+            })
+         }
+
+         const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+         const el01 = document.querySelector('.counter01')
+         IO.observe(el01)
+         const el02 = document.querySelector('.counter02')
+         IO.observe(el02)
+      });
+
+      new WOW().init();
+
+      // s05最新消息(跑馬燈效果)
+      const marquee = document.getElementById('marquee');
+      const text = document.createElement('span');
+      text.textContent = '連假期間(4月3日~4月6日)暫停服務!';
+      marquee.appendChild(text);
+
+      let pos = marquee.offsetWidth;
+      function scroll() {
+         pos -= 3; // 調整移動速度
+         if (pos < -text.offsetWidth) {
+            pos = marquee.offsetWidth;
+         }
+         text.style.left = pos + 'px';
+         requestAnimationFrame(scroll);
+      }
+      scroll();
+
+      // s09
+      const steps = document.querySelectorAll('.step1, .step2, .step3, .step4');
+      const progressBar = document.querySelector('.progress-bar');
+
+      // 設定 hover 事件
+      steps.forEach((step, index) => {
+         step.addEventListener('mouseover', () => {
+            // 讓目前步驟與之前的步驟變紅
+            for (let i = 0; i <= index; i++) {
+               steps[i].style.color = 'red';
+               steps[i].querySelector('button').style.backgroundColor = 'red';
+            }
+
+            // 設定進度條寬度
+            progressBar.style.width = `${(index) * 33.33}%`;
+         });
+
+         step.addEventListener('mouseout', () => {
+            // 還原顏色
+            steps.forEach((s) => {
+               s.style.color = '';
+               s.querySelector('button').style.backgroundColor = 'white';
+            });
+
+            // 進度條還原
+            progressBar.style.width = '0%';
+         });
+      });
+
+      //step:hover
+      document.querySelector('.step2').addEventListener('mouseover', () => {
+         document.querySelector('.progress-bar').style.width = '33.33%';
+      });
+      document.querySelector('.step2').addEventListener('mouseout', () => {
+         document.querySelector('.progress-bar').style.width = '0%'; // 可選：移出時還原
+      });
+      document.querySelector('.step3').addEventListener('mouseover', () => {
+         document.querySelector('.progress-bar').style.width = '66.66%';
+      });
+      document.querySelector('.step3').addEventListener('mouseout', () => {
+         document.querySelector('.progress-bar').style.width = '0%'; // 可選：移出時還原
+      });
+      document.querySelector('.step4').addEventListener('mouseover', () => {
+         document.querySelector('.progress-bar').style.width = '100%';
+      });
+      document.querySelector('.step4').addEventListener('mouseout', () => {
+         document.querySelector('.progress-bar').style.width = '0%'; // 可選：移出時還原
+      });
+
+      document.getElementById("controlPanel").addEventListener("click", function () {
+         window.location.href = "tegrand_controlPanel.html";
+      });
+      document.getElementById("memberSystem").addEventListener("click", function () {
+         window.location.href = "tegrand_memberSystem.html";
+      });
+      document.getElementById("moreitem").addEventListener("click", function () {
+         window.location.href = "tegrand_project_moreitem.html";
+      });
+      document.getElementById("shopping").addEventListener("click", function () {
+         window.location.href = "tegrand_shopping.html";
+      });
+
+      var flag_username_reg = false;
+      var flag_password_reg = false;
+      var flag_re_password_reg = false;
+      var flag_email_reg = false;
+      var flag_chk01_reg = false;
+
+      var flag_address_reg = true;
+      var flag_phone_reg = true;
+      var flag_telephone_reg = true;
+      var flag_fax_reg = true;
+      var city;
+      var selectCity;
+      var selectArea;
+
+      var flag_username_login = false;
+      var flag_password_login = false;
+      $(function () {
+         // 載入縣市、鄉鎮市區資料
+         $.ajax({
+            url: 'js/CityCountyData.json',
+            type: 'GET',
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+               console.log(data)
+               city = data;
+            },
+            error: function () {
+               console.log('error-js/CityCountryData.json')
+            }
+         });
+         console.log(city);
+
+         //顯示縣市選單
+         $("#selectCity").empty();
+         $("#selectCity").append('<option value="" class="text-center" selected disabled>---選擇縣市---</option>');
+         city.forEach(function (item) {
+            console.log(item.CityName);
+
+            var strHTML = `<option value="${item.CityName}">${item.CityName}</option>`;
+            $("#selectCity").append(strHTML);
+         });
+
+         //監聽縣市選單
+         $("#selectCity").change(function () {
+            console.log($(this).val());
+            selectCity = $(this).val();
+
+            city.forEach(function (item) {
+               if (item.CityName === selectCity) {
+                  // 產生市區選單
+                  $("#selectArea").empty();
+                  $("#selectAreaError").removeClass("d-none");
+                  $("#selectArea").append('<option value="" class="text-center" selected disabled>---選擇鄉鎮市區---</option>');
+                  item.AreaList.forEach(function (myitem) {
+                     console.log(myitem.AreaName);
+                     var strHTML = `<option value="${myitem.AreaName}">${myitem.AreaName}</option>`;
+                     $("#selectArea").append(strHTML);
+                  });
+                  $("#address_reg").val("").addClass("is-invalid"); // 清空地址輸入框
+                  $("#addressError").removeClass("d-none");
+               }
+            });
+         });
+
+         // 禁止輸入空白鍵
+         $("#username_reg, #password_reg, #re_password_reg, #email_reg, #address_reg, #phone_reg, #telephone_reg, #fax_reg").on("keydown", function (e) {
+            if (e.key === " ") {
+               e.preventDefault(); // 阻止輸入空白鍵
+            }
+         });
+
+         // 即時監聽username_reg
+         $("#username_reg").bind("input propertychange", function () {
+            if ($(this).val().length > 2 && $(this).val().length < 16) {
+               //傳遞至後端API確認帳號是否可以使用
+               //input: {"username" : "xxxxxx"}
+               var JSONdata = {};
+               JSONdata["username"] = $("#username_reg").val();
+               console.log(JSON.stringify(JSONdata));
+
+               $(this).removeClass("is-invalid");
+               $(this).addClass("is-valid");
+               $("#regModal_username_valid_feedback").text("符合規則");
+               flag_username_reg = true;
+
+               $.ajax({
+                  type: "POST",
+                  url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=checkuni",
+                  data: JSON.stringify(JSONdata),
+                  dataType: "json",
+                  success: showdata_checkuni,
+                  error: function () {
+                     Swal.fire({
+                        title: "API介接錯誤!",
+                        text: "member_control_api_v1.php?action=checkuni",
+                        icon: "error"
+                     });
+                  }
+               });
+            } else {
+               $(this).removeClass("is-valid");
+               $(this).addClass("is-invalid");
+               $("#regModal_username_invalid_feedback").text("不符合規則");
+               flag_username_reg = false;
+            }
+         });
+
+         //即時監聽password_reg
+         $("#password_reg").bind("input propertychange", function () {
+            if ($(this).val().length > 7 && $(this).val().length < 21) {
+               $(this).removeClass("is-invalid").addClass("is-valid");
+               flag_password_reg = true;
+
+               // 在這裡檢查確認密碼欄位
+               if ($("#re_password_reg").val() === $(this).val()) {
+                  $("#re_password_reg").removeClass("is-invalid").addClass("is-valid");
+                  flag_re_password_reg = true;
+               } else {
+                  $("#re_password_reg").removeClass("is-valid").addClass("is-invalid");
+                  flag_re_password_reg = false;
+               }
+            } else {
+               $(this).removeClass("is-valid").addClass("is-invalid");
+               flag_password_reg = false;
+
+               // 如果密碼無效，則確認密碼也要設為無效
+               $("#re_password_reg").removeClass("is-valid").addClass("is-invalid");
+               flag_re_password_reg = false;
+            }
+         });
+
+
+         //即時監聽re_password_reg
+         $("#re_password_reg").bind("input propertychange", function () {
+            if ($(this).val() === "") {
+               // 當輸入欄位為空時，不進行任何狀態變更
+               $(this).removeClass("is-valid is-invalid");
+               flag_re_password_reg = false;
+            } else if (flag_password_reg && $(this).val() === $("#password_reg").val()) {
+               $(this).removeClass("is-invalid");
+               $(this).addClass("is-valid");
+               flag_re_password_reg = true;
+            } else {
+               $(this).removeClass("is-valid");
+               $(this).addClass("is-invalid");
+               flag_re_password_reg = false;
+            }
+         });
+
+         // 密碼可視切換
+         $(".toggle-password").on("click", function () {
+            const input = $(this).siblings("input");
+            const type = input.attr("type") === "password" ? "text" : "password";
+            input.attr("type", type);
+            $(this).toggleClass("fa-eye fa-eye-slash");
+         });
+
+         //即時監聽email_reg
+         $("#email_reg").bind("input propertychange", function () {
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var emailValue = $(this).val();
+
+            if (emailPattern.test(emailValue)) {
+               $(this).removeClass("is-invalid");
+               $(this).addClass("is-valid");
+               flag_email_reg = true;
+            } else {
+               $(this).removeClass("is-valid");
+               $(this).addClass("is-invalid");
+               flag_email_reg = false;
+            }
+         });
+
+         $("#selectCity, #selectArea, #address_reg").on("input change", function () {
+            var city = $("#selectCity").val();
+            var area = $("#selectArea").val();
+            var address = $("#address_reg").val().trim();
+
+            var isCityEmpty = !city || city === "---選擇縣市---";
+            var isAreaEmpty = !area || area === "---選擇鄉鎮市區---";
+            var isAddressEmpty = address === "";
+
+            // **如果選擇 city，area 和 address 會被清空，應該強制設定 flag 為 false**
+            if ($(this).attr("id") === "selectCity") {
+               $("#selectArea").val(""); // 清空區域
+               $("#address_reg").val(""); // 清空地址
+               isAreaEmpty = true;
+               isAddressEmpty = true;
+               flag_updateModal_address = false;
+            }
+
+            // 狀況 1：全為空值（不顯示錯誤）
+            if (isCityEmpty && isAreaEmpty && isAddressEmpty) {
+               $("#selectCity, #selectArea, #address_reg").removeClass("is-invalid is-valid");
+               $("#selectCityError, #selectAreaError, #addressError").addClass("d-none");
+               flag_address_reg = true;
+               console.log("flag_address_reg =", flag_address_reg);
+               return;
+            }
+            // 狀況 2：全部有值（顯示 valid）
+            if (!isCityEmpty && !isAreaEmpty && !isAddressEmpty) {
+               $("#selectCity, #selectArea, #address_reg").removeClass("is-invalid").addClass("is-valid");
+               $("#selectCityError, #selectAreaError, #addressError").addClass("d-none");
+               flag_address_reg = true;
+               console.log("flag_address_reg =", flag_address_reg);
+               return;
+            }
+            // 狀況 3：部分有填但不完整（顯示錯誤）
+            flag_address_reg = false;
+            if (isCityEmpty) {
+               $("#selectCity").removeClass("is-valid").addClass("is-invalid");
+               $("#selectCityError").removeClass("d-none");
+            } else {
+               $("#selectCity").removeClass("is-invalid").addClass("is-valid");
+               $("#selectCityError").addClass("d-none");
+            }
+
+            if (isAreaEmpty) {
+               $("#selectArea").removeClass("is-valid").addClass("is-invalid");
+               $("#selectAreaError").removeClass("d-none");
+            } else {
+               $("#selectArea").removeClass("is-invalid").addClass("is-valid");
+               $("#selectAreaError").addClass("d-none");
+            }
+
+            if (isAddressEmpty) {
+               $("#address_reg").removeClass("is-valid").addClass("is-invalid");
+               $("#addressError").removeClass("d-none");
+            } else {
+               $("#address_reg").removeClass("is-invalid").addClass("is-valid");
+               $("#addressError").addClass("d-none");
+            }
+
+            console.log("flag_address_reg =", flag_address_reg);
+         });
+
+         //即時監聽phone_reg
+         $("#phone_reg").bind("input propertychange", function () {
+            var phonePattern = /^09\d{8}$/; //必須以09開頭，後面8位數字（共10碼）
+            var phoneValue = $(this).val();
+
+            $(this).on("keypress", function (e) {
+               if (e.which < 48 || e.which > 57) {
+                  e.preventDefault(); // 阻止非數字輸入
+               }
+            });
+
+            if (phoneValue === "") {
+               // 當輸入欄位為空時，不進行任何狀態變更
+               $(this).removeClass("is-invalid");
+               flag_phone_reg = true;
+            } else if (phonePattern.test(phoneValue)) {
+               $(this).removeClass("is-invalid");
+               flag_phone_reg = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_phone_reg = false;
+            }
+            console.log("flag_phone_reg =", flag_phone_reg);
+         });
+
+         //即時監聽telephone_reg
+         $("#telephone_reg").bind("input propertychange", function () {
+            var telephonePattern = /^0\d{8,9}$/; //必須以0開頭，長度為9或10碼的數字
+            var telephoneValue = $(this).val();
+
+            $(this).on("keypress", function (e) {
+               if (e.which < 48 || e.which > 57) {
+                  e.preventDefault(); // 阻止非數字輸入
+               }
+            });
+
+            if (telephoneValue === "") {
+               // 當輸入欄位為空時，不進行任何狀態變更
+               $(this).removeClass("is-invalid");
+               flag_telephone_reg = true;
+            } else if (telephonePattern.test(telephoneValue)) {
+               $(this).removeClass("is-invalid");
+               flag_telephone_reg = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_telephone_reg = false;
+            }
+            console.log("flag_telephone_reg =", flag_telephone_reg);
+         });
+
+         //即時監聽fax_reg
+         $("#fax_reg").bind("input propertychange", function () {
+            var faxPattern = /^0\d{8,9}$/; //必須以0開頭，長度為9或10碼的數字
+            var faxValue = $(this).val();
+
+            $(this).on("keypress", function (e) {
+               if (e.which < 48 || e.which > 57) {
+                  e.preventDefault(); // 阻止非數字輸入
+               }
+            });
+
+            if (faxValue === "") {
+               // 當輸入欄位為空時，不進行任何狀態變更
+               $(this).removeClass("is-invalid");
+               flag_fax_reg = true;
+            } else if (faxPattern.test(faxValue)) {
+               $(this).removeClass("is-invalid");
+               flag_fax_reg = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_fax_reg = false;
+            }
+            console.log("flag_fax_reg =", flag_fax_reg);
+         });
+
+         //即時監聽chk01
+         $("#chk01").change(function () {
+            console.log($(this).is(':checked'));
+            if ($(this).is(':checked')) {
+               $(this).next().text("同意");
+               $(this).siblings(".valid-feedback").html("&nbsp;").show(); // 插入空白避免塌陷
+               $(this).removeClass("is-invalid");
+               $(this).addClass("is-valid");
+               flag_chk01_reg = true;
+            } else {
+               $(this).next().text("不同意");
+               $(this).removeClass("is-valid");
+               $(this).addClass("is-invalid");
+               $(this).siblings(".valid-feedback").hide();
+               $(this).siblings(".invalid-feedback").show();
+               flag_chk01_reg = false;
+            }
+         });
+
+         // 監聽登入 Modal
+         $("#loginModal").on("keydown", function (event) {
+            if (event.key === "Enter" && !$(".swal2-container").length) {
+               // 只有當 Swal.fire 沒有顯示時才執行
+               event.preventDefault();
+               $("#ok_btn_login").click();
+            }
+         });
+
+         // 監聽註冊 Modal
+         // $("#registerModal").on("keydown", function (event) {
+         //    if (event.key === "Enter") {
+         //       event.preventDefault(); // 防止表單自動提交
+         //       if (!$("#ok_btn_reg").prop("disabled")) { // 確保按鈕沒被禁用
+         //          $("#ok_btn_reg").click();
+         //       }
+         //    }
+         // });
+
+         //ok_btn_reg按鈕監聽
+         $("#ok_btn_reg").click(function () {
+            // $(this).prop("disabled", true); // **註冊時禁用按鈕**
+
+            if (flag_username_reg && flag_password_reg && flag_re_password_reg && flag_email_reg && flag_chk01_reg && flag_address_reg && flag_phone_reg && flag_telephone_reg && flag_fax_reg) {
+               //傳遞至後端API執行註冊行為
+               //input: {"username" : "owner04", "password" : "123456", "email" : "owner01@test.com"}
+               var JSONdata = {};
+               JSONdata["username"] = $("#username_reg").val();
+               JSONdata["password"] = $("#password_reg").val();
+               JSONdata["email"] = $("#email_reg").val();
+
+               JSONdata["city"] = $("#selectCity").val(); //縣市
+               JSONdata["area"] = $("#selectArea").val(); //鄉鎮市區
+               JSONdata["address"] = $("#address_reg").val(); //地址
+
+               JSONdata["phone"] = $("#phone_reg").val();
+               JSONdata["telephone"] = $("#telephone_reg").val();
+               JSONdata["fax"] = $("#fax_reg").val();
+               console.log(JSON.stringify(JSONdata));
+
+               $.ajax({
+                  type: "POST",
+                  url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=register",
+                  data: JSON.stringify(JSONdata),
+                  dataType: "json",
+                  success: showdata_reg,
+                  error: function () {
+                     Swal.fire({
+                        title: "API介接錯誤!",
+                        text: "member_control_api_v1.php?action=register",
+                        icon: "error"
+                     });
+                     // $("#ok_btn_reg").prop("disabled", false); // 失敗時恢復按鈕
+                  }
+               });
+            } else {
+               let errors = [];
+
+               if (!flag_username_reg) errors.push("使用者名稱錯誤");
+               if (!flag_password_reg) errors.push("密碼錯誤");
+               if (!flag_re_password_reg) errors.push("確認密碼錯誤");
+               if (!flag_email_reg) errors.push("電子郵件錯誤");
+               if (!flag_chk01_reg) errors.push("請勾選同意條款");
+               if (!flag_phone_reg) errors.push("手機號碼錯誤");
+               if (!flag_telephone_reg) errors.push("市內電話錯誤");
+               if (!flag_fax_reg) errors.push("傳真號碼錯誤");
+               if (!flag_address_reg) errors.push("地址錯誤");
+
+               Swal.fire({
+                  title: "欄位有錯誤，請修正!",
+                  html: errors.map(err => `<div style="color: red;">• ${err}</div>`).join(""), // 顯示錯誤列表
+                  icon: "warning",
+                  showCancelButton: false,
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "確認"
+               }).then((result) => {
+                  // if (result.isConfirmed) {
+                  //     Swal.fire({
+                  //         title: "Deleted!",
+                  //         text: "Your file has been deleted.",
+                  //         icon: "success"
+                  //     });
+                  // }
+               });
+            }
+         });
+
+         //即時監聽username_login
+         $("#username_login").bind("input propertychange", function () {
+            if ($(this).val().length > 0) {
+               $(this).removeClass("is-invalid")
+               flag_username_login = true;
+            } else {
+               $(this).addClass("is-invalid")
+               flag_username_login = false;
+            }
+            console.log("Username flag: ", flag_username_login);
+         });
+
+         //即時監聽password_login
+         $("#password_login").bind("input propertychange", function () {
+            if ($(this).val().length > 0) {
+               $(this).removeClass("is-invalid");
+               flag_password_login = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_password_login = false;
+            }
+            console.log("Password flag: ", flag_password_login); // Debug
+         });
+
+         //ok_btn_login按鈕監聽
+         $("#ok_btn_login").click(function () {
+            if (flag_username_login && flag_password_login) {
+               //傳遞後段API執行登入行為
+               //input: {"username" : "admin", "password" : "123456"}
+               var JSONdata = {};
+               JSONdata["username"] = $("#username_login").val();
+               JSONdata["password"] = $("#password_login").val();
+               console.log(JSON.stringify(JSONdata));
+               $.ajax({
+                  type: "POST",
+                  url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=login",
+                  data: JSON.stringify(JSONdata),
+                  dataType: "json",
+                  success: showdata_login,
+                  error: function (xhr, status, error) {
+                     console.log("XHR: ", xhr);
+                     console.log("Status: ", status);
+                     console.log("Error: ", error);
+                     Swal.fire({
+                        title: "API介接錯誤!",
+                        text: "tegrand_member_login_api_v1.php",
+                        icon: "error"
+                     });
+                  }
+               });
+            } else {
+               Swal.fire({
+                  title: "輸入錯誤!",
+                  text: "請輸入帳號和密碼!",
+                  icon: "error"
+               });
+            }
+         });
+
+         //s01_logout_btn 按鈕監聽
+         $("#s01_logout_btn").click(function () {
+            Swal.fire({
+               title: '確定登出嗎?',
+               text: "您確定要登出嗎？",
+               icon: 'warning',
+               showCancelButton: true,
+               confirmButtonText: '確定',
+               cancelButtonText: '取消',
+               reverseButtons: true  // 使確定和取消按鈕的順序顛倒
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  setCookie("uid01", "", 7);
+                  Swal.fire({
+                     title: '登出成功!',
+                     text: '3秒後將自動跳轉至主頁...',
+                     icon: 'success',
+                     timer: 3000,  // 2 秒後自動關閉
+                     showConfirmButton: false
+                  });
+                  setTimeout(function () {
+                     location.href = "tegrand_project_v4.html";
+                  }, 3000);
+               } else {
+                  // // 如果用戶點擊取消
+                  // Swal.fire({
+                  //    title: '登出已取消',
+                  //    text: '您還在當前頁面！',
+                  //    icon: 'info'
+                  // });
+               }
+            });
+         });
+
+         // 監聽 Register Modal 的 Cancel 按鈕
+         $('#cancel_btn_reg').on('click', function () {
+            window.location.href = "tegrand_project_v4.html";  // 導向原本的頁面
+         });
+
+         // 監聽 Register Modal 的 Close 按鈕
+         $('#close_btn_reg').on('click', function () {
+            window.location.href = "tegrand_project_v4.html";  // 導向原本的頁面
+         });
+
+         // 監聽 Login Modal 的 Cancel 按鈕
+         $('#cancel_btn_login').on('click', function () {
+            window.location.href = "tegrand_project_v4.html";  // 導向原本的頁面
+         });
+
+         // 監聽 Login Modal 的 Close 按鈕
+         $('#close_btn_login').on('click', function () {
+            window.location.href = "tegrand_project_v4.html";  // 導向原本的頁面
+         });
+
+         window.onload = function () {
+            // 檢查 sessionStorage 是否有 'openRegisterModal' 的值
+            if (sessionStorage.getItem('openRegisterModal') === 'true') {
+               // 開啟註冊 modal
+               $('#registerModal').modal('show');
+
+               // 清除 sessionStorage 中的 'openRegisterModal' 狀態
+               sessionStorage.removeItem('openRegisterModal');
+            }
+
+            if (sessionStorage.getItem('openLoginModal') === 'true') {
+               // 開啟註冊 modal
+               $('#loginModal').modal('show');
+
+               // 清除 sessionStorage 中的 'openRegisterModal' 狀態
+               sessionStorage.removeItem('openLoginModal');
+            };
+         }
+
+         document.getElementById('s01_login_btn_2').addEventListener('click', function () {
+            $('#registerModal').modal('hide');
+            // 保存狀態到 sessionStorage
+            sessionStorage.setItem('openLoginModal', 'true');
+            window.location.href = 'tegrand_project_v4.html';
+         });
+         document.getElementById('s01_reg_btn_2').addEventListener('click', function () {
+            $('#loginModal').modal('hide');
+            // 保存狀態到 sessionStorage
+            sessionStorage.setItem('openRegisterModal', 'true');
+            window.location.href = 'tegrand_project_v4.html';
+         });
+
+         //確認uid01是否存在
+         if (getCookie("uid01")) {
+            //將uid01傳遞至後端API執行驗證
+            //input {"uid01" : "c5e6c37a"}
+            var JSONdata = {};
+            JSONdata["uid01"] = getCookie("uid01");
+            console.log(JSON.stringify(JSONdata));
+
+            $.ajax({
+               type: "POST",
+               url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=checkuid",
+               data: JSON.stringify(JSONdata),
+               dataType: "json",
+               success: showdata_checkuid,
+               error: function () {
+                  Swal.fire({
+                     title: "API介接錯誤!",
+                     text: "member_checkuid_api_v1.php",
+                     icon: "error"
+                  });
+               }
+            });
+         } else {
+            //  Swal.fire({
+            //      title: "請先登入會員!",
+            //      icon: "info",
+            //      allowOutsideClick: false,
+            //  });
+         }
+      });
+
+      function showdata_reg(data) {
+         console.log(data);
+         if (data.state) {
+            Swal.fire({
+               title: data.message,
+               icon: "success",
+               returnFocus: false,
+               allowOutsideClick: false, // 禁止點擊外部關閉
+               confirmButtonText: "OK",
+               didOpen: () => {
+                  $(document).off("keydown"); // **關閉 Swal 時移除 Enter 監聽**
+               }
+            }).then((result) => {
+               $("#ok_btn_reg").prop("disabled", true); // 註冊成功後禁用按鈕
+               if (result.isConfirmed) {
+                  location.href = "tegrand_project_v4.html";
+               }
+            });
+         } else {
+            Swal.fire({
+               title: data.message,
+               icon: "error",
+            });
+         }
+      }
+
+      function showdata_login(data) {
+         console.log(data);
+         if (data.state) {
+            //uid驗證碼寫入cookie
+            setCookie("uid01", data.data.uid01, 7);
+            sessionStorage.setItem("username", data.data.username); // 存入用戶名
+            // sessionStorage.setItem("role", data.data.role); // 存入角色
+
+            Swal.fire({
+               title: data.message,
+               text: "溫馨提醒 ~ 功能按鍵位於畫面右下方!",
+               icon: "success",
+               allowOutsideClick: false, // 禁止點擊外部關閉
+               confirmButtonText: "OK"
+            }).then((result) => {
+               location.reload(); // **強制刷新頁面**
+
+               if (result.isConfirmed) {
+                  //loginModal 消失
+                  $("#loginModal").modal("hide");
+
+                  //顯示歡迎訊息
+                  $("#s01_username_showspan").removeClass("d-none");
+                  $("#s01_username_span").text(data.data.username);
+
+                  //隱藏註冊與登入按鈕
+                  $("#s01_reg_btn_1").addClass("d-none");
+                  $("#s01_login_btn_1").addClass("d-none");
+                  $("#s07_login_btn").addClass("d-none");
+                  $("#s06-more").addClass("d-none");
+
+                  //顯示登出按鈕、機台頁面
+                  $("#s01_logout_btn").removeClass("d-none");
+                  $("#s06-more-logined").removeClass("d-none");
+                  $("#moreitem").removeClass("d-none");
+
+                  // 顯示控制台、會員系統、購物車、收購機台填入資訊、聯絡得昌行按鈕
+                  let userRole = parseInt(data.data.role, 10);
+                  if (userRole === 0) {
+                     $("#controlPanel").removeClass("d-none");
+                     $("#memberSystem").addClass("d-none");
+                     $("#shopping").addClass("d-none");
+                     $("#s07_item_information").addClass("d-none");
+                     $(".s10-contact").addClass("d-none");
+                  } else if (userRole === 1) {
+                     $("#controlPanel").addClass("d-none");
+                     $("#memberSystem").removeClass("d-none");
+                     $("#shopping").removeClass("d-none");
+                     $("#s07_item_information").removeClass("d-none");
+                     $(".s10-contact").removeClass("d-none");
+                  } else {
+                     console.warn("未知的角色:", userRole);
+                  }
+               }
+            });
+         } else {
+            Swal.fire({
+               title: data.message,
+               icon: "error"
+            });
+         }
+      }
+
+      function showdata_checkuid(data) {
+         console.log(data);
+         if (data.state) {
+            //顯示歡迎訊息
+            $("#s01_username_showspan").removeClass("d-none");
+            $("#s01_username_span").text(data.data.username);
+
+            //隱藏註冊與登入按鈕
+            $("#s01_reg_btn_1").addClass("d-none");
+            $("#s01_login_btn_1").addClass("d-none");
+            $("#s07_login_btn").addClass("d-none");
+            $("#s06-more").addClass("d-none");
+
+            //顯示登出按鈕、機台頁面
+            $("#s01_logout_btn").removeClass("d-none");
+            $("#s06-more-logined").removeClass("d-none");
+            $("#moreitem").removeClass("d-none");
+
+            // 顯示控制台、會員系統、購物車、收購機台填入資訊、聯絡得昌行按鈕
+            let userRole = parseInt(data.data.role, 10);
+            if (userRole === 0) {
+               $("#controlPanel").removeClass("d-none");
+               $("#memberSystem").addClass("d-none");
+               $("#shopping").addClass("d-none");
+               $("#s07_item_information").addClass("d-none");
+               $(".s10-contact").addClass("d-none");
+            } else if (userRole === 1) {
+               $("#controlPanel").addClass("d-none");
+               $("#memberSystem").removeClass("d-none");
+               $("#shopping").removeClass("d-none");
+               $("#s07_item_information").removeClass("d-none");
+               $(".s10-contact").removeClass("d-none");
+            } else {
+               console.warn("未知的角色:", userRole);
+            }
+         }
+      }
+
+      function showdata_checkuni(data) {
+         console.log(data);  // 確認回應資料
+         if (data.state) {
+            //帳號不存在可以使用
+            $("#username_reg").removeClass("is-invalid");
+            $("#username_reg").addClass("is-valid");
+            $("#regModal_username_valid_feedback").text(data.message);
+            flag_username_reg = true;
+         } else {
+            //帳號已存在不可以使用
+            $("#username_reg").removeClass("is-valid");
+            $("#username_reg").addClass("is-invalid");
+            $("#regModal_username_invalid_feedback").text(data.message);
+            flag_username_reg = false;
+         }
+      }
+
+      // 確保 Enter 觸發正確
+      $("#username_login, #password_login").keypress(function (e) {
+         if (e.which === 13) {
+            e.preventDefault();
+            $("#ok_btn_login").click();
+         }
+      });
+      $("#username_reg, #password_reg, #email_reg").keypress(function (e) {
+         if (e.which === 13) {
+            e.preventDefault();
+            $("#ok_btn_register").trigger("click");
+         }
+      });
+
+
+      function setCookie(cname, cvalue, exdays) {
+         const d = new Date();
+         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+         let expires = "expires=" + d.toUTCString();
+         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+         console.log(document.cookie);
+      }
+
+      function getCookie(cname) {
+         let name = cname + "=";
+         let ca = document.cookie.split(';');
+         for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+               c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+               return c.substring(name.length, c.length);
+            }
+         }
+         return "";
+      }
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>得昌行|捷獅---管理系統</title>
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/mycolor-tegrand.css">
+   <link rel="stylesheet" href="css/all.min.css">
+   <link rel="stylesheet" href="css/animate.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css"
+      integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous">
+   <!--滾動條樣式 (OverlayScrollbars)-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
+      integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
+   <!--Bootstrap Icons（圖示庫）-->
+   <link rel="stylesheet" href="css/adminlte.css"> <!--AdminLTE（後台管理模板 CSS）-->
+   <link rel="icon" href="images/MajorProject/捷獅.webp" type="image/png">
+   <style>
+      /*連結底線顯示none*/
+      a {
+         text-decoration: none;
+      }
+
+      /* s01 */
+      #s01 {
+         background-color: var(--myjumpcolor03);
+         height: auto;
+      }
+
+      .s01-icon {
+         color: var(--myjumpcolor01);
+         font-size: 40px;
+      }
+
+      .s01-icon-fb {
+         color: #1877f2;
+         font-size: 50px;
+      }
+
+      .s01-icon-line {
+         color: #00b900;
+         font-size: 45px;
+      }
+
+      .s01-icon-ig {
+         color: #833ab4;
+         font-size: 50px;
+      }
+
+      .s01-icon-threads {
+         color: #000000;
+         font-size: 50px;
+      }
+
+      .s01-span {
+         font-size: 30px;
+         line-height: 1;
+      }
+
+      .s01-sup {
+         font-size: 15px;
+      }
+
+      /* s02 */
+      .navbar {
+         background-color: var(--myjumpcolor01);
+      }
+
+      .navbar-brand-img {
+         width: 80px;
+         border-radius: 20px;
+      }
+
+      .navbar-brand-name {
+         font-size: 60px;
+         color: white;
+      }
+
+      .nav-link {
+         border-radius: 10px;
+         color: white;
+      }
+
+      .s02-icon {
+         color: white;
+      }
+
+      .s02-icon-span {
+         color: white;
+         font-size: 30px;
+      }
+
+      .s02-icon-dropdown {
+         color: var(--myjumpcolor01);
+         font-size: 25px;
+      }
+
+      .s02-icon-dropdown-span {
+         color: var(--myjumpcolor01);
+         font-size: 30px;
+      }
+
+      /* section02 banner按鍵動作 */
+      .navbar a:hover,
+      .navbar button:hover {
+         background-color: var(--myjumpcolor03);
+         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+         transform: translateY(-2px);
+         transition: all 0.3s ease-in-out;
+      }
+
+      .navbar a:active,
+      .navbar button:active {
+         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+         transform: translateY(6px);
+         transition: all 0.2s ease-in-out;
+      }
+
+      .navbar-toggler {
+         background-color: white;
+      }
+
+      .nav-link-icon {
+         display: flex;
+         align-items: center;
+         /* 讓內部內容垂直置中 */
+      }
+
+      .nav-small-box-icon {
+         width: 40px;
+         height: 40px;
+         /* 設定 SVG 圖示大小 */
+         vertical-align: middle;
+         /* 讓 SVG 與文字垂直置中 */
+      }
+
+      /* 背景圖 */
+      .boxbg {
+         background-image: url(images/MajorProject/s06_02img.png);
+         background-attachment: fixed;
+         position: relative;
+         z-index: 1;
+         background-position: center;
+         background-size: cover;
+         background-repeat: no-repeat;
+      }
+
+      .boxbg::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(255, 255, 255, 0.6);
+         z-index: -1;
+      }
+
+      /* s04 */
+      .table-responsive {
+         overflow-x: auto;
+         /* 允許橫向滾動 */
+         white-space: nowrap;
+         /* 避免換行 */
+         display: block;
+         max-width: 100%;
+      }
+
+      .table-img {
+         width: 200px;
+         height: auto;
+         display: block;
+      }
+
+      input[type="checkbox"] {
+         appearance: none;
+         width: 25px;
+         height: 25px;
+         border: 2px solid #007bff;
+         border-radius: 5px;
+         position: relative;
+         cursor: pointer;
+      }
+
+      input[type="checkbox"]:checked {
+         background-color: #007bff;
+      }
+
+      input[type="checkbox"]::after {
+         color: white;
+         font-size: 20px;
+         position: absolute;
+         top: 0;
+         left: 4px;
+         display: none;
+      }
+
+      input[type="checkbox"]:checked::after {
+         display: block;
+      }
+
+      @media (max-width: 1500px) {
+         .nav-link-icon {
+            display: inline-block;
+            width: 100px;
+            text-align: center;
+            margin-left: 10px;
+            background-color: var(--myjumpcolor04);
+         }
+
+         .nav-link-span {
+            display: none;
+         }
+      }
+
+      @media (max-width: 1200px) {
+         .box01_1 {
+            font-size: 80px;
+         }
+
+         .box01_2 {
+            font-size: 40px;
+         }
+      }
+
+      @media (max-width: 1100px) {
+         .navbar-brand-name {
+            font-size: 50px;
+         }
+      }
+
+      @media (max-width: 992px) {
+         .box01_1 {
+            font-size: 60px;
+         }
+
+         .box01_2 {
+            font-size: 30px;
+         }
+
+         .nav-link-icon {
+            width: 80%;
+            height: 90px;
+            text-align: center;
+            margin-left: 10px;
+            background-color: var(--myjumpcolor03);
+            margin-top: 10px;
+         }
+
+         .nav-link-span {
+            display: inline;
+         }
+
+         .navbar-brand-img {
+            width: 60px !important;
+            border-radius: 10px;
+         }
+      }
+
+      @media (max-width: 640px) {
+         .navbar-brand-name {
+            font-size: 30px;
+         }
+
+         .box01_1 {
+            font-size: 46px;
+         }
+
+         .box01_2 {
+            font-size: 23px;
+         }
+      }
+   </style>
+</head>
+
+<body oncontextmenu="window.event.returnValue=false">
+   <!-- section01 頁首連結&登入登出連結&時間提醒 -->
+   <section id="s01" class="py-2">
+      <div class="row mx-3 mt-2 align-items-center">
+         <div class="col-lg-6 order-2 order-md-1 text-center text-md-start mt-2 d-none d-lg-block">
+            <span class="ms-2 s01-span">
+               <b>
+                  <span id="datetime"></span>（<span id="weekday"></span>）
+               </b>
+            </span>
+         </div>
+         <div class="col-lg-6 order-1 order-md-2 text-center text-md-end">
+            <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+               <span class="me-3 s01-span d-none" id="s01_username_showspan">
+                  <b><span id="s01_username_span"></span>，您好!</b>
+               </span>
+               <button class="btn btn-lg btn-outline-danger me-2" id="s01_logout_btn">登出</button>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- section02 banner -->
+   <section id="s02">
+      <nav class="navbar navbar-expand-lg">
+         <div class="container-fluid">
+            <div class="navbar-brand fw-900 d-flex align-items-center">
+               <a href="tegrand_project_v4.html" class="d-flex align-items-center" style="border-radius: 10px;">
+                  <img class="navbar-brand-img" src="images/MajorProject/捷獅.webp" alt="得昌行-捷獅">
+                  <span class="navbar-brand-name ms-1">得昌行</span>
+               </a>
+               <a href="tegrand_controlPanel.html"><span class="h3 text-info ms-1">管理系統</span></a>
+            </div>
+            <button class="navbar-toggler border border-3 p-2" type="button" data-bs-toggle="collapse"
+               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+               aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav w-80 d-flex justify-content-around mb-2 mb-lg-0">
+                  <!-- 使用者管理 -->
+                  <li class="nav-item active ms-1">
+                     <a class="nav-link p-4 nav-link-icon" aria-current="page" href="tegrand_controlPanel_users_v2.html"
+                        title="使用者管理">
+                        <svg class="nav-small-box-icon" fill="currentColor" viewBox="0 0 24 24"
+                           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                           <path
+                              d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z">
+                           </path>
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>使用者管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 機台管理 -->
+                  <li class="nav-item ms-1">
+                     <!-- 已經在機台管理，把a拿掉改div -->
+                     <div class="nav-link p-4 nav-link-icon" title="機台管理">
+                        <svg class="bi bi-building-fill-gear nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7.256A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-3.59 1.787A.5.5 0 0 0 9 9.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .39-.187A4.5 4.5 0 0 0 8.027 12H6.5a.5.5 0 0 0-.5.5V16H3a1 1 0 0 1-1-1zm2 1.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3 0v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
+                           <path
+                              d="M11.886 9.46c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>機台管理</b>
+                        </span>
+                     </div>
+                  </li>
+                  <!-- 訂單管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#" title="訂單管理">
+                        <svg class="bi bi-cart3 nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>訂單管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 購機管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#" title="購機管理">
+                        <svg class="bi bi-bag-plus-fill nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path fill-rule="evenodd"
+                              d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5z" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>購機管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 留言管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#" title="留言管理">
+                        <svg class="bi bi-chat-left-text-fill nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>留言管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 徵才管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="tegrand_controlPanel_apply.html" title="徵才管理">
+                        <svg class="bi bi-person-vcard-fill nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>徵才管理</b>
+                        </span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+   </section>
+
+   <div class="boxbg py-1">
+      <!-- section03 管理系統small-icon -->
+      <section id="s03" class="boxbg mb-0">
+         <ol class="breadcrumb ms-3 mb-0">
+            <li class="breadcrumb-item h4">
+               <a href="tegrand_project_v4.html"><b>首頁</b></a>
+            </li>
+            <li class="breadcrumb-item h4">
+               <a href="tegrand_controlPanel.html"><b>管理系統</b></a>
+            </li>
+            <li class="breadcrumb-item active h4" aria-current="page">
+               <b>機台管理</b>
+            </li>
+         </ol>
+         <main class="app-main mb-0">
+            <div class="app-content">
+               <div class="container-fluid">
+                  <div class="row">
+                     <!-- 機台管理 -->
+                     <div class="col-lg-2 col-6">
+                        <!-- small box -->
+                        <!-- 把a拿掉改div -->
+                        <div class="small-box text-bg-success text-decoration-none">
+                           <div class="inner">
+                              <h3 id="myitemdata"></h3>
+                              <h5><b>庫存機台數量</b></h5>
+                           </div>
+                           <svg class="small-box-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                              viewBox="0 0 16 16">
+                              <path
+                                 d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7.256A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-3.59 1.787A.5.5 0 0 0 9 9.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .39-.187A4.5 4.5 0 0 0 8.027 12H6.5a.5.5 0 0 0-.5.5V16H3a1 1 0 0 1-1-1zm2 1.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3 0v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
+                              <path
+                                 d="M11.886 9.46c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
+                           </svg>
+                        </div>
+                     </div>
+                     <!-- 檢視機台清單頁面 -->
+                     <div class="col-lg-2 col-6">
+                        <a class="small-box text-bg-info text-decoration-none" href="tegrand_project_moreitem.html">
+                           <div class="inner">
+                              <h3><b>機台清單</b></h3>
+                              <h5><b>檢視</b></h5>
+                           </div>
+                           <i class="small-box-icon fa-regular fa-rectangle-list"></i>
+                        </a>
+                     </div>
+                     <!-- 分類提醒 -->
+                     <div class="col-lg-8 col">
+                        <div class="alert alert-primary p-2" role="alert">
+                           <div class="row">
+                              <div class="col-1"><b>種類區分</b></div>
+                              <div class="col-11"><b>1.車床&nbsp;&nbsp;&nbsp;2.銑床&nbsp;&nbsp;&nbsp;3.鑽床&nbsp;&nbsp;&nbsp;4.磨床&nbsp;&nbsp;&nbsp;5.鋸床&nbsp;&nbsp;&nbsp;6.放電加工機&nbsp;&nbsp;&nbsp;7.沖床&nbsp;&nbsp;&nbsp;8.鉋床&nbsp;&nbsp;&nbsp;9.其他中古機械&nbsp;&nbsp;&nbsp;10.新機代理</b></div>
+                           </div>
+                           <hr class="m-1">
+                           <div class="row">
+                              <div class="col-1"><b>上架區分</b></div>
+                              <div class="col-11"><b>0.下架&nbsp;&nbsp;&nbsp;1.上架</b></div>
+                           </div>
+                           <hr class="m-1">
+                           <div class="row">
+                              <div class="col-1"><b>狀態區分</b></div>
+                              <div class="col-11"><b>1.賣家提出售賣需求&nbsp;&nbsp;&nbsp;2.報價中(向賣家報價)&nbsp;&nbsp;&nbsp;3.議價中(賣家議價)&nbsp;&nbsp;&nbsp;4.議價完成&nbsp;&nbsp;&nbsp;5.機台運送中&nbsp;&nbsp;&nbsp;6.入庫中&nbsp;&nbsp;&nbsp;7.完成入庫&nbsp;&nbsp;&nbsp;8.整修中&nbsp;&nbsp;&nbsp;9.整修完成&nbsp;&nbsp;&nbsp;10.在售&nbsp;&nbsp;&nbsp;11.訂單交易中&nbsp;&nbsp;&nbsp;12.售出</b></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+      </section>
+
+      <!-- section04 機台資料庫 -->
+      <div class="container-fluid mt-1">
+         <section id="s04">
+            <div class="card">
+               <div class="card-header d-flex align-items-center">
+                  <svg class="small-box-icon text-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                     viewBox="0 0 16 16" style="width: 30px; height: 30px">
+                     <path
+                        d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7.256A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-3.59 1.787A.5.5 0 0 0 9 9.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .39-.187A4.5 4.5 0 0 0 8.027 12H6.5a.5.5 0 0 0-.5.5V16H3a1 1 0 0 1-1-1zm2 1.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3 0v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
+                     <path
+                        d="M11.886 9.46c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
+                  </svg>
+                  <span class="h1 card-title"><b class="ms-1">機台資料庫</b></span>
+                  <div class="ms-auto">
+                     <button class="btn btn-secondary align-middle me-5" id="update_btn" data-bs-toggle="modal"
+                        data-bs-target="#updateModal" data-id="" data-photo="" data-category="" data-brand=""
+                        data-name="" data-type="" data-age="" data-price="" data-condition="" data-status=""
+                        data-description="" data-remark="" disabled>
+                        <input class="form-check-input" type="checkbox" placeholder="複選" checked disabled>
+                        <span class="ms-1 align-middle"><b>更新</b> (僅能選取1項)</span>
+                     </button>
+                     <button class="btn btn-danger align-middle mx-5" id="delete_all_btn">
+                        <input class="form-check-input" type="checkbox" placeholder="複選" checked disabled>
+                        <span class="ms-1 align-middle"><b>刪除</b> (可選取多項)</span>
+                     </button>
+                  </div>
+               </div>
+               <div class="card-body p-0">
+                  <div class="table-responsive">
+                     <!-- table-rwd暫不啟用，目前使用link css滾輪條左右滑動 -->
+                     <table class="table m-0">
+                        <thead>
+                           <tr>
+                              <!-- 14項 -->
+                              <th width="5%" class="text-center align-middle">
+                                 <input class="form-check-input checkbox-all" type="checkbox" title="全選"
+                                    placeholder="全選">
+                              </th>
+                              <th width="5%" class="text-center align-middle">編號</th>
+                              <th width="10%" class="text-center align-middle">圖片</th>
+                              <th width="5%" class="text-center align-middle">種類</th>
+                              <th width="8%" class="text-center align-middle">廠牌</th>
+                              <th width="10%" class="text-center align-middle">名稱</th>
+                              <th width="8%" class="text-center align-middle">型號</th>
+                              <th width="5%" class="text-center align-middle">年份</th>
+                              <th width="8%" class="text-center align-middle">價格</th>
+                              <th width="5%" class="text-center align-middle">上架</th> <!-- 上架狀態 -->
+                              <th width="5%" class="text-center align-middle">狀態</th> <!-- 機台狀態 -->
+                              <th width="20%" class="text-center align-middle">規格描述</th>
+                              <th width="20%" class="text-center align-middle">備註</th>
+                              <th width="8%" class="text-center align-middle">買家</th>
+                              <th width="8%" class="text-center align-middle">賣家</th>
+                           </tr>
+                        </thead>
+                        <tbody id="mydata">
+                           <!-- <tr>
+                              <td width="5%" class="text-center align-middle">
+                                 <input class="form-check-input row-checkbox" type="checkbox" data-id="row-checkbox">
+                              </td>
+                              <td data-th="編號" width="5%" class="text-center align-middle">1</td>
+                              <td data-th="圖片" width="10%" class="text-center align-middle" style="overflow: hidden">
+                                 <img class="table-img" src="images/MajorProject/item/10-新機代理/龍昌 V700 CNC 立式加工中心機.jpg"
+                                    alt="">
+                              </td>
+                              <td data-th="種類" width="5%" class="text-center align-middle">10</td>
+                              <td data-th="廠牌" width="8%" class="text-center align-middle">龍昌</td>
+                              <td data-th="名稱" width="10%" class="text-center align-middle">CNC立式加工中心機</td>
+                              <td data-th="型號" width="8%" class="text-center align-middle">V700</td>
+                              <td data-th="年份" width="5%" class="text-center align-middle">2024</td>
+                              <td data-th="價格" width="8%" class="text-center align-middle">27<span>萬元</span></td>
+                              <td data-th="上架" width="5%" class="text-center align-middle">1</td>
+                              <td data-th="狀態" width="5%" class="text-center align-middle">6</td>
+                              <td data-th="描述" width="20%" class="align-middle">L*2.284m、W*1.9m、H*2.77m</td>
+                              <td data-th="備註" width="20%" class="align-middle">
+                                 <p>標配:三色警示燈、工作燈、刀臂式24支刀、自動潤滑系統、主軸冷卻系統、集屑槽、主軸10,000rpm(直結式)、主軸切削液、固定式手輪</p>
+                                 <p>選配:自動門、第四五軸、主軸中心高壓出水裝置、門鎖開關(CE與非CE兩種)、
+                                    主軸側邊吹氣裝置、水槍、空氣槍、油霧回收機、油水分離系統、主軸中央吹氣、履帶式排屑器、變壓器、Z軸行程650mm、加高墊200mm</p>
+                              </td>
+                              <td data-th="買家" width="9%" class="text-center align-middle"></td>
+                              <td data-th="賣家" width="9%" class="text-center align-middle"></td>
+                           </tr> -->
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="card-footer clearfix p-2 align-items-center">
+                  <div class="row d-flex align-items-center">
+                     <div class="col-2">
+                        <button class="btn btn-info" id="add_btn" data-bs-toggle="modal" data-bs-target="#addModal"
+                           data-id="" data-photo="" data-category="" data-brand="" data-name="" data-type="" data-age=""
+                           data-price="" data-condition="" data-status="" data-description="" data-remark="">
+                           新增機台
+                        </button>
+                     </div>
+                     <div class="col-8 d-flex justify-content-center">
+                        <nav aria-label="Page navigation example" class="align-self-center">
+                           <ul class="pagination m-0" id="mypagination">
+                              <!-- <li class="page-item disabled">
+                                 <a class="page-link">Previous</a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                 <a class="page-link" href="#">Next</a>
+                              </li> -->
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+   </div>
+
+   <div class="app-area" id="app">
+      <!-- updateModal -->
+      <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+         data-bs-backdrop="static" data-bs-keyboard="false">
+         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+            <div class="modal-content">
+               <div class="modal-header text-bg-warning fw-900">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">
+                     機台資料庫更新
+                  </h1>
+                  <div class="col-6 text-danger ms-3">
+                     <sup class="s01-sup">*</sup>為必填項目
+                  </div>
+                  <button type="button" class="btn-close" id="updateModal_close_btn" data-bs-dismiss="modal"
+                     aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <div class="mb-3"><!-- 圖片 -->
+                     <label for="updateModal_photo" class="form-label">機台圖片原始檔</label>
+                     <input type="text" class="form-control" id="updateModal_photo" name="updateModal_photo"
+                        style="height: auto;" disabled>
+                     <img id="updateModel_img" src="" class="text-center d-none mt-1"
+                        style="max-height: 400px; max-width: 300px; width: auto; height: auto;" alt="機台圖片">
+                  </div>
+                  <div class="mb-3"><!-- 圖片 -->
+                     <label for="updateModal_photo_re" class="form-label">更新機台圖片(格式jpeg或png)</label>
+                     <!-- 新增的圖片 -->
+                     <input class="form-control mt-1" type="file" id="updateModal_photo_re" name="updateModal_photo_re"
+                        placeholder="圖片格式jpeg或png">
+                     <div class="valid-feedback">圖片格式正確</div>
+                     <div class="invalid-feedback">圖片格式不正確，請選擇jpeg或png檔!</div>
+                     <img id="updateModel_img_re" src="" class="text-center d-none mt-1"
+                        style="max-height: 400px; max-width: 300px; width: auto; height: auto;" alt="機台圖片">
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 種類 -->
+                     <label for="updateModal_category" class="form-label mb-0 me-2"
+                        style="white-space: nowrap;">機台種類<sup class="s01-sup text-danger">*</sup></label>
+                     <select class="form-select" id="updateModal_category" style="height: auto;">
+                        <option selected disabled>--- 選擇機台種類 ---</option>
+                        <option value="1">車床</option>
+                        <option value="2">銑床</option>
+                        <option value="3">鑽床</option>
+                        <option value="4">磨床</option>
+                        <option value="5">鋸床</option>
+                        <option value="6">放電加工機</option>
+                        <option value="7">沖床</option>
+                        <option value="8">鉋床</option>
+                        <option value="9">其他中古機械</option>
+                        <option value="10">新機代理</option>
+                     </select>
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 廠牌 -->
+                     <label for="updateModal_brand" class="form-label mb-0 me-5" style="white-space: nowrap;">廠牌</label>
+                     <input type="text" class="form-control" placeholder="請輸入機台廠牌(2-20字數)" id="updateModal_brand"
+                        name="updateModal_brand" style="height: auto;">
+                     <div class="invalid-feedback" id="updateModal_brand_invalid_feedback">不符合規則</div>
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 機台名稱 -->
+                     <label for="updateModal_name" class="form-label mb-0 me-3"
+                        style="white-space: nowrap;">機台名稱</label>
+                     <input type="text" class="form-control" placeholder="請輸入機台名稱(2-20字數)" id="updateModal_name"
+                        name="updateModal_name" style="height: auto;">
+                     <div class="invalid-feedback" id="updateModal_name_invalid_feedback">不符合規則</div>
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 型號 -->
+                     <label for="updateModal_type" class="form-label mb-0 me-5" style="white-space: nowrap;">型號</label>
+                     <input type="text" class="form-control" placeholder="請輸入型號(2-30字數)" id="updateModal_type"
+                        name="updateModal_type" style="height: auto;">
+                     <div class="invalid-feedback" id="updateModal_type_invalid_feedback">不符合規則</div>
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 製造年份 -->
+                     <label for="updateModal_age" class="form-label mb-0 me-3" style="white-space: nowrap;">製造年份</label>
+                     <select id="updateModal_age" class="form-select" v-model="yearSelect">
+                        <option value="" selected disabled>--- 選擇製造年份 ---</option>
+                        <option v-for="year in yearOptions" :key="year" :value="year">
+                           {{ year }}
+                        </option>
+                     </select>
+                  </div>
+                  <div class="mb-3"> <!-- 價格 -->
+                     <label for="updateModal_price" class="form-label mb-0 me-5" style="white-space: nowrap;">價格<sup
+                           class="s01-sup text-danger">*</sup><span class="ms-3">(單位:萬元)</span></label>
+                     <input type="text" class="mt-1 form-control is-valid" placeholder="請輸入價格，為有效的數字ex:123或123.45"
+                        id="updateModal_price" name="updateModal_price" style="height: auto;">
+                     <div class="valid-feedback" id="updateModal_price_valid_feedback" style="display: none;">價格格式正確
+                     </div>
+                     <div class="invalid-feedback" id="updateModal_price_invalid_feedback" style="display: none;">
+                        價格格式不正確，請輸入有效的數字</div>
+                     <div class="invalid-feedback" id="updateModal_price_empty_feedback" style="display: none;">未輸入價格
+                     </div>
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 上架狀態 -->
+                     <label for="updateModal_condition" class="form-label mb-0 me-2"
+                        style="white-space: nowrap;">上架狀態<sup class="s01-sup text-danger">*</sup></label>
+                     <select class="form-select" id="updateModal_condition" style="height: auto;">
+                        <option selected disabled>--- 選擇上架狀態 ---</option>
+                        <option value="1">未上架</option>
+                        <option value="2">上架</option>
+                     </select>
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 機台狀態 -->
+                     <label for="updateModal_status" class="form-label mb-0 me-2" style="white-space: nowrap;">機台狀態<sup
+                           class="s01-sup text-danger">*</sup></label>
+                     <select class="form-select" id="updateModal_status" style="height: auto;">
+                        <option selected disabled>--- 選擇機台狀態 ---</option>
+                        <option value="0">與賣家洽談中</option>
+                        <option value="1">已向賣家報價</option>
+                        <option value="2">機台整修中</option>
+                        <option value="3">機台運送中</option>
+                        <option value="4">理貨入庫中</option>
+                        <option value="5">理貨完成入庫</option>
+                        <option value="6">在售(上架)</option>
+                        <option value="7">已售出</option>
+                     </select>
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 規格描述 -->
+                     <label for="updateModal_description" class="form-label mb-0 me-3"
+                        style="white-space: nowrap;">規格描述</label>
+                     <input type="text" class="form-control" placeholder="請輸入規格描述" id="updateModal_description"
+                        name="updateModal_description" style="height: auto;">
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 備註 -->
+                     <label for="updateModal_remark" class="form-label mb-0 me-5"
+                        style="white-space: nowrap;">備註</label>
+                     <input type="text" class="form-control" placeholder="請輸入備註" id="updateModal_remark"
+                        name="updateModal_remark" style="height: auto;">
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 賣家 -->
+                     <label for="updateModal_seller" class="form-label mb-0 me-5"
+                        style="white-space: nowrap;">賣家</label>
+                     <input type="text" class="form-control" placeholder="請輸入賣家" id="updateModal_seller"
+                        name="updateModal_seller" style="height: auto;">
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 買家 -->
+                     <label for="updateModal_buyer" class="form-label mb-0 me-5" style="white-space: nowrap;">買家</label>
+                     <input type="text" class="form-control" placeholder="請輸入買家" id="updateModal_buyer"
+                        name="updateModal_buyer" style="height: auto;">
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" id="updateModal_cancel_btn" data-bs-dismiss="modal">
+                     取消
+                  </button>
+                  <button type="button" class="btn btn-primary" id="updateModal_update_btn">
+                     確認更新
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- addModal -->
+      <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+         data-bs-backdrop="static" data-bs-keyboard="false">
+         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+            <div class="modal-content">
+               <div class="modal-header text-bg-info fw-900">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">
+                     新增機台資料庫
+                  </h1>
+                  <div class="col-6 text-danger ms-3">
+                     <sup class="s01-sup">*</sup>為必填項目
+                  </div>
+                  <button type="button" class="btn-close" id="addModal_close_btn" data-bs-dismiss="modal"
+                     aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <div class="mb-3"> <!-- 圖片 -->
+                     <label for="addModal_photo" class="form-label">機台圖片(格式jpeg或png)</label>
+                     <input class="form-control" type="file" id="addModal_photo" name="addModal_photo"
+                        placeholder="圖片格式jpeg或png">
+                     <div class="valid-feedback">圖片格式正確</div>
+                     <div class="invalid-feedback">圖片格式不正確，請選擇jpeg或png檔!</div>
+                     <img id="addModel_img" src="" class="text-center d-none"
+                        style="max-height: 400px; max-width: 300px; width: auto; height: auto;" alt="機台圖片">
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 種類 -->
+                     <label for="addModal_category" class="form-label mb-0 me-2" style="white-space: nowrap;">機台種類<sup
+                           class="s01-sup text-danger">*</sup></label>
+                     <select class="form-select is-invalid" id="addModal_category" style="height: auto;">
+                        <option selected disabled>--- 選擇機台種類 ---</option>
+                        <option value="1">車床</option>
+                        <option value="2">銑床</option>
+                        <option value="3">鑽床</option>
+                        <option value="4">磨床</option>
+                        <option value="5">鋸床</option>
+                        <option value="6">放電加工機</option>
+                        <option value="7">沖床</option>
+                        <option value="8">鉋床</option>
+                        <option value="9">其他中古機械</option>
+                        <option value="10">新機代理</option>
+                     </select>
+                     <div class="invalid-feedback" id="addModal_category_invalid_feedback">請選擇機台種類</div>
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 廠牌 -->
+                     <label for="addModal_brand" class="form-label mb-0 me-5" style="white-space: nowrap;">廠牌</label>
+                     <input type="text" class="form-control" placeholder="請輸入機台廠牌(2-20字數)" id="addModal_brand"
+                        name="addModal_brand" style="height: auto;">
+                     <div class="invalid-feedback" id="addModal_brand_invalid_feedback">不符合規則</div>
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 機台名稱 -->
+                     <label for="addModal_name" class="form-label mb-0 me-3" style="white-space: nowrap;">機台名稱</label>
+                     <input type="text" class="form-control" placeholder="請輸入機台名稱(2-20字數)" id="addModal_name"
+                        name="addModal_name" style="height: auto;">
+                     <div class="invalid-feedback" id="addModal_name_invalid_feedback">不符合規則</div>
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 型號 -->
+                     <label for="addModal_type" class="form-label mb-0 me-5" style="white-space: nowrap;">型號</label>
+                     <input type="text" class="form-control" placeholder="請輸入型號(2-30字數)" id="addModal_type"
+                        name="addModal_type" style="height: auto;">
+                     <div class="invalid-feedback" id="addModal_type_invalid_feedback">不符合規則</div>
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 製造年份 -->
+                     <label for="addModal_age" class="form-label mb-0 me-3" style="white-space: nowrap;">製造年份</label>
+                     <select id="addModal_age" class="form-select" v-model="yearSelect">
+                        <option value="" selected disabled>--- 選擇製造年份 ---</option>
+                        <option v-for="year in yearOptions" :key="year" :value="year">
+                           {{ year }}
+                        </option>
+                     </select>
+                  </div>
+                  <div class="mb-3"> <!-- 價格 -->
+                     <label for="addModal_price" class="form-label mb-0 me-5" style="white-space: nowrap;">價格<sup
+                           class="s01-sup text-danger">*</sup><span class="ms-3">(單位:萬元)</span></label>
+                     <input type="text" class="mt-1 form-control is-invalid" placeholder="請輸入價格，為有效的數字ex:123或123.45"
+                        id="addModal_price" name="addModal_price" style="height: auto;">
+                     <div class="valid-feedback" id="addModal_price_valid_feedback" style="display: none;">價格格式正確</div>
+                     <div class="invalid-feedback" id="addModal_price_invalid_feedback" style="display: none;">
+                        價格格式不正確，請輸入有效的數字</div>
+                     <div class="invalid-feedback" id="addModal_price_empty_feedback" style="display: block;">未輸入價格
+                     </div>
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 上架狀態 -->
+                     <label for="addModal_condition" class="form-label mb-0 me-2" style="white-space: nowrap;">上架狀態<sup
+                           class="s01-sup text-danger">*</sup></label>
+                     <select class="form-select is-invalid" id="addModal_condition" style="height: auto;">
+                        <option selected disabled>--- 選擇上架狀態 ---</option>
+                        <option value="1">未上架</option>
+                        <option value="2">上架</option>
+                     </select>
+                     <div class="invalid-feedback" id="addModal_condition_invalid_feedback">請選擇上架狀態</div>
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 機台狀態 -->
+                     <label for="addModal_status" class="form-label mb-0 me-2" style="white-space: nowrap;">機台狀態<sup
+                           class="s01-sup text-danger">*</sup></label>
+                     <select class="form-select is-invalid" id="addModal_status" style="height: auto;">
+                        <option selected disabled>--- 選擇機台狀態 ---</option>
+                        <option value="0">與賣家洽談中</option>
+                        <option value="1">已向賣家報價</option>
+                        <option value="2">機台整修中</option>
+                        <option value="3">機台運送中</option>
+                        <option value="4">理貨入庫中</option>
+                        <option value="5">理貨完成入庫</option>
+                        <option value="6">在售(上架)</option>
+                        <option value="7">已售出</option>
+                     </select>
+                     <div class="invalid-feedback" id="addModal_status_invalid_feedback">請選擇機台狀態</div>
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 規格描述 -->
+                     <label for="addModal_description" class="form-label mb-0 me-3"
+                        style="white-space: nowrap;">規格描述</label>
+                     <input type="text" class="form-control" placeholder="請輸入規格描述" id="addModal_description"
+                        name="addModal_description" style="height: auto;">
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 備註 -->
+                     <label for="addModal_remark" class="form-label mb-0 me-5" style="white-space: nowrap;">備註</label>
+                     <input type="text" class="form-control" placeholder="請輸入備註" id="addModal_remark"
+                        name="addModal_remark" style="height: auto;">
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 賣家 -->
+                     <label for="addModal_seller" class="form-label mb-0 me-5" style="white-space: nowrap;">賣家</label>
+                     <input type="text" class="form-control" placeholder="請輸入賣家" id="addModal_seller"
+                        name="addModal_seller" style="height: auto;">
+                  </div>
+                  <div class="mb-3 d-flex align-items-center"> <!-- 買家 -->
+                     <label for="addModal_buyer" class="form-label mb-0 me-5" style="white-space: nowrap;">買家</label>
+                     <input type="text" class="form-control" placeholder="請輸入買家" id="addModal_buyer"
+                        name="addModal_buyer" style="height: auto;">
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" id="addModal_cancel_btn" data-bs-dismiss="modal">
+                     取消
+                  </button>
+                  <button type="button" class="btn btn-primary" id="addModal_update_btn">
+                     確認新增機台資料
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- sectionEND 其他連結和網頁版權 -->
+   <section id="s0end" class="bg-secondary">
+      <div class="container align-items-center">
+         <ul class="nav">
+            <li class="nav-item">
+               <a class="nav-link disabled" style="color: white;">PowerBy 113年雲端技術應用實務班第2期3號陳俞蓁</a>
+            </li>
+            <li class="nav-item">
+               <a href="https://gcis.nat.gov.tw/mainNew/" class="nav-link active" aria-current="page" target="_blank"
+                  style="color: white;" rel="noopener noreferrer">全國商工行政服務入口網</a>
+            </li>
+         </ul>
+      </div>
+   </section>
+
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.7.1.min.js"></script>
+   <script src="js/jquery.transit.min.js"></script>
+   <script src="js/wow.min.js"></script>
+   <script src="js/counterup2.js"></script>
+   <script src="js/CityCountyData.json"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="js/vue.global.js"></script>
+   <script>
+      // vue
+      const App = {
+         data() {
+            return {
+               yearSelect: '',
+               yearOptions: [],
+            }
+         },
+         created() {
+            const currentYear = new Date().getFullYear();
+            this.yearOptions = Array.from({ length: 50 }, (_, i) => currentYear - i);
+         }
+      }
+      Vue.createApp(App).mount('#app');
+
+      // section01 日期時間功能
+      function updateDateTime() {
+         const now = new Date();
+         const formattedDateTime = now.toLocaleString(); // 取得日期時間
+         const weekdays = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+         const weekday = weekdays[now.getDay()]; // 取得星期幾
+
+         document.getElementById("datetime").textContent = formattedDateTime;
+         document.getElementById("weekday").textContent = weekday;
+      }
+
+      updateDateTime(); // 頁面載入時執行
+      setInterval(updateDateTime, 1000); // 每秒更新
+
+      var flag_updateModal_photo_re = true;
+      var flag_updateModal_brand = true;
+      var flag_updateModal_name = true;
+      var flag_updateModal_type = true;
+      var flag_updateModal_price = true;
+
+      var flag_addModal_photo = true;
+      var flag_addModal_brand = true;
+      var flag_addModal_name = true;
+      var flag_addModal_type = true;
+      var flag_addModal_price = false;
+      // 以下3項updateMoodal不需要(開啟Modal時就會取得原有設定的資料)
+      var flag_addModal_category = false;
+      var flag_addModal_condition = false;
+      var flag_addModal_status = false;
+      $(function () {
+         //s01_logout_btn 按鈕監聽
+         $("#s01_logout_btn").click(function () {
+            Swal.fire({
+               title: '確定登出嗎?',
+               text: "您確定要登出嗎？",
+               icon: 'warning',
+               showCancelButton: true,
+               confirmButtonText: '確定',
+               cancelButtonText: '取消',
+               reverseButtons: true  // 使確定和取消按鈕的順序顛倒
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  sessionStorage.clear(); // 清除所有 sessionStorage
+                  localStorage.clear(); // 若有使用 localStorage 也一併清除
+                  document.cookie = "uid01=; max-age=0; path=/;"; //清除cookie
+                  Swal.fire({
+                     title: '登出成功!',
+                     text: '3秒後將自動跳轉至主頁...',
+                     icon: 'success',
+                     timer: 3000,  // 2 秒後自動關閉
+                     showConfirmButton: false
+                  });
+                  setTimeout(function () {
+                     location.href = "tegrand_project_v4.html";
+                  }, 3000);
+               } else {
+                  // // 如果用戶點擊取消
+                  // Swal.fire({
+                  //    title: '登出已取消',
+                  //    text: '您還在當前頁面！',
+                  //    icon: 'info'
+                  // });
+               }
+            });
+         });
+
+         //確認uid是否合法
+         if (getCookie("uid01")) {
+            //將uid01傳遞至後端API執行驗證
+            //input {"uid01" : "c5e6c37a"}
+            var JSONdata = {};
+            JSONdata["uid01"] = getCookie("uid01");
+            console.log(JSON.stringify(JSONdata));
+
+            $.ajax({
+               type: "POST",
+               url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=checkuid",
+               data: JSON.stringify(JSONdata),
+               dataType: "json",
+               success: showdata_checkuid,
+               error: function () {
+                  Swal.fire({
+                     title: "API介接錯誤!",
+                     text: "tegrand_member_control_api_v1.php?action=checkuid",
+                     icon: "error"
+                  });
+               }
+            });
+         } else {
+            Swal.fire({
+               title: "請先登入會員!",
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               allowOutsideClick: false
+            }).then((result) => {
+               /* Read more about isConfirmed, isDenied below */
+               if (result.isConfirmed) {
+                  location.href = "tegrand_project_v4.html";
+               }
+            });
+         }
+
+         // 禁止輸入空白鍵
+         $("#updateModal_price, #addModal_price").on("keydown", function (e) {
+            if (e.key === " ") {
+               e.preventDefault(); // 阻止輸入空白鍵
+            }
+         });
+
+         $("#addModal_photo").change(function () {
+            console.log(addModal_photo);
+            console.log(addModal_photo.files);
+            console.log(addModal_photo.files[0]);
+            console.log(addModal_photo.files[0].type);
+
+            if (addModal_photo.files[0].type == "image/jpeg" || addModal_photo.files[0].type == "image/png") {
+               console.log(URL.createObjectURL(addModal_photo.files[0]));
+               $("#addModel_img").removeClass("d-none");
+               $("#addModel_img").attr("src", URL.createObjectURL(addModal_photo.files[0]));
+
+               //顯示feedback
+               $("#addModal_photo").removeClass("is-invalid");
+               $("#addModal_photo").addClass("is-valid");
+
+               flag_addModal_photo = true;
+            } else {
+               //顯示feedback
+               $("#addModal_photo").removeClass("is-valid");
+               $("#addModal_photo").addClass("is-invalid");
+               $("#addModel_img").addClass("d-none");
+
+               flag_addModal_photo = false;
+            }
+         });
+
+         //即時監聽addModal_brand
+         $("#addModal_brand").bind("input propertychange", function () {
+            if (($(this).val().length > 1 && $(this).val().length < 21) || ($(this).val().length === 0)) {
+               $(this).removeClass("is-invalid");
+               flag_addModal_brand = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_addModal_brand = false;
+            }
+         });
+
+         //即時監聽addModal_name
+         $("#addModal_name").bind("input propertychange", function () {
+            if (($(this).val().length > 1 && $(this).val().length < 21) || ($(this).val().length === 0)) {
+               $(this).removeClass("is-invalid");
+               flag_addModal_name = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_addModal_name = false;
+            }
+         });
+
+         //即時監聽addModal_type
+         $("#addModal_type").bind("input propertychange", function () {
+            if (($(this).val().length > 1 && $(this).val().length < 31) || ($(this).val().length === 0)) {
+               $(this).removeClass("is-invalid");
+               flag_addModal_type = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_addModal_type = false;
+            }
+         });
+
+         //即時監聽addModal_price
+         $("#addModal_price").bind("input propertychange", function () {
+            var pricePattern = /^\d+(\.\d{1,4})?$/; // 價格格式檢查
+            var priceValue = $(this).val();
+
+            if (priceValue === "") {
+               $(this).removeClass("is-valid").addClass("is-invalid");
+               $("#addModal_price_empty_feedback").show();
+               $("#addModal_price_valid_feedback").hide();
+               $("#addModal_price_invalid_feedback").hide();
+               flag_addModal_price = false;
+            } else if (pricePattern.test(priceValue)) {
+               $(this).removeClass("is-invalid").addClass("is-valid");
+               $("#addModal_price_valid_feedback").show();
+               $("#addModal_price_invalid_feedback").hide();
+               $("#addModal_price_empty_feedback").hide();
+               flag_addModal_price = true;
+            } else {
+               $(this).removeClass("is-valid").addClass("is-invalid");
+               $("#addModal_price_invalid_feedback").show();
+               $("#addModal_price_valid_feedback").hide();
+               $("#addModal_price_empty_feedback").hide();
+               flag_addModal_price = false;
+            }
+         });
+
+         //即時監聽addModal_category
+         $("#addModal_category").bind("change input propertychange", function () {
+            var selectedValue = $(this).val();
+
+            if (selectedValue) {
+               $(this).removeClass("is-invalid");
+               flag_addModal_category = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_addModal_category = false;
+            }
+         });
+
+         //即時監聽addModal_condition
+         $("#addModal_condition").bind("change input propertychange", function () {
+            var selectedValue = $(this).val();
+
+            if (selectedValue) {
+               $(this).removeClass("is-invalid");
+               flag_addModal_condition = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_addModal_condition = false;
+            }
+         });
+
+         //即時監聽addModal_status
+         $("#addModal_status").bind("change input propertychange", function () {
+            var selectedValue = $(this).val();
+
+            if (selectedValue) {
+               $(this).removeClass("is-invalid");
+               flag_addModal_status = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_addModal_status = false;
+            }
+         });
+
+         //即時監聽updateModal_photo
+         $("#updateModal_photo_re").bind("input propertychange", function () {
+            console.log(updateModal_photo_re);
+            console.log(updateModal_photo_re.files);
+            console.log(updateModal_photo_re.files[0]);
+            console.log(updateModal_photo_re.files[0].type);
+
+            if (updateModal_photo_re.files[0].type == "image/jpeg" || updateModal_photo_re.files[0].type == "image/png") {
+               console.log(URL.createObjectURL(updateModal_photo_re.files[0]));
+               $("#updateModel_img_re").removeClass("d-none");
+               $("#updateModel_img_re").attr("src", URL.createObjectURL(updateModal_photo_re.files[0]));
+
+               //顯示feedback
+               $("#updateModal_photo_re").removeClass("is-invalid");
+               $("#updateModal_photo_re").addClass("is-valid");
+
+               flag_updateModal_photo_re = true;
+            } else {
+               //顯示feedback
+               $("#updateModal_photo_re").removeClass("is-valid");
+               $("#updateModal_photo_re").addClass("is-invalid");
+               $("#updateModel_img_re").addClass("d-none");
+
+               flag_updateModal_photo_re = false;
+            }
+         });
+
+         //即時監聽updateModal_brand
+         $("#updateModal_brand").bind("input propertychange", function () {
+            if (($(this).val().length > 1 && $(this).val().length < 21) || ($(this).val().length === 0)) {
+               $(this).removeClass("is-invalid");
+               flag_updateModal_brand = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_updateModal_brand = false;
+            }
+         });
+
+         //即時監聽updateModal_name
+         $("#updateModal_name").bind("input propertychange", function () {
+            if (($(this).val().length > 1 && $(this).val().length < 21) || ($(this).val().length === 0)) {
+               $(this).removeClass("is-invalid");
+               flag_updateModal_name = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_updateModal_name = false;
+            }
+         });
+
+         //即時監聽updateModal_type
+         $("#updateModal_type").bind("input propertychange", function () {
+            if (($(this).val().length > 1 && $(this).val().length < 31) || ($(this).val().length === 0)) {
+               $(this).removeClass("is-invalid");
+               flag_updateModal_type = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_updateModal_type = false;
+            }
+         });
+
+         //即時監聽updateModal_price
+
+         $("#updateModal_price").bind("input propertychange", function () {
+            var pricePattern = /^\d+(\.\d{1,4})?$/;
+            var priceValue = $(this).val();
+
+            if (priceValue === "") {
+               $(this).removeClass("is-valid").addClass("is-invalid");
+               $("#updateModal_price_empty_feedback").show();
+               $("#updateModal_price_valid_feedback").hide();
+               $("#updateModal_price_invalid_feedback").hide();
+               flag_updateModal_price = false;
+            } else if (pricePattern.test(priceValue)) {
+               $(this).removeClass("is-invalid").addClass("is-valid");
+               $("#updateModal_price_valid_feedback").show();
+               $("#updateModal_price_invalid_feedback").hide();
+               $("#updateModal_price_empty_feedback").hide();
+               flag_updateModal_price = true;
+            } else {
+               $(this).removeClass("is-valid").addClass("is-invalid");
+               $("#updateModal_price_invalid_feedback").show();
+               $("#updateModal_price_valid_feedback").hide();
+               $("#updateModal_price_empty_feedback").hide();
+               flag_updateModal_price = false;
+            }
+         });
+
+         // 監聽addModal_update_btn
+         $("#addModal_update_btn").click(function () {
+            event.preventDefault(); // 防止默認行為
+            $(this).prop("disabled", true); // **註冊時禁用按鈕，防止重複提交**
+
+            if (flag_addModal_photo && flag_addModal_brand && flag_addModal_name && flag_addModal_type && flag_addModal_price && flag_addModal_category && flag_addModal_condition && flag_addModal_status) {
+               var formData = new FormData();
+
+               // 檢查是否有檔案
+               if ($("#addModal_photo")[0].files.length > 0) {
+                  formData.append("file", $("#addModal_photo")[0].files[0]);
+               }
+
+               var JSONdata = {
+                  item_category: $("#addModal_category").val(),
+                  item_brand: $("#addModal_brand").val(),
+                  item_name: $("#addModal_name").val(),
+                  item_type: $("#addModal_type").val(),
+                  item_age: $("#addModal_age").val(),
+                  item_price: $("#addModal_price").val(),
+                  item_condition: $("#addModal_condition").val(),
+                  item_status: $("#addModal_status").val(),
+                  item_description: $("#addModal_description").val(),
+                  item_remark: $("#addModal_remark").val(),
+                  item_seller: $("#addModal_seller").val(),
+                  item_buyer: $("#addModal_buyer").val()
+               };
+
+               // 把 JSON 轉成字串後加入 FormData
+               formData.append("json_data", JSON.stringify(JSONdata));
+
+               $.ajax({
+                  type: "POST",
+                  url: "http://localhost/web202411/tegrand_item_control_api.php?action=add",
+                  data: formData,
+                  processData: false,
+                  contentType: false,
+                  dataType: "json",
+                  success: showdata_add,
+                  error: function () {
+                     Swal.fire({
+                        title: "API介接錯誤!",
+                        text: "item_control_api.php?action=add",
+                        icon: "error"
+                     });
+                     $("#addModal_update_btn").prop("disabled", false); // 失敗時恢復按鈕
+                  }
+               });
+            } else {
+               let errors = [];
+
+               if (!flag_addModal_category) errors.push("機台種類錯誤");
+               if (!flag_addModal_brand) errors.push("機台廠牌錯誤");
+               if (!flag_addModal_name) errors.push("機台名稱錯誤");
+               if (!flag_addModal_type) errors.push("機台型號錯誤");
+               if (!flag_addModal_price) errors.push("機台價格錯誤");
+               if (!flag_addModal_condition) errors.push("上架狀態錯誤");
+               if (!flag_addModal_status) errors.push("機台狀態錯誤");
+
+               Swal.fire({
+                  title: "欄位有錯誤，請修正!",
+                  html: errors.map(err => `<div style="color: red;">• ${err}</div>`).join(""), // 顯示錯誤列表
+                  icon: "warning",
+                  showCancelButton: false,
+                  confirmButtonColor: "#3085d6",
+                  confirmButtonText: "確認"
+               })
+            }
+         });
+
+         // addModal關閉後初始化
+         $("#addModal_cancel_btn, #addModal_close_btn").on("click", function () {
+            $("#addModal").on("hidden.bs.modal", function () {
+               window.location.reload();
+            });
+         });
+
+         // updateModal關閉後初始化
+         $("#updateModal_cancel_btn, #updateModal_close_btn").on("click", function () {
+            $("#updateModal").on("hidden.bs.modal", function () {
+               window.location.reload();
+            });
+         });
+      });
+
+      function showdata_checkuid(data) {
+         console.log(data);
+         if (data.state) {
+            // 顯示歡迎訊息
+            // $("#s01_username_showspan").removeClass("d-none");
+            // $("#s01_username_span").text(data.data.Username);
+
+            // 顯示登出按鈕
+            // $("#s01_logout_btn").removeClass("d-none");
+
+            // 渲染table資料
+            $.ajax({
+               type: "GET",
+               url: "http://localhost/web202411/tegrand_item_control_api.php?action=getalldata",
+               dataType: "json",
+               success: showdata_getallitemcounts,
+               async: false,
+               error: function () {
+                  Swal.fire({
+                     title: "API介接錯誤!",
+                     text: "tegrand_item_control_api.php?action=getalldata",
+                     icon: "error"
+                  });
+               }
+            });
+         } else {
+            Swal.fire({
+               title: "請重新登入!",
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  location.href = "tegrand_project_v4.html";
+               }
+            });
+         }
+      }
+
+      function showdata_getallitemcounts(data) {
+         console.log(data);
+
+         // 回傳機台數量
+         $("#myitemdata").empty(); // 假設返回的資料格式是{ item_all_count: 100 }
+         var itemCount = data.data.item_all_count;
+         var itemHTML = `${itemCount}`;
+         $("#myitemdata").append(itemHTML);
+
+         // 回傳資料、分頁頁數
+         let currentPage = data.data?.current_page || 1;
+         let totalPages = data.data?.total_item_all_pages
+            || 1;
+         let items = data.data.items_data_page;
+
+         $("#mydata").empty();
+         $("#mypagination").empty();
+
+         if (!Array.isArray(items)) {
+            console.error("資料格式錯誤", data);
+            Swal.fire("資料格式錯誤", "無法解析資料", "error");
+            return;
+         }
+
+         // 渲染機台資料
+         items.forEach(function (item) {
+            var strHTML = `<tr>
+                              <td data-th="勾選方框" class="text-center align-middle">
+                                 <input class="form-check-input row-checkbox" type="checkbox" data-id="${item.item_id}">
+                              </td>
+                              <td data-th="編號" class="text-center align-middle">${item.item_id}</td>
+                              <td data-th="圖片" class="text-center align-middle" style="overflow: hidden;">
+                                 <img class="table-img" src="${item.item_photo}" alt="">
+                              </td>
+                              <td data-th="種類" class="text-center align-middle">${item.item_category}</td>
+                              <td data-th="廠牌" class="text-center align-middle">${item.item_brand}</td>
+                              <td data-th="名稱" class="text-center align-middle">${item.item_name}</td>
+                              <td data-th="型號" class="text-center align-middle">${item.item_type}</td>
+                              <td data-th="年份" class="text-center align-middle">${item.item_age}</td>
+                              <td data-th="價格" class="text-center align-middle">${item.item_price}<span>萬元</span></td>
+                              <td data-th="上架" class="text-center align-middle">${item.item_condition}</td>
+                              <td data-th="狀態" class="text-center align-middle">${item.item_status}</td>
+                              <td data-th="描述" class="align-middle">${item.item_description}</td>
+                              <td data-th="備註" class="align-middle">${item.item_remark}</td>
+                              <td data-th="買家" class="text-center align-middle">${item.item_seller}</td>
+                              <td data-th="賣家" class="text-center align-middle">${item.item_buyer}</td>
+                           </tr>`;
+            $("#mydata").append(strHTML);
+         });
+
+         $("#update_btn").click(function () {
+            var selectedItemId = null;
+
+            // 被選中的checkbox ID
+            $(".row-checkbox:checked").each(function () {
+               selectedItemId = $(this).data("id");
+               console.log(selectedItemId); // 輸出選中的 ID
+            });
+
+            // 在 items 中查找對應的資料
+            var itemToUpdate = items.find(item => item.item_id === selectedItemId);
+
+            // 將資料同步至updateModal
+            $("#updateModal_photo").val(itemToUpdate.item_photo);
+            $("#updateModel_img").attr("src", itemToUpdate.item_photo).removeClass("d-none"); // 將圖片的 src 設置為 item_photo
+
+            $("#updateModal_category").val(itemToUpdate.item_category);
+            $("#updateModal_brand").val(itemToUpdate.item_brand);
+            $("#updateModal_name").val(itemToUpdate.item_name);
+            $("#updateModal_type").val(itemToUpdate.item_type);
+            $("#updateModal_age").val(itemToUpdate.item_age);
+            $("#updateModal_price").val(itemToUpdate.item_price);
+            $("#updateModal_condition").val(itemToUpdate.item_condition);
+            $("#updateModal_status").val(itemToUpdate.item_status);
+            $("#updateModal_description").val(itemToUpdate.item_description);
+            $("#updateModal_remark").val(itemToUpdate.item_remark);
+            $("#updateModal_seller").val(itemToUpdate.item_seller);
+            $("#updateModal_buyer").val(itemToUpdate.item_buyer);
+
+            // 監聽 updateModal_update_btn
+            $("#updateModal_update_btn").click(function () {
+               let errors = [];
+
+               //先檢查 價格 item_price 是否為空
+               // console.log(itemToUpdate.item_price);
+               let priceValue = itemToUpdate.item_price;
+               if (!priceValue) {
+                  Swal.fire({
+                     title: "價格為必填項目!",
+                     icon: "error"
+                  });
+                  return;
+               }
+
+               // 檢查是否有檔案
+               var formData = new FormData();
+               if ($("#updateModal_photo_re")[0].files.length > 0) {
+                  formData.append("file", $("#updateModal_photo_re")[0].files[0]);
+               } else {
+                  // 沒有新檔案，保持原始圖片路徑
+                  formData.append("original_photo", itemToUpdate.item_photo);
+               }
+
+               //確保 flag 變數不會是 undefined
+               flag_updateModal_photo_re = flag_updateModal_photo_re ?? false;
+               flag_updateModal_brand = flag_updateModal_brand ?? false;
+               flag_updateModal_name = flag_updateModal_name ?? false;
+               flag_updateModal_type = flag_updateModal_type ?? false;
+
+               //收集錯誤訊息
+               if (!flag_updateModal_photo_re) errors.push("更新機台圖片錯誤");
+               if (!flag_updateModal_brand) errors.push("機台廠牌錯誤");
+               if (!flag_updateModal_name) errors.push("機台名稱錯誤");
+               if (!flag_updateModal_type) errors.push("機台型號錯誤");
+
+               // 如果有錯誤，顯示 Swal.fire 並停止執行
+               if (errors.length > 0) {
+                  Swal.fire({
+                     title: "欄位有錯誤，請修正!",
+                     html: errors.map(err => `<div style="color: red;"> • ${err}</div>`).join(""),
+                     icon: "warning",
+                     confirmButtonColor: "#3085d6",
+                     confirmButtonText: "確認"
+                  });
+                  return;
+               }
+
+               // 準備要傳送的 JSON 資料
+               var JSONdata = {
+                  item_id: selectedItemId,
+                  item_category: $("#updateModal_category").val(),
+                  item_brand: $("#updateModal_brand").val(),
+                  item_name: $("#updateModal_name").val(),
+                  item_type: $("#updateModal_type").val(),
+                  item_age: $("#updateModal_age").val(),
+                  item_price: $("#updateModal_price").val(),
+                  item_condition: $("#updateModal_condition").val(),
+                  item_status: $("#updateModal_status").val(),
+                  item_description: $("#updateModal_description").val(),
+                  item_remark: $("#updateModal_remark").val(),
+                  item_seller: $("#updateModal_seller").val(),
+                  item_buyer: $("#updateModal_buyer").val()
+               };
+
+               // 把 JSON 轉成字串後加入 FormData
+               formData.append("json_data", JSON.stringify(JSONdata));
+
+               // 檢查是否有欄位變更
+               // if (!Object.values(JSONdata).some(value => value !== null && value !== "")) {
+               //    Swal.fire({
+               //       title: "無欄位內容變更!",
+               //       icon: "error"
+               //    });
+               //    return;
+               // }
+               let isChanged = Object.keys(JSONdata).some(key => JSONdata[key] !== itemToUpdate[key]);
+
+               if (!isChanged) {
+                  Swal.fire({
+                     title: "無欄位內容變更!",
+                     icon: "error"
+                  });
+                  return;
+               }
+
+               $.ajax({
+                  type: "POST",
+                  url: "http://localhost/web202411/tegrand_item_control_api.php?action=update",
+                  data: formData,
+                  processData: false,
+                  contentType: false,
+                  dataType: "json",
+                  success: showdata_update,
+                  error: function () {
+                     Swal.fire({
+                        title: "API介接錯誤!",
+                        text: "item_control_api.php?action=update",
+                        icon: "error"
+                     });
+                     $("#addModal_update_btn").prop("disabled", false); // 失敗時恢復按鈕
+                  }
+               });
+            });
+         });
+
+
+         //批量刪除按鈕
+         $("#delete_all_btn").click(function () {
+            //收集所有選中的會員id
+            var selectedItems = [];
+            $(".row-checkbox:checked").each(function () {
+               selectedItems.push($(this).data("id"));
+            });
+
+            if (selectedItems.length === 0) {
+               Swal.fire({
+                  title: "請選擇至少一筆資料進行刪除",
+                  icon: "warning"
+               });
+               return;
+            }
+
+            Swal.fire({
+               title: "確認刪除選中的機台資訊?",
+               showDenyButton: true,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `取消`,
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  console.log(selectedItems);
+                  // 傳遞至後端API執行刪除操作
+                  var JSONdata = { "item_ids": selectedItems };
+                  console.log(JSON.stringify(JSONdata));
+
+                  $.ajax({
+                     type: "DELETE",
+                     url: "http://localhost/web202411/tegrand_item_control_api.php?action=delete_selected",
+                     data: JSON.stringify(JSONdata),
+                     dataType: "json",
+                     success: showdata_delete,
+                     error: function () {
+                        Swal.fire({
+                           title: "API介接錯誤!",
+                           text: "tegerand_item_control_api.php?action=delete",
+                           icon: "error"
+                        });
+                     }
+                  });
+               }
+            });
+         });
+
+         // 生成分頁按鈕
+         updatePagination(totalPages, currentPage);
+      }
+
+      function showdata_update(data) {
+         console.log(data);
+         if (data.state) {
+            Swal.fire({
+               title: data.message,
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               icon: "success",
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  location.href = "tegrand_controlPanel_item.html";
+               }
+            })
+         } else {
+            Swal.fire({
+               title: data.message,
+               icon: "error"
+            });
+         }
+      }
+
+      function showdata_delete(data) {
+         console.log(data);
+         if (data.state) {
+            Swal.fire({
+               title: data.message,
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               icon: "success",
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  location.href = "tegrand_controlPanel_item.html";
+               }
+            })
+         } else {
+            Swal.fire({
+               title: data.message,
+               icon: "error"
+            });
+         }
+      }
+
+      function showdata_add(data) {
+         console.log(data);  // 確認回應資料
+         if (data.state) {
+            Swal.fire({
+               title: data.message,
+               icon: "success",
+               allowOutsideClick: false,  // 禁止外部點擊關閉
+               confirmButtonText: "OK",
+            }).then((result) => {
+               $("#addModal_update_btn").prop("disabled", true); // 註冊成功後禁用按鈕
+               // 只在使用者點擊確認後刷新頁面
+               if (result.isConfirmed) {
+                  // location.href = "tegrand_controlPanel_item.html";
+                  window.location.assign("tegrand_controlPanel_item.html");
+               }
+            });
+         } else {
+            Swal.fire({
+               title: data.message,
+               icon: "error",
+               confirmButtonText: "OK"
+            });
+         }
+      }
+
+      // 生成分頁按鈕（限制最多顯示 10 個按鈕）
+      function updatePagination(totalPages, currentPage) {
+         let paginationHtml = "";
+
+         // 確保最大顯示的頁碼數不會超過總頁數
+         let maxPagesToShow = Math.min(10, totalPages);
+         let startPage, endPage;
+
+         // 計算起始和結束頁碼
+         if (totalPages <= maxPagesToShow) {
+            startPage = 1;
+            endPage = totalPages; // 總頁數小於或等於 10，顯示所有頁碼
+         } else {
+            startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+            endPage = startPage + maxPagesToShow - 1;
+
+            // 確保不會超出範圍
+            if (endPage > totalPages) {
+               endPage = totalPages;
+               startPage = Math.max(1, endPage - maxPagesToShow + 1);
+            }
+         }
+
+         // **上一頁 & 第一頁**
+         if (currentPage > 1) {
+            paginationHtml += `<li class="page-item">
+            <a class="page-link" href="#" data-page="1">&laquo;</a></li>`;
+            paginationHtml += `<li class="page-item">
+            <a class="page-link" href="#" data-page="${currentPage - 1}">&lt;</a></li>`;
+         }
+
+         // **產生實際有資料的頁碼**
+         for (let i = startPage; i <= endPage; i++) {
+            paginationHtml += `<li class="page-item ${i === currentPage ? 'active' : ''}">
+            <a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
+         }
+
+         // **下一頁 & 最後一頁**
+         if (currentPage < totalPages) {
+            paginationHtml += `<li class="page-item">
+            <a class="page-link" href="#" data-page="${currentPage + 1}">&gt;</a></li>`;
+            paginationHtml += `<li class="page-item">
+            <a class="page-link" href="#" data-page="${totalPages}">&raquo;</a></li>`;
+         }
+
+         // **當總頁數超過 1 才顯示分頁按鈕**
+         if (totalPages > 1) {
+            $("#mypagination").html(paginationHtml);
+         } else {
+            $("#mypagination").empty(); // 只有 1 頁時，不顯示分頁
+         }
+      }
+
+
+      // 監聽分頁按鈕點擊
+      $("#mypagination").on("click", ".page-link", function (e) {
+         e.preventDefault();
+         let page = $(this).data("page");
+         fetchUserData(page);
+      });
+
+      // AJAX 請求函式
+      function fetchUserData(page) {
+         $.ajax({
+            url: "http://localhost/web202411/tegrand_item_control_api.php?action=getalldata",
+            type: "GET",
+            data: { page: page },
+            dataType: "json",
+            success: function (response) {
+               if (response.state) {
+                  showdata_getallitemcounts(response);
+               } else {
+                  Swal.fire("資料加載失敗", response.message, "error");
+               }
+            },
+            error: function () {
+               Swal.fire("無法取得資料", "請檢查後端 API。", "error");
+            }
+         });
+      }
+
+      // 頁面加載時載入第 1 頁
+      $(document).ready(function () {
+         fetchUserData(1);
+      });
+
+      $(document).ready(function () {
+         // 綁定全選 checkbox
+         $(document).on("change", ".checkbox-all", function () {
+            $(".row-checkbox").prop("checked", this.checked); // 設定所有 checkbox 狀態
+            $("#update_btn").prop("disabled", true)
+               .removeClass("btn-warning")
+               .addClass("btn-secondary");  // 按鈕失效時變灰色
+         });
+
+         // 監聽 tbody 內的 checkbox
+         $(document).on("change", ".row-checkbox", function () {
+            let checkedCount = $(".row-checkbox:checked").length;
+            let isAllChecked = $(".row-checkbox").length === checkedCount;
+
+            // 更新全選 checkbox 狀態
+            $(".checkbox-all").prop("checked", isAllChecked);
+
+            // 控制 update_btn 啟用狀態及顏色
+            if (checkedCount === 1) {
+               $("#update_btn").prop("disabled", false)
+                  .removeClass("btn-secondary")
+                  .addClass("btn-warning");  // 啟用時變橘色
+            } else {
+               $("#update_btn").prop("disabled", true)
+                  .removeClass("btn-warning")
+                  .addClass("btn-secondary");  // 失效時變灰色
+            }
+         });
+      });
+
+
+
+
+      // //全選與單選checkbox
+      // $(document).ready(function () {
+      //    //綁定全選checkbox
+      //    $(document).on("change", ".checkbox-all", function () {
+      //       $(".row-checkbox").prop("checked", this.checked); // 設定所有 checkbox 狀態
+      //       $("#update_btn").prop("disabled", true); //更新button失效
+      //    });
+
+      //    //監聽tbody內的checkbox
+      //    $(document).on("change", ".row-checkbox", function () {
+      //       $(".checkbox-all").prop(
+      //          "checked",
+      //          $(".row-checkbox").length === $(".row-checkbox:checked").length
+      //       );
+      //    });
+      // });
+
+      document.addEventListener("DOMContentLoaded", function () {
+         let username = sessionStorage.getItem("username"); // 取得用戶名稱
+         // let role = sessionStorage.getItem("role"); // 取得角色
+
+         if (username) {
+            $("#s01_username_showspan").removeClass("d-none");
+            $("#s01_username_span").text(username);
+         } else {
+            // document.getElementById("welcome_msg").textContent = "歡迎訪客！";
+         }
+      });
+
+      function setCookie(cname, cvalue, exdays) {
+         const d = new Date();
+         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+         let expires = "expires=" + d.toUTCString();
+         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+         console.log(document.cookie);
+      }
+
+      function getCookie(cname) {
+         let name = cname + "=";
+         let ca = document.cookie.split(';');
+         for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+               c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+               return c.substring(name.length, c.length);
+            }
+         }
+         return "";
+      }
+   </script>
+</body>
+
+</html>

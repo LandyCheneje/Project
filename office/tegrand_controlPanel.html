@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>得昌行|捷獅---管理系統</title>
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/mycolor-tegrand.css">
+   <link rel="stylesheet" href="css/all.min.css">
+   <link rel="stylesheet" href="css/animate.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
+      integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css"
+      integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous">
+   <!--滾動條樣式 (OverlayScrollbars)-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
+      integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
+   <!--Bootstrap Icons（圖示庫）-->
+   <link rel="stylesheet" href="css/adminlte.css"> <!--AdminLTE（後台管理模板 CSS）-->
+   <link rel="icon" href="images/MajorProject/捷獅.webp" type="image/png">
+   <style>
+      /*連結底線顯示none*/
+      a {
+         text-decoration: none;
+      }
+
+      /* 回到頁面頂部 */
+      #backToTop {
+         position: fixed;
+         bottom: 20px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      }
+
+      #backToTop:hover {
+         background-color: var(--myjumpcolor02);
+      }
+
+      /* s01 */
+      #s01 {
+         background-color: var(--myjumpcolor03);
+         height: auto;
+      }
+
+      .s01-icon {
+         color: var(--myjumpcolor01);
+         font-size: 40px;
+      }
+
+      .s01-icon-fb {
+         color: #1877f2;
+         font-size: 50px;
+      }
+
+      .s01-icon-line {
+         color: #00b900;
+         font-size: 45px;
+      }
+
+      .s01-icon-ig {
+         color: #833ab4;
+         font-size: 50px;
+      }
+
+      .s01-icon-threads {
+         color: #000000;
+         font-size: 50px;
+      }
+
+      .s01-span {
+         font-size: 30px;
+         line-height: 1;
+      }
+
+      .s01-sup {
+         font-size: 15px;
+      }
+
+      /* s02 */
+      .navbar {
+         background-color: var(--myjumpcolor01);
+      }
+
+      .navbar-brand-img {
+         width: 80px;
+         border-radius: 20px;
+      }
+
+      .navbar-brand-name {
+         font-size: 60px;
+         color: white;
+      }
+
+      .nav-link {
+         border-radius: 10px;
+         color: white;
+      }
+
+      .s02-icon {
+         color: white;
+      }
+
+      .s02-icon-span {
+         color: white;
+         font-size: 30px;
+      }
+
+      .s02-icon-dropdown {
+         color: var(--myjumpcolor01);
+         font-size: 25px;
+      }
+
+      .s02-icon-dropdown-span {
+         color: var(--myjumpcolor01);
+         font-size: 30px;
+      }
+
+      /* section02 banner按鍵動作 */
+      .navbar a:hover,
+      .navbar button:hover {
+         background-color: var(--myjumpcolor03);
+         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+         transform: translateY(-2px);
+         transition: all 0.3s ease-in-out;
+      }
+
+      .navbar a:active,
+      .navbar button:active {
+         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+         transform: translateY(6px);
+         transition: all 0.2s ease-in-out;
+      }
+
+      .navbar-toggler {
+         background-color: white;
+      }
+
+      .nav-link-icon {
+         display: flex;
+         align-items: center;
+         /* 讓內部內容垂直置中 */
+      }
+
+      .nav-small-box-icon {
+         width: 40px;
+         height: 40px;
+         /* 設定 SVG 圖示大小 */
+         vertical-align: middle;
+         /* 讓 SVG 與文字垂直置中 */
+      }
+
+      /* 背景圖 */
+      .boxbg {
+         background-image: url(images/MajorProject/s06_02img.png);
+         background-attachment: fixed;
+         position: relative;
+         z-index: 1;
+         background-position: center;
+         background-size: cover;
+         background-repeat: no-repeat;
+      }
+
+      .boxbg::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(255, 255, 255, 0.6);
+         z-index: -1;
+      }
+
+      /* s-itemChart */
+      /* 針對數據區塊的樣式 */
+      .chart-container {
+         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+         border-radius: 10px;
+         text-align: center;
+         justify-content: center;
+      }
+
+      /* 標題樣式 */
+      .data-title {
+         color: var(--myjumpcolor01);
+         margin-bottom: 10px;
+         font-weight: bold;
+      }
+
+      .chart-title {
+         font-size: 25px;
+         font-weight: bold;
+         margin-bottom: 10px;
+      }
+
+      /* 圖表網格佈局 */
+      .chart-grid {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         justify-content: center;
+         /* 讓圖表置中 */
+         gap: 10px;
+      }
+
+      /* 圖表卡片 */
+      .chart-card {
+         background: #fff;
+         padding: 15px;
+         border-radius: 10px;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+         width: 100%;
+         /* 調整容器大小 */
+      }
+
+      /* 控制 Canvas 尺寸 */
+      canvas {
+         max-width: 100%;
+         height: 400px !important;
+      }
+
+      @media (max-width: 1500px) {
+         .nav-link-icon {
+            display: inline-block;
+            width: 100px;
+            text-align: center;
+            margin-left: 10px;
+            background-color: var(--myjumpcolor04);
+         }
+
+         .nav-link-span {
+            display: none;
+         }
+      }
+
+      @media (max-width: 1200px) {
+         .box01_1 {
+            font-size: 80px;
+         }
+
+         .box01_2 {
+            font-size: 40px;
+         }
+      }
+
+      @media (max-width: 1100px) {
+         .navbar-brand-name {
+            font-size: 50px;
+         }
+      }
+
+      @media (max-width: 992px) {
+         .box01_1 {
+            font-size: 60px;
+         }
+
+         .box01_2 {
+            font-size: 30px;
+         }
+
+         .nav-link-icon {
+            width: 80%;
+            height: 90px;
+            text-align: center;
+            margin-left: 10px;
+            background-color: var(--myjumpcolor03);
+            margin-top: 10px;
+         }
+
+         .nav-link-span {
+            display: inline;
+         }
+
+         .navbar-brand-img {
+            width: 60px !important;
+            border-radius: 10px;
+         }
+      }
+
+      @media (max-width: 640px) {
+         .navbar-brand-name {
+            font-size: 30px;
+         }
+
+         .box01_1 {
+            font-size: 46px;
+         }
+
+         .box01_2 {
+            font-size: 23px;
+         }
+      }
+   </style>
+</head>
+
+<body oncontextmenu="window.event.returnValue=false">
+   <!-- section01 頁首連結&登入登出連結&時間提醒 -->
+   <section id="s01" class="py-2">
+      <div class="row mx-3 mt-2 align-items-center">
+         <div class="col-lg-6 order-2 order-md-1 text-center text-md-start mt-2 d-none d-lg-block">
+            <span class="ms-2 s01-span">
+               <b>
+                  <span id="datetime"></span>（<span id="weekday"></span>）
+               </b>
+            </span>
+         </div>
+         <div class="col-lg-6 order-1 order-md-2 text-center text-md-end">
+            <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+               <span class="me-3 s01-span d-none" id="s01_username_showspan">
+                  <b><span id="s01_username_span"></span>，您好!</b>
+               </span>
+               <button class="btn btn-lg btn-outline-danger me-2" id="s01_logout_btn">登出</button>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- section02 banner -->
+   <section id="s02">
+      <nav class="navbar navbar-expand-lg">
+         <div class="container-fluid">
+            <div class="navbar-brand fw-900 d-flex align-items-center">
+               <a href="tegrand_project_v4.html" class="d-flex align-items-center" style="border-radius: 10px;">
+                  <img class="navbar-brand-img" src="images/MajorProject/捷獅.webp" alt="得昌行-捷獅">
+                  <span class="navbar-brand-name ms-1">得昌行</span>
+               </a>
+               <span class="h3 text-info ms-1">管理系統</span>
+            </div>
+            <button class="navbar-toggler border border-3 p-2" type="button" data-bs-toggle="collapse"
+               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+               aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav w-80 d-flex justify-content-around mb-2 mb-lg-0">
+                  <!-- 使用者管理 -->
+                  <li class="nav-item active ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="tegrand_controlPanel_users_v2.html" title="使用者管理">
+                        <svg class="nav-small-box-icon" fill="currentColor" viewBox="0 0 24 24"
+                           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                           <path
+                              d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z">
+                           </path>
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>使用者管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 機台管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="tegrand_controlPanel_item.html" title="機台管理">
+                        <svg class="bi bi-building-fill-gear nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7.256A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-3.59 1.787A.5.5 0 0 0 9 9.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .39-.187A4.5 4.5 0 0 0 8.027 12H6.5a.5.5 0 0 0-.5.5V16H3a1 1 0 0 1-1-1zm2 1.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3 0v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
+                           <path
+                              d="M11.886 9.46c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>機台管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 訂單管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#" title="訂單管理">
+                        <svg class="bi bi-cart3 nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>訂單管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 購機管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#" title="購機管理">
+                        <svg class="bi bi-bag-plus-fill nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path fill-rule="evenodd"
+                              d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5z" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>購機管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 留言管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#" title="留言管理">
+                        <svg class="bi bi-chat-left-text-fill nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>留言管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 徵才管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="tegrand_controlPanel_apply.html" title="徵才管理">
+                        <svg class="bi bi-person-vcard-fill nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>徵才管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- Dropdown d-none區塊區塊，後續有需求再增加-->
+                  <li class="nav-item dropdown ms-1 d-none">
+                     <a class="nav-link dropdown-toggle p-4 nav-link-icon" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" title="服務項目">
+                        <i class="s02-icon fa-solid fa-gear fa-2xl"></i>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>服務項目</b>
+                        </span>
+                     </a>
+                     <ul class="dropdown-menu">
+                        <li>
+                           <a class="dropdown-item" href="#s06_1">
+                              <i class="s02-icon-dropdown fa-solid fa-gears" title="中古機械"></i>
+                              <span class="s02-icon-dropdown-span">
+                                 <b>中古機械</b>
+                              </span>
+                           </a>
+                        </li>
+                        <li>
+                           <a class="dropdown-item" href="#s06_2">
+                              <i class="s02-icon-dropdown fa-solid fa-wrench" title="機台收購、客製化服務"></i>
+                              <span class="s02-icon-dropdown-span">
+                                 <b>機台收購、客製化服務</b>
+                              </span>
+                           </a>
+                        </li>
+                        <li>
+                           <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                           <a class="dropdown-item" href="#s06">
+                              <i class="s02-icon-dropdown fa-solid fa-people-arrows" title="機台收購"></i>
+                              <span class="s02-icon-dropdown-span">
+                                 <b>機台收購</b>
+                              </span>
+                           </a>
+                        </li>
+                        <li>
+                           <a class="dropdown-item" href="#s08">
+                              <i class="s02-icon-dropdown fa-solid fa-screwdriver-wrench" title="購機服務"></i>
+                              <span class="s02-icon-dropdown-span">
+                                 <b>購機服務</b>
+                              </span>
+                           </a>
+                        </li>
+                        <li>
+                           <a class="dropdown-item" href="#s09">
+                              <i class="s02-icon-dropdown fa-solid fa-user-gear" title="機台功能客製化"></i>
+                              <span class="s02-icon-dropdown-span">
+                                 <b>機台功能客製化</b>
+                              </span>
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+   </section>
+
+   <div class="boxbg py-1">
+      <!-- section03 管理系統small-icon -->
+      <section id="s03" class="boxbg mb-0">
+         <ol class="breadcrumb ms-3 mb-0">
+            <li class="breadcrumb-item h4"><a href="tegrand_project_v4.html"><b>首頁</b></a></li>
+            <li class="breadcrumb-item active h4" aria-current="page"><b>管理系統</b></li>
+         </ol>
+         <main class="app-main mb-0">
+            <div class="app-content">
+               <div class="container-fluid">
+                  <div class="row justify-content-between">
+                     <!-- 使用者管理 -->
+                     <div class="col-lg-2 col-6">
+                        <a class="small-box text-bg-primary text-decoration-none"
+                           href="tegrand_controlPanel_users_V2.html">
+                           <div class="inner">
+                              <h3 id="myroledata"></h3>
+                              <h5><b>會員數量</b></h5>
+                           </div>
+                           <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                              <path
+                                 d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z">
+                              </path>
+                           </svg>
+                        </a>
+                     </div>
+                     <!-- 機台管理 -->
+                     <div class="col-lg-2 col-6">
+                        <a class="small-box text-bg-success text-decoration-none" href="tegrand_controlPanel_item.html">
+                           <div class="inner">
+                              <h3 id="myitemdata"></h3>
+                              <h5><b>庫存機台數量</b></h5>
+                           </div>
+                           <svg class="small-box-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                              viewBox="0 0 16 16">
+                              <path
+                                 d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7.256A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-3.59 1.787A.5.5 0 0 0 9 9.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .39-.187A4.5 4.5 0 0 0 8.027 12H6.5a.5.5 0 0 0-.5.5V16H3a1 1 0 0 1-1-1zm2 1.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3 0v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
+                              <path
+                                 d="M11.886 9.46c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
+                           </svg>
+                        </a>
+                     </div> <!-- ./col -->
+                     <!-- 訂單管理 -->
+                     <div class="col-lg-2 col-6"> <!-- small box -->
+                        <a class="small-box text-bg-danger text-decoration-none" href="#">
+                           <div class="inner">
+                              <h3>XX</h3>
+                              <h5><b>本月訂單數</b></h5>
+                           </div>
+                           <svg class="small-box-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                              viewBox="0 0 16 16">
+                              <path
+                                 d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                           </svg>
+                        </a>
+                     </div> <!-- ./col -->
+                     <!-- 購機管理 -->
+                     <div class="col-lg-2 col-6"> <!-- small box -->
+                        <a class="small-box text-bg-warning text-decoration-none" href="#">
+                           <div class="inner">
+                              <h3>XX</h3>
+                              <h5><b>尚未完成購機程序</b></ㄘ>
+                           </div>
+                           <svg class="bi bi-bag-plus-fill small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                              fill="currentColor" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd"
+                                 d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5z" />
+                           </svg>
+                        </a>
+                     </div> <!-- ./col -->
+                     <!-- 留言管理 -->
+                     <div class="col-lg-2 col-6"> <!-- small box -->
+                        <a class="small-box text-bg-info text-decoration-none" href="#">
+                           <div class="inner">
+                              <h3>XX</h3>
+                              <h5><b>留言尚未完成處理</b></h5>
+                           </div>
+                           <svg class="bi bi-chat-left-text-fill small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                              fill="currentColor" viewBox="0 0 16 16">
+                              <path
+                                 d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z" />
+                           </svg>
+                        </a>
+                     </div> <!-- ./col -->
+                     <!-- 徵才管理 -->
+                     <div class="col-lg-2 col-6"> <!-- small box -->
+                        <a class="small-box text-bg-secondary text-decoration-none"
+                           href="tegrand_controlPanel_apply.html">
+                           <div class="inner">
+                              <h3 id="myapplydata"></h3>
+                              <h5><b>應徵意願</b></h5>
+                           </div>
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                              class="bi bi-person-raised-hand small-box-icon" viewBox="0 0 16 16">
+                              <path
+                                 d="M6 6.207v9.043a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H6.236a1 1 0 0 1-.447-.106l-.33-.165A.83.83 0 0 1 5 2.488V.75a.75.75 0 0 0-1.5 0v2.083c0 .715.404 1.37 1.044 1.689L5.5 5c.32.32.5.754.5 1.207" />
+                              <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
+                           </svg>
+                        </a>
+                     </div> <!-- ./col -->
+                     <!-- d-none區塊，後續有需求再增加 -->
+                     <div class="col-lg-2 col-6 d-none"> <!-- small box -->
+                        <a class="small-box text-bg-danger text-decoration-none" href="#">
+                           <div class="inner">
+                              <h3>65</h3>
+                              <p>Unique Visitors</p>
+                           </div>
+                           <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                              <path clip-rule="evenodd" fill-rule="evenodd"
+                                 d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z">
+                              </path>
+                              <path clip-rule="evenodd" fill-rule="evenodd"
+                                 d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z">
+                              </path>
+                           </svg>
+                        </a>
+                     </div> <!-- ./col -->
+                  </div> <!-- /.row -->
+               </div> <!--end::Container-->
+            </div> <!--end::App Content-->
+         </main>
+      </section>
+
+      <div class="container-fluid mt-3">
+         <div class="row">
+            <div class="col-4"></div>
+            <div class="col-8">
+               <div class="card">
+                  <div class="card-header">
+                     <h1 class="card-title"><i class="bi bi-bar-chart-line-fill text-primary"></i><b
+                           class="ms-1">機台數據分析</b></h1>
+                     <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-lte-toggle="card-collapse">
+                           <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                           <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                        </button>
+                     </div>
+                  </div>
+                  <div class="card-body p-0">
+                     <div class="chart-grid m-3">
+                        <div class="chart-card">
+                           <h2 class="chart-title">各類機台數量</h2>
+                           <canvas id="stackedBarChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                           <h2 class="chart-title">機台類別占比</h2>
+                           <canvas id="pieChart" height="400"></canvas>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card-footer text-center">
+                     <a href="tegrand_controlPanel_item.html" class="btn btn-sm btn-primary">檢視機台清單</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="container-fluid mt-3">
+         <!-- section04 最新訂單&最近收購機台 -->
+         <section id="s04">
+            <div class="row">
+               <!-- 最新訂單(出現最新4筆) -->
+               <div class="col-md-7">
+                  <div class="card">
+                     <div class="card-header">
+                        <h1 class="card-title"><i class="fa-solid fa-fire ms-3" style="color: rgba(255, 0, 0)"></i><b
+                              class="ms-1">最新訂單</b></h1>
+                     </div>
+                     <div class="card-body p-0">
+                        <div class="table-responsive">
+                           <table class="table m-0">
+                              <thead>
+                                 <tr>
+                                    <th width="15%">訂單編號</th>
+                                    <th width="15%">訂單狀態</th>
+                                    <th width="70%">出售機台</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td><a href="#"
+                                          class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">OR9842</a>
+                                    </td>
+                                    <td><span class="badge text-bg-success">Shipped</span></td>
+                                    <td>Call of Duty IV</td>
+                                 </tr>
+                                 <tr>
+                                    <td><a href="#"
+                                          class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">OR1848</a>
+                                    </td>
+                                    <td><span class="badge text-bg-warning">Pending</span></td>
+                                    <td>Samsung Smart TV</td>
+                                 </tr>
+                                 <tr>
+                                    <td><a href="#"
+                                          class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">OR7429</a>
+                                    </td>
+                                    <td><span class="badge text-bg-danger">Delivered</span></td>
+                                    <td>iPhone 6 Plus</td>
+                                 </tr>
+                                 <tr>
+                                    <td> <a href="#"
+                                          class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">OR7429</a>
+                                    </td>
+                                    <td><span class="badge text-bg-info">Processing</span></td>
+                                    <td>Samsung Smart TV</td>
+                                 </tr>
+                                 <tr>
+                                    <td><a href="#"
+                                          class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">OR1848</a>
+                                    </td>
+                                    <td><span class="badge text-bg-warning">Pending</span></td>
+                                    <td>Samsung Smart TV</td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                     <div class="card-footer clearfix p-1">
+                        <a href="#" class="btn btn-sm btn-primary float-start ms-3">新增訂單</a>
+                        <a href="#" class="btn btn-sm btn-secondary float-end me-3">檢視所有訂單</a>
+                     </div>
+                  </div>
+               </div>
+               <!-- 近期新增機台項目(出現最新4台) -->
+               <div class="col-md-5 mt-md-0 mt-3">
+                  <div class="card">
+                     <div class="card-header">
+                        <h1 class="card-title ms-3"><i class="fa-solid fa-square-plus text-success"></i><b
+                              class="ms-1">近期新增機台項目</b></h1>
+                     </div>
+                     <div class="card-body p-0">
+                        <div class="px-1">
+                           <div class="d-flex border-top p-1">
+                              <div class="col-2"> <img src="" alt="Product Image" class="img-size-50"></div>
+                              <div class="col-10"> <a href="#" class="fw-bold">
+                                    Samsung TV
+                                    <span class="badge text-bg-warning float-end">
+                                       $1800
+                                    </span> </a>
+                                 <div class="text-truncate">
+                                    Samsung 32" 1080p 60Hz LED Smart HDTV.
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="d-flex border-top p-1">
+                              <div class="col-2"> <img src="" alt="Product Image" class="img-size-50"></div>
+                              <div class="col-10"> <a href="javascript:void(0)" class="fw-bold">
+                                    Bicycle
+                                    <span class="badge text-bg-info float-end">
+                                       $700
+                                    </span> </a>
+                                 <div class="text-truncate">
+                                    26" Mongoose Dolomite Men's 7-speed, Navy Blue.
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="d-flex border-top p-1">
+                              <div class="col-2"> <img src="#" alt="Product Image" class="img-size-50"> </div>
+                              <div class="col-10"> <a href="javascript:void(0)" class="fw-bold">
+                                    Xbox One
+                                    <span class="badge text-bg-danger float-end">
+                                       $350
+                                    </span> </a>
+                                 <div class="text-truncate">
+                                    Xbox One Console Bundle with Halo Master Chief
+                                    Collection.
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="d-flex border-top p-1">
+                              <div class="col-2"> <img src="#" alt="Product Image" class="img-size-50"> </div>
+                              <div class="col-10"> <a href="javascript:void(0)" class="fw-bold">
+                                    PlayStation 4
+                                    <span class="badge text-bg-success float-end">
+                                       $399
+                                    </span> </a>
+                                 <div class="text-truncate">
+                                    PlayStation 4 500GB Console (PS4)
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card-footer text-center p-1">
+                        <a href="#" class="btn btn-sm btn-primary">新增機台</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- section05 每月銷售額回顧報告-->
+         <section id="s05">
+            <div class="card mt-1">
+               <div class="card-header">
+                  <h3 class="card-title ms-3"><i class="fa-solid fa-note-sticky text-info"></i><b
+                        class="ms-1">每月銷售額回顧報告</b></h3>
+               </div>
+               <div class="card-body p-1">
+                  <div class="row">
+                     <div class="col-md-8">
+                        <p class="text-center"><strong>銷售區間 : 2024/03/01 ~ 2024/03/31</strong></p>
+                        <!-- 銷售額曲線圖 -->
+                        <div id="sales-chart"></div>
+                     </div>
+                     <div class="col-md-4">
+                        <p class="text-center"><strong>KPI</strong></p>
+                        <div class="progress-group">
+                           訂單數
+                           <span class="float-end"><b>160</b>/200</span>
+                           <div class="progress progress-sm">
+                              <div class="progress-bar text-bg-primary" style="width: 80%"></div>
+                           </div>
+                        </div>
+                        <div class="progress-group">
+                           訂單完成數
+                           <span class="float-end"><b>310</b>/400</span>
+                           <div class="progress progress-sm">
+                              <div class="progress-bar text-bg-danger" style="width: 75%"></div>
+                           </div>
+                        </div>
+                        <div class="progress-group">
+                           購機數
+                           <span class="float-end"><b>310</b>/400</span>
+                           <div class="progress progress-sm">
+                              <div class="progress-bar text-bg-success" style="width: 60%"></div>
+                           </div>
+                        </div>
+                        <!-- d-none區塊，後續有需求再增加 -->
+                        <div class="progress-group d-none">
+                           Send Inquiries
+                           <span class="float-end"><b>250</b>/500</span>
+                           <div class="progress progress-sm">
+                              <div class="progress-bar text-bg-warning" style="width: 50%"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="card-footer p-1">
+                  <div class="row">
+                     <div class="col-md-3 col-6">
+                        <div class="text-center border-end">
+                           <span class="text-success"> <i class="bi bi-caret-up-fill"></i>17%</span>
+                           <h5 class="fw-bold mb-0">$<span>35,210.43</span></h5>
+                           <span class="text-uppercase">總收入</span>
+                        </div>
+                     </div> <!-- /.col -->
+                     <div class="col-md-3 col-6">
+                        <div class="text-center border-end">
+                           <span class="text-info"> <i class="bi bi-caret-left-fill"></i>0%</span>
+                           <h5 class="fw-bold mb-0">$<span>10,390.90</span></h5>
+                           <span class="text-uppercase">購機支出</span>
+                        </div>
+                     </div> <!-- /.col -->
+                     <div class="col-md-3 col-6">
+                        <div class="text-center border-end">
+                           <span class="text-success"><i class="bi bi-caret-up-fill"></i>20%</span>
+                           <h5 class="fw-bold mb-0">$<span>24,813.53</span></h5>
+                           <span class="text-uppercase">利潤總額</span>
+                        </div>
+                     </div> <!-- /.col -->
+                     <div class="col-md-3 col-6">
+                        <div class="text-center">
+                           <span class="text-danger"><i class="bi bi-caret-down-fill"></i>18%</span>
+                           <h5 class="fw-bold mb-0"><span>1200</span></h5>
+                           <span class="text-uppercase">KPI達標率</span>
+                        </div>
+                     </div>
+                  </div> <!--end::Row-->
+               </div> <!-- /.card-footer -->
+            </div> <!-- /.card -->
+         </section>
+      </div>
+   </div>
+
+   <!-- sectionEND 其他連結和網頁版權 -->
+   <section id="s0end" class="bg-secondary">
+      <div class="container align-items-center">
+         <ul class="nav">
+            <li class="nav-item">
+               <a class="nav-link disabled" style="color: white;">PowerBy 113年雲端技術應用實務班第2期3號陳俞蓁</a>
+            </li>
+            <li class="nav-item">
+               <a href="https://gcis.nat.gov.tw/mainNew/" class="nav-link active" target="_blank" style="color: white;"
+                  rel="noopener noreferrer">全國商工行政服務入口網</a>
+            </li>
+         </ul>
+      </div>
+   </section>
+
+   <!-- 回到頁面頂部 -->
+   <button id="backToTop" title="回到頁面頂部"><i class="fa-solid fa-angles-up fa-lg"></i></button>
+
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.7.1.min.js"></script>
+   <script src="js/jquery.transit.min.js"></script>
+   <script src="js/wow.min.js"></script>
+   <script src="js/counterup2.js"></script>
+   <script src="js/CityCountyData.json"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+   <script src="js/adminlte.js"></script>
+   <script>
+      // section01 日期時間功能
+      function updateDateTime() {
+         const now = new Date();
+         const formattedDateTime = now.toLocaleString(); // 取得日期時間
+         const weekdays = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+         const weekday = weekdays[now.getDay()]; // 取得星期幾
+
+         document.getElementById("datetime").textContent = formattedDateTime;
+         document.getElementById("weekday").textContent = weekday;
+      }
+
+      updateDateTime(); // 頁面載入時執行
+      setInterval(updateDateTime, 1000); // 每秒更新
+
+      // 回到頁面頂部
+      document.getElementById("backToTop").addEventListener("click", function () {
+         window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+         });
+      });
+
+      $(function () {
+         //s01_logout_btn 按鈕監聽
+         $("#s01_logout_btn").click(function () {
+            Swal.fire({
+               title: '確定登出嗎?',
+               text: "您確定要登出嗎？",
+               icon: 'warning',
+               showCancelButton: true,
+               confirmButtonText: '確定',
+               cancelButtonText: '取消',
+               reverseButtons: true  // 使確定和取消按鈕的順序顛倒
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  sessionStorage.clear(); // 清除所有 sessionStorage
+                  localStorage.clear(); // 若有使用 localStorage 也一併清除
+                  document.cookie = "uid01=; max-age=0; path=/;"; //清除cookie
+                  Swal.fire({
+                     title: '登出成功!',
+                     text: '3秒後將自動跳轉至主頁...',
+                     icon: 'success',
+                     timer: 3000,  // 2 秒後自動關閉
+                     showConfirmButton: false
+                  });
+                  setTimeout(function () {
+                     location.href = "tegrand_project_v4.html";
+                  }, 3000);
+               } else {
+                  // // 如果用戶點擊取消
+                  // Swal.fire({
+                  //    title: '登出已取消',
+                  //    text: '您還在當前頁面！',
+                  //    icon: 'info'
+                  // });
+               }
+            });
+         });
+
+         //確認uid是否合法
+         if (getCookie("uid01")) {
+            //將uid01傳遞至後端API執行驗證
+            //input {"uid01" : "c5e6c37a"}
+            var JSONdata = {};
+            JSONdata["uid01"] = getCookie("uid01");
+            console.log(JSON.stringify(JSONdata));
+
+            $.ajax({
+               type: "POST",
+               url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=checkuid",
+               data: JSON.stringify(JSONdata),
+               dataType: "json",
+               success: showdata_checkuid,
+               error: function () {
+                  Swal.fire({
+                     title: "API介接錯誤!",
+                     text: "tegrand_member_control_api_v1.php?action=checkuid",
+                     icon: "error"
+                  });
+               }
+            });
+         } else {
+            Swal.fire({
+               title: "請先登入會員!",
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               allowOutsideClick: false
+            }).then((result) => {
+               /* Read more about isConfirmed, isDenied below */
+               if (result.isConfirmed) {
+                  location.href = "tegrand_project_v4.html";
+               }
+            });
+         }
+      });
+
+      function showdata_checkuid(data) {
+         console.log(data);
+         if (data.state) {
+            //顯示歡迎訊息
+            // $("#s01_username_showspan").removeClass("d-none");
+            // $("#s01_username_span").text(data.data.Username);
+
+            //顯示登出按鈕
+            // $("#s01_logout_btn").removeClass("d-none");
+
+            //渲染table資料
+            $.ajax({
+               type: "GET",
+               url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=getalldata",
+               dataType: "json",
+               success: showdata_getallrolecounts,
+               async: true,
+               error: function () {
+                  Swal.fire({
+                     title: "API介接錯誤!",
+                     text: "tegrand_member_control_api_v1.php?action=getalldata",
+                     icon: "error"
+                  });
+               }
+            });
+            $.ajax({
+               type: "GET",
+               url: "http://localhost/web202411/tegrand_item_control_api.php?action=getalldata",
+               dataType: "json",
+               success: showdata_getallitemcounts,
+               async: true,
+               error: function () {
+                  Swal.fire({
+                     title: "API介接錯誤!",
+                     text: "tegrand_item_control_api.php?action=getalldata",
+                     icon: "error"
+                  });
+               }
+            });
+            $.ajax({
+               type: "GET",
+               url: "http://localhost/web202411/tegrand_apply_control_api.php?action=getalldata",
+               dataType: "json",
+               success: showdata_getallapplycounts,
+               async: true,
+               error: function () {
+                  Swal.fire({
+                     title: "API介接錯誤!",
+                     text: "tegrand_apply_control_api.php?action=getalldata",
+                     icon: "error"
+                  });
+               }
+            });
+         } else {
+            Swal.fire({
+               title: "請先登入會員!",
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  location.href = "tegrand_project_v4.html";
+               }
+            });
+         }
+      }
+
+      function showdata_getallrolecounts(data) {
+         console.log(data);
+         $("#myroledata").empty();
+
+         //假設返回的資料格式是{ member_count: 100, manager_count: 5 }
+         var memberCount = data.data.member_count;
+
+         var memberHTML = `${memberCount}`;
+         $("#myroledata").append(memberHTML);
+      }
+
+      function showdata_getallitemcounts(data) {
+         // console.log(data);
+         // $("#myitemdata").empty();
+
+         // //假設返回的資料格式是{ item_all_count: 100 }
+         // var itemCount = data.data.item_all_count;
+
+         // var itemHTML = `${itemCount}`;
+         // $("#myitemdata").append(itemHTML);
+         console.log(data);
+
+         if (!data.state) {
+            console.error("API 回傳錯誤:", data.message);
+            return;
+         }
+
+         // 顯示機台總數
+         $("#myitemdata").empty();
+         $("#myitemdata").append(`${data.data.item_all_count}`);
+
+         // 取得各類機台數據
+         const categories = [
+            "車床", "銑床", "鑽床", "磨床", "鋸床",
+            "放電加工機", "沖床", "鉋床", "其他中古機械", "新機代理"
+         ];
+         const counts = Object.values(data.data.item_counts); // 取得各類機台的數量
+
+         // 堆疊長條圖 - 類別分佈
+         new Chart(document.getElementById("stackedBarChart"), {
+            type: "bar",
+            data: {
+               labels: categories,
+               datasets: [{
+                  label: "機台數量",
+                  data: counts,
+                  backgroundColor: "rgb(169,106,65)"
+               }]
+            },
+            options: {
+               scales: {
+                  x: {
+                     stacked: true,
+                     ticks: {
+                        font: {
+                           size: 20,   // 增加字體大小
+                           weight: "bold"  // 設定加粗
+                        }
+                     }
+                  },
+                  y: {
+                     stacked: true,
+                     ticks: {
+                        font: {
+                           size: 20,
+                           weight: "bold"
+                        }
+                     }
+                  }
+               },
+               plugins: {
+                  legend: {
+                     labels: {
+                        font: {
+                           size: 16,   // 圖例字體大小
+                           weight: "bold"
+                        }
+                     }
+                  }
+               }
+            }
+         });
+
+         // 圓餅圖 - 各類機台占比
+         new Chart(document.getElementById("pieChart"), {
+            type: "pie",
+            data: {
+               labels: categories,
+               datasets: [{
+                  label: "機台比例",
+                  data: counts,
+                  backgroundColor: [
+                     "#E6194B", // 鮮紅
+                     "#3CB44B", // 亮綠
+                     "#FFE119", // 亮黃
+                     "#4363D8", // 亮藍
+                     "#F58231", // 深橘
+                     "#911EB4", // 亮紫
+                     "#42D4F4", // 天藍
+                     "#F032E6", // 粉紫
+                     "#BFEF45", // 亮綠黃
+                     "#FABEBE"  // 亮粉
+                  ]
+               }]
+            },
+            options: {
+               responsive: true, // 圖表自適應
+
+               layout: {
+                  padding: {
+                     right: 10,  // 增加右邊距離，讓圓餅圖有足夠空間
+                     top: 50,
+                     bottom: 10
+                  }
+               },
+               plugins: {
+                  legend: {
+                     position: "left", // 圖例放在左邊
+                     align: "start",   // 圖例靠左對齊
+                     labels: {
+                        font: {
+                           size: 20, // 圖例字體大小
+                           weight: "bold" // 加粗
+                        }
+                     }
+                  },
+                  tooltip: {
+                     callbacks: {
+                        label: function (tooltipItem) {
+                           let dataset = tooltipItem.dataset;
+                           let total = dataset.data.reduce((sum, value) => sum + value, 0);
+                           let value = dataset.data[tooltipItem.dataIndex];
+                           let percentage = ((value / total) * 100).toFixed(1); // 計算百分比
+                           return `${dataset.label}: ${value} (${percentage}%)`;
+                        }
+                     }
+                  },
+                  datalabels: {
+                     color: 'black', // 文字顏色
+                     font: {
+                        weight: 'bold',
+                        size: 20
+                     },
+                     formatter: function (value, context) {
+                        let dataset = context.dataset;
+                        let total = dataset.data.reduce((sum, value) => sum + value, 0);
+                        let percentage = ((value / total) * 100).toFixed(1) + '%';
+                        return `${value} (${percentage})`; // 顯示數值和百分比
+                     },
+                     anchor: 'center', // 讓文字顯示在圓餅圖的中心
+                     align: 'center'
+                  }
+               },
+               aspectRatio: 1.3,// 可控制圓餅圖的比例
+               cutoutPercentage: 0, // 完全圓形
+               radius: '100%' // 設定圓餅圖的半徑，讓圖更大
+            }
+         });
+      }
+
+      function showdata_getallapplycounts(data) {
+         console.log(data);
+         $("#myapplydata").empty();
+
+         //假設返回的資料格式是{ reply_1_count: 100 }
+         var applyCount = data.data.reply_1_count;
+
+         var applyHTML = `${applyCount}`;
+         $("#myapplydata").append(applyHTML);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+         let username = sessionStorage.getItem("username"); // 取得用戶名稱
+         // let role = sessionStorage.getItem("role"); // 取得角色
+
+         if (username) {
+            $("#s01_username_showspan").removeClass("d-none");
+            $("#s01_username_span").text(username);
+         } else {
+            // document.getElementById("welcome_msg").textContent = "歡迎訪客！";
+         }
+      });
+
+      function setCookie(cname, cvalue, exdays) {
+         const d = new Date();
+         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+         let expires = "expires=" + d.toUTCString();
+         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+         console.log(document.cookie);
+      }
+
+      function getCookie(cname) {
+         let name = cname + "=";
+         let ca = document.cookie.split(';');
+         for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+               c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+               return c.substring(name.length, c.length);
+            }
+         }
+         return "";
+      }
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>得昌行|捷獅---管理系統</title>
+   <link rel="stylesheet" href="css/bootstrap.min.css" />
+   <link rel="stylesheet" href="css/mycolor-tegrand.css" />
+   <link rel="stylesheet" href="css/all.min.css" />
+   <link rel="stylesheet" href="css/animate.min.css" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css"
+      integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous" />
+   <!--滾動條樣式 (OverlayScrollbars)-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
+      integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous" />
+   <!--Bootstrap Icons（圖示庫）-->
+   <link rel="stylesheet" href="css/adminlte.css" /> <!--AdminLTE（後台管理模板 CSS）-->
+   <link rel="icon" href="images/MajorProject/捷獅.webp" type="image/png" />
+   <style>
+      /*連結底線顯示none*/
+      a {
+         text-decoration: none;
+      }
+
+      /* s01 */
+      #s01 {
+         background-color: var(--myjumpcolor03);
+         height: auto;
+      }
+
+      .s01-icon {
+         color: var(--myjumpcolor01);
+         font-size: 40px;
+      }
+
+      .s01-icon-fb {
+         color: #1877f2;
+         font-size: 50px;
+      }
+
+      .s01-icon-line {
+         color: #00b900;
+         font-size: 45px;
+      }
+
+      .s01-icon-ig {
+         color: #833ab4;
+         font-size: 50px;
+      }
+
+      .s01-icon-threads {
+         color: #000000;
+         font-size: 50px;
+      }
+
+      .s01-span {
+         font-size: 30px;
+         line-height: 1;
+      }
+
+      .s01-sup {
+         font-size: 15px;
+      }
+
+      /* s02 */
+      .navbar {
+         background-color: var(--myjumpcolor01);
+      }
+
+      .navbar-brand-img {
+         width: 80px;
+         border-radius: 20px;
+      }
+
+      .navbar-brand-name {
+         font-size: 60px;
+         color: white;
+      }
+
+      .nav-link {
+         border-radius: 10px;
+         color: white;
+      }
+
+      .s02-icon {
+         color: white;
+      }
+
+      .s02-icon-span {
+         color: white;
+         font-size: 30px;
+      }
+
+      .s02-icon-dropdown {
+         color: var(--myjumpcolor01);
+         font-size: 25px;
+      }
+
+      .s02-icon-dropdown-span {
+         color: var(--myjumpcolor01);
+         font-size: 30px;
+      }
+
+      /* section02 banner按鍵動作 */
+      .navbar a:hover,
+      .navbar button:hover {
+         background-color: var(--myjumpcolor03);
+         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+         transform: translateY(-2px);
+         transition: all 0.3s ease-in-out;
+      }
+
+      .navbar a:active,
+      .navbar button:active {
+         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+         transform: translateY(6px);
+         transition: all 0.2s ease-in-out;
+      }
+
+      .navbar-toggler {
+         background-color: white;
+      }
+
+      .nav-link-icon {
+         display: flex;
+         align-items: center;
+         /* 讓內部內容垂直置中 */
+      }
+
+      .nav-small-box-icon {
+         width: 40px;
+         height: 40px;
+         /* 設定 SVG 圖示大小 */
+         vertical-align: middle;
+         /* 讓 SVG 與文字垂直置中 */
+      }
+
+      /* 背景圖 */
+      .boxbg {
+         background-image: url(images/MajorProject/s06_02img.png);
+         background-attachment: fixed;
+         position: relative;
+         z-index: 1;
+         background-position: center;
+         background-size: cover;
+         background-repeat: no-repeat;
+      }
+
+      .boxbg::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(255, 255, 255, 0.6);
+         z-index: -1;
+      }
+
+      /* s03 */
+      input[type="radio"]:checked+label .inner h5 {
+         font-size: 1.3em;
+         /* 當選中時，字體大小變大 */
+      }
+
+      input[type="radio"]:checked+label .small-box-icon {
+         transform: scale(1.5);
+         /* 放大圖標 */
+         transition: transform 0.3s ease;
+         /* 平滑過渡效果 */
+      }
+
+      input[type="radio"]:checked+label {
+         box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+         /* 增加陰影的強度 */
+         transform: scale(1.15) translateX(5px);
+         /* 放大 */
+      }
+
+      /* s04 checkbox */
+      input[type="checkbox"] {
+         appearance: none;
+         width: 25px;
+         height: 25px;
+         border: 2px solid #007bff;
+         border-radius: 5px;
+         position: relative;
+         cursor: pointer;
+      }
+
+      input[type="checkbox"]:checked {
+         background-color: #007bff;
+      }
+
+      input[type="checkbox"]::after {
+         color: white;
+         font-size: 20px;
+         position: absolute;
+         top: 0;
+         left: 4px;
+         display: none;
+      }
+
+      input[type="checkbox"]:checked::after {
+         display: block;
+      }
+
+      @media (max-width: 1500px) {
+         .nav-link-icon {
+            display: inline-block;
+            width: 100px;
+            text-align: center;
+            margin-left: 10px;
+            background-color: var(--myjumpcolor04);
+         }
+
+         .nav-link-span {
+            display: none;
+         }
+      }
+
+      @media (max-width: 1200px) {
+         .box01_1 {
+            font-size: 80px;
+         }
+
+         .box01_2 {
+            font-size: 40px;
+         }
+      }
+
+      @media (max-width: 1100px) {
+         .navbar-brand-name {
+            font-size: 50px;
+         }
+      }
+
+      @media (max-width: 992px) {
+         .box01_1 {
+            font-size: 60px;
+         }
+
+         .box01_2 {
+            font-size: 30px;
+         }
+
+         .nav-link-icon {
+            width: 80%;
+            height: 90px;
+            text-align: center;
+            margin-left: 10px;
+            background-color: var(--myjumpcolor03);
+            margin-top: 10px;
+         }
+
+         .nav-link-span {
+            display: inline;
+         }
+
+         .navbar-brand-img {
+            width: 60px !important;
+            border-radius: 10px;
+         }
+      }
+
+      @media (max-width: 640px) {
+         .navbar-brand-name {
+            font-size: 30px;
+         }
+
+         .box01_1 {
+            font-size: 46px;
+         }
+
+         .box01_2 {
+            font-size: 23px;
+         }
+      }
+   </style>
+</head>
+
+<body oncontextmenu="window.event.returnValue=false">
+   <!-- section01 頁首連結&登入登出連結&時間提醒 -->
+   <section id="s01" class="py-2">
+      <div class="row mx-3 mt-2 align-items-center">
+         <div class="col-lg-6 order-2 order-md-1 text-center text-md-start mt-2 d-none d-lg-block">
+            <span class="ms-2 s01-span">
+               <b> <span id="datetime"></span>（<span id="weekday"></span>） </b>
+            </span>
+         </div>
+         <div class="col-lg-6 order-1 order-md-2 text-center text-md-end">
+            <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+               <span class="me-3 s01-span d-none" id="s01_username_showspan">
+                  <b><span id="s01_username_span"></span>，您好!</b>
+               </span>
+               <button class="btn btn-lg btn-outline-danger me-2" id="s01_logout_btn">
+                  登出
+               </button>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- section02 banner -->
+   <section id="s02">
+      <nav class="navbar navbar-expand-lg">
+         <div class="container-fluid">
+            <div class="navbar-brand fw-900 d-flex align-items-center">
+               <a href="tegrand_project_v4.html" class="d-flex align-items-center" style="border-radius: 10px">
+                  <img class="navbar-brand-img" src="images/MajorProject/捷獅.webp" alt="得昌行-捷獅" />
+                  <span class="navbar-brand-name ms-1">得昌行</span>
+               </a>
+               <a href="tegrand_controlPanel.html"><span class="h3 text-info ms-1">管理系統</span></a>
+            </div>
+            <button class="navbar-toggler border border-3 p-2" type="button" data-bs-toggle="collapse"
+               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+               aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav w-80 d-flex justify-content-around mb-2 mb-lg-0">
+                  <!-- 使用者管理 -->
+                  <li class="nav-item active ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="tegrand_controlPanel_users_V2.html" title="使用者管理">
+                        <svg class="nav-small-box-icon" fill="currentColor" viewBox="0 0 24 24"
+                           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                           <path
+                              d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z">
+                           </path>
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>使用者管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 機台管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="tegrand_controlPanel_item.html" title="機台管理">
+                        <svg class="bi bi-building-fill-gear nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7.256A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-3.59 1.787A.5.5 0 0 0 9 9.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .39-.187A4.5 4.5 0 0 0 8.027 12H6.5a.5.5 0 0 0-.5.5V16H3a1 1 0 0 1-1-1zm2 1.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3 0v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
+                           <path
+                              d="M11.886 9.46c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>機台管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 訂單管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#" title="訂單管理">
+                        <svg class="bi bi-cart3 nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>訂單管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 購機管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#" title="購機管理">
+                        <svg class="bi bi-bag-plus-fill nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path fill-rule="evenodd"
+                              d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5z" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>購機管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 留言管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#" title="留言管理">
+                        <svg class="bi bi-chat-left-text-fill nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>留言管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 徵才管理 -->
+                  <li class="nav-item ms-1">
+                     <!-- 已經在徵才管理，把a拿掉改div -->
+                     <div class="nav-link p-4 nav-link-icon" href="#" title="徵才管理">
+                        <svg class="bi bi-person-vcard-fill nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>徵才管理</b>
+                        </span>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+   </section>
+
+   <div class="boxbg py-1">
+      <!-- section03 管理系統small-icon -->
+      <section id="s03" class="boxbg mb-0">
+         <ol class="breadcrumb ms-3 mb-0">
+            <li class="breadcrumb-item h4">
+               <a href="tegrand_project_v4.html"><b>首頁</b></a>
+            </li>
+            <li class="breadcrumb-item h4">
+               <a href="tegrand_controlPanel.html"><b>管理系統</b></a>
+            </li>
+            <li class="breadcrumb-item active h4" aria-current="page">
+               <b>徵才管理</b>
+            </li>
+         </ol>
+         <main class="app-main mb-0">
+            <div class="app-content">
+               <div class="container-fluid">
+                  <div class="row" id="myapplydata">
+                     <!-- <div class="row">
+                        <div class="col-lg col-6 mt-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_all_data" autocomplete="off" checked>
+                           <label class="small-box btn btn-primary text-decoration-none d-flex" for="reply_all_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>所有簡歷</b>&nbsp;&nbsp;XX</h5>
+                              </div>
+                              <svg class="small-box-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0" />
+                              </svg>
+                           </label>
+                        </div>
+                        <div class="col-lg col-6 mt-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_1_data" autocomplete="off">
+                           <label
+                              class="small-box btn btn-danger text-decoration-none d-flex"
+                              for="reply_1_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>尚未聯繫</b>&nbsp;&nbsp;XX</h5>
+                              </div>
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="small-box-icon bi bi-chat-fill" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                 <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15"/>
+                              </svg>
+                           </label>
+                        </div>
+                        <div class="col-lg col-6 mt-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_2_data" autocomplete="off">
+                           <label
+                              class="small-box btn btn-warning text-decoration-none d-flex"
+                              for="reply_2_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>初次聯繫失敗</b>&nbsp;&nbsp;XX</h5>
+                              </div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-x-fill small-box-icon" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                 <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zm9.261 1.135a.5.5 0 0 1 .708 0L13 2.793l1.146-1.147a.5.5 0 0 1 .708.708L13.707 3.5l1.147 1.146a.5.5 0 0 1-.708.708L13 4.207l-1.146 1.147a.5.5 0 0 1-.708-.708L12.293 3.5l-1.147-1.146a.5.5 0 0 1 0-.708"/>
+                              </svg>
+                           </label>
+                        </div>
+                        <div class="col-lg col-6 mt-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_4_data" autocomplete="off">
+                           <label
+                              class="small-box btn btn-info text-decoration-none d-flex"
+                              for="reply_4_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>待定面試</b>&nbsp;&nbsp;XX</h5>
+                              </div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-bounding-box small-box-icon" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                 <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5M.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5"/>
+                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                              </svg>
+                           </label>
+                        </div>
+                        <div class="col-lg col-6 mt-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_7_data" autocomplete="off">
+                           <label
+                              class="small-box btn btn-success text-decoration-none d-flex"
+                              for="reply_7_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>面試成功</b>&nbsp;&nbsp;XX</h5>
+                              </div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-check small-box-icon" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                 <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                 <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+                              </svg>
+                           </label>
+                        </div>
+                        <div class="col-lg col-6 mt-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_6_data" autocomplete="off">
+                           <label
+                              class="small-box btn btn-secondary text-decoration-none d-flex"
+                              for="reply_6_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>面試失敗</b>&nbsp;&nbsp;XX</h5>
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-slash small-box-icon" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                    <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465m-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+                                 </svg>
+                              </div>
+                           </label>
+                        </div>
+                        <div class="col-lg col-6 mt-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_3_data" autocomplete="off">
+                           <label
+                              class="small-box btn btn-secondary text-decoration-none d-flex"
+                              for="reply_3_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>聯繫失敗(2次)</b>&nbsp;&nbsp;XX</h5>
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ban small-box-icon" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                    <path d="M15 8a6.97 6.97 0 0 0-1.71-4.584l-9.874 9.875A7 7 0 0 0 15 8M2.71 12.584l9.874-9.875a7 7 0 0 0-9.874 9.874ZM16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0"/>
+                                  </svg>
+                              </div>
+                           </label>
+                        </div>
+                        <div class="col-lg col-6 mt-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_5_data" autocomplete="off">
+                           <label
+                              class="small-box btn btn-dark text-decoration-none d-flex"
+                              for="reply_5_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>應徵取消</b>&nbsp;&nbsp;XX</h5>
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle small-box-icon text-secondary" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                                 </svg>
+                              </div>
+                           </label>
+                        </div>
+                     </div> -->
+                  </div>
+               </div>
+            </div>
+         </main>
+      </section>
+
+      <!-- section04 徵才資料庫 -->
+      <div class="container-fluid mt-1">
+         <section id="s04">
+            <div class="alert alert-primary p-2" role="alert">
+               <div class="row">
+                  <div class="col-1"><b>回復情形</b></div>
+                  <div class="col-11">
+                     <b>1.尚未聯繫&nbsp;&nbsp;&nbsp;2.未聯繫成功&nbsp;&nbsp;&nbsp;3.未聯繫成功第2次(結案)&nbsp;&nbsp;&nbsp;4.聯繫成功，已敲定面試時間&nbsp;&nbsp;&nbsp;5.聯繫成功，對方無意願(結案)&nbsp;&nbsp;&nbsp;6.面試失敗(結案)&nbsp;&nbsp;&nbsp;7.面試成功(結案)</b>
+                  </div>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-header d-flex align-items-center">
+                  <svg class=" small-box-icon text-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                     viewBox="0 0 16 16" style="width: 30px; height: 30px">
+                     <path
+                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0" />
+                  </svg>
+                  <span class="h1 card-title"><b class="ms-1">會員資料庫</b></span>
+                  <div class="ms-auto">
+                     <button class="btn btn-secondary align-middle me-5" id="update_btn" data-bs-toggle="modal"
+                        data-bs-target="#updateModal" disabled>
+                        <input class="form-check-input" type="checkbox" placeholder="複選" checked disabled>
+                        <span class="ms-1 align-middle"><b>更新</b> (僅能選取1項)</span>
+                     </button>
+                     <button class="btn btn-danger ms-3 align-middle" id="delete_all_btn">
+                        <input class="form-check-input" type="checkbox" placeholder="複選" checked disabled><span
+                           class="ms-1 align-middle">刪除</span>
+                     </button>
+                  </div>
+               </div>
+               <div class="card-body p-0">
+                  <div class="table-responsive">
+                     <!-- table-rwd暫不啟用，目前使用link css滾輪條左右滑動 -->
+                     <table class="table m-0">
+                        <thead>
+                           <tr>
+                              <!-- 11項 -->
+                              <th width="3%" class="text-center align-middle">
+                                 <input class="form-check-input checkbox-all" type="checkbox" title="全選"
+                                    placeholder="全選">
+                              </th>
+                              <th width="5%" class="text-center align-middle">編號</th>
+                              <th width="5%" class="text-center align-middle">姓名</th>
+                              <th width="9%" class="text-center align-middle">電話</th>
+                              <th width="10%" class="text-center align-middle">E-mail</th>
+                              <th width="8%" class="text-center align-middle">應徵職務</th>
+                              <th width="10%" class="text-center align-middle">回復情形</th>
+                              <th width="10%" class="text-center align-middle">面試時間</th>
+                              <th width="8%" class="text-center align-middle">最高學歷</th>
+                              <th width="16%" class="text-center align-middle">工作經歷</th>
+                              <th width="16%" class="text-center align-middle">技能證照</th>
+                           </tr>
+                        </thead>
+                        <tbody id="mydata">
+                           <!-- <tr>
+                              <th width="3%" class="text-center align-middle">
+                                 <input class="form-check-input checkbox-all" type="checkbox" title="全選"
+                                    placeholder="全選">
+                              </th>
+                              <th width="5%" class="text-center align-middle">編號</th>
+                              <th width="5%" class="text-center align-middle">姓名</th>
+                              <th width="10%" class="text-center align-middle">電話</th>
+                              <th width="10%" class="text-center align-middle">E-mail</th>
+                              <th width="10%" class="text-center align-middle">應徵職務</th> 
+                              <th width="10%" class="text-center align-middle">回復情形</th> 
+                              <th width="10%" class="text-center align-middle">面試時間</th> 
+                              <th width="9%" class="text-center align-middle">最高學歷</th>
+                              <th width="14%" class="text-center align-middle">工作經歷</th>
+                              <th width="14%" class="text-center align-middle">技能證照</th>
+                           </tr> -->
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="card-footer clearfix p-2 align-items-center">
+                  <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+                     <ul class="pagination m-0" id="mypagination">
+                        <!-- <li class="page-item disabled">
+                                 <a class="page-link">Previous</a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                 <a class="page-link" href="#">Next</a>
+                              </li> -->
+                     </ul>
+                  </nav>
+               </div>
+            </div>
+         </section>
+      </div>
+   </div>
+
+   <!-- updateModal -->
+   <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+      data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+         <div class="modal-content">
+            <div class="modal-header fw-900 text-bg-warning">
+               <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  求職簡歷填寫
+               </h1>
+               <button type="button" class="btn-close" id="close_btn_apply" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <div class="mb-3 d-flex align-items-center"> <!-- 姓名 -->
+                  <label for="updateModal_name" class="form-label mb-0 me-5" style="white-space: nowrap;">姓名</label>
+                  <input type="text" class="form-control mt-1 is-invalid" placeholder="請輸入姓名" id="updateModal_name"
+                     name="updateModal_name" style="height: auto;">
+                  <div class="invalid-feedback" id="updateModal_name_empty_feedback">請輸入姓名</div>
+               </div>
+               <div class="mb-3 d-flex align-items-center"> <!-- 聯絡電話 -->
+                  <label for="updateModal_phone" class="form-label mb-0 me-3" style="white-space: nowrap;">聯絡電話</label>
+                  <input type="tel" class="form-control is-invalid" placeholder="請輸入聯絡電話" id="updateModal_phone"
+                     name="updateModal_phone" style="height: auto;">
+                  <div class="invalid-feedback" id="updateModal_phone_empty_feedback">請輸入聯絡電話</div>
+                  <div class="invalid-feedback d-none" id="updateModal_phone_invalid_feedback">聯絡電話格式不正確</div>
+               </div>
+               <div class="mb-3 d-flex align-items-center"> <!-- E-mail -->
+                  <label for="updateModal_email" class="form-label mb-0 me-4"
+                     style="white-space: nowrap;padding-right: 7px;">E-mail</label>
+                  <input type="email" class="form-control is-invalid" placeholder="請輸入E-mail" id="updateModal_email"
+                     name="updateModal_email" style="height: auto;">
+                  <div class="invalid-feedback" id="updateModal_email_empty_feedback">請輸入E-mail</div>
+                  <div class="invalid-feedback d-none" id="updateModal_email_invalid_feedback">E-mail格式不正確</div>
+               </div>
+               <div class="mb-3 d-flex align-items-center"> <!-- 最高學歷 -->
+                  <label for="updateModal_education" class="form-label mb-0 me-3"
+                     style="white-space: nowrap;">最高學歷</label>
+                  <input class="form-control is-invalid" list="datalistOptions" id="updateModal_education"
+                     placeholder="請輸入最高學歷" required>
+                  <datalist id="datalistOptions">
+                     <option value="高中畢業">
+                     <option value="高中肄業">
+                     <option value="專科畢業">
+                     <option value="專科肄業">
+                     <option value="大學畢業">
+                     <option value="大學肄業">
+                  </datalist>
+                  <div class="invalid-feedback" id="updateModal_education_empty_feedback">請輸入最高學歷</div>
+               </div>
+               <div class="mb-3 d-flex align-items-center"> <!-- 工作經歷 -->
+                  <label for="updateModal_experience" class="form-label mb-0 me-3"
+                     style="white-space: nowrap;">工作經歷</label>
+                  <input type="text" class="form-control mt-1 is-invalid" placeholder="請簡述工作經歷"
+                     id="updateModal_experience" name="updateModal_experience" style="height: auto;">
+                  <div class="invalid-feedback" id="updateModal_experience_empty_feedback">請簡述工作經歷</div>
+               </div>
+               <div class="mb-3 d-flex align-items-center"> <!-- 技能證照 -->
+                  <label for="updateModal_skill" class="form-label mb-0 me-3" style="white-space: nowrap;">技能證照</label>
+                  <input type="text" class="form-control mt-1" placeholder="如具技能證照，請簡述" id="updateModal_skill"
+                     name="updateModal_skill" style="height: auto;">
+               </div>
+               <div class="mb-3 d-flex align-items-center"> <!-- 應徵職務 -->
+                  <label for="updateModal_position" class="form-label mb-0 me-3"
+                     style="white-space: nowrap;">應徵職務</label>
+                  <select id="updateModal_position" name="updateModal_position" class="form-control is-invalid"
+                     required>
+                     <option value="" selected disabled>--- 請選擇應徵職務 ---</option>
+                     <option value="機電工程師">機電工程師</option>
+                     <option value="機械維修學徒">機械維修學徒</option>
+                  </select>
+                  <div class="invalid-feedback" id="updateModal_position_empty_feedback">請選擇應徵職務</div>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" id="cancel_btn_apply" data-bs-dismiss="modal">
+                  取消
+               </button>
+               <button type="button" class="btn btn-primary" id="ok_btn_apply">
+                  確認送出求職簡歷
+               </button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- sectionEND 其他連結和網頁版權 -->
+   <section id="s0end" class="bg-secondary">
+      <div class="container align-items-center">
+         <ul class="nav">
+            <li class="nav-item">
+               <a class="nav-link disabled" style="color: white">PowerBy 113年雲端技術應用實務班第2期3號陳俞蓁</a>
+            </li>
+            <li class="nav-item">
+               <a href="https://gcis.nat.gov.tw/mainNew/" class="nav-link active" aria-current="page" target="_blank"
+                  style="color: white" rel="noopener noreferrer">全國商工行政服務入口網</a>
+            </li>
+         </ul>
+      </div>
+   </section>
+
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.7.1.min.js"></script>
+   <script src="js/jquery.transit.min.js"></script>
+   <script src="js/wow.min.js"></script>
+   <script src="js/counterup2.js"></script>
+   <script src="js/CityCountyData.json"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script>
+      // section01 日期時間功能
+      function updateDateTime() {
+         const now = new Date();
+         const formattedDateTime = now.toLocaleString(); // 取得日期時間
+         const weekdays = [
+            "星期日",
+            "星期一",
+            "星期二",
+            "星期三",
+            "星期四",
+            "星期五",
+            "星期六",
+         ];
+         const weekday = weekdays[now.getDay()]; // 取得星期幾
+
+         document.getElementById("datetime").textContent = formattedDateTime;
+         document.getElementById("weekday").textContent = weekday;
+      }
+
+      updateDateTime(); //頁面載入時執行
+      setInterval(updateDateTime, 1000); //每秒更新
+
+      $(function () {
+         //s01_logout_btn 按鈕監聽
+         $("#s01_logout_btn").click(function () {
+            Swal.fire({
+               title: "確定登出嗎?",
+               text: "您確定要登出嗎？",
+               icon: "warning",
+               showCancelButton: true,
+               confirmButtonText: "確定",
+               cancelButtonText: "取消",
+               reverseButtons: true, // 使確定和取消按鈕的順序顛倒
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  sessionStorage.clear(); // 清除所有 sessionStorage
+                  localStorage.clear(); // 若有使用 localStorage 也一併清除
+                  document.cookie = "uid01=; max-age=0; path=/;"; //清除cookie
+                  Swal.fire({
+                     title: "登出成功!",
+                     text: "3秒後將自動跳轉至主頁...",
+                     icon: "success",
+                     timer: 3000, // 2 秒後自動關閉
+                     showConfirmButton: false,
+                  });
+                  setTimeout(function () {
+                     location.href = "tegrand_project_v4.html";
+                  }, 3000);
+               } else {
+                  // // 如果用戶點擊取消
+                  // Swal.fire({
+                  //    title: '登出已取消',
+                  //    text: '您還在當前頁面！',
+                  //    icon: 'info'
+                  // });
+               }
+            });
+         });
+
+         //確認uid是否合法
+         if (getCookie("uid01")) {
+            //將uid01傳遞至後端API執行驗證
+            //input {"uid01" : "c5e6c37a"}
+            var JSONdata = {};
+            JSONdata["uid01"] = getCookie("uid01");
+            console.log(JSON.stringify(JSONdata));
+
+            $.ajax({
+               type: "POST",
+               url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=checkuid",
+               data: JSON.stringify(JSONdata),
+               dataType: "json",
+               success: showdata_checkuid,
+               error: function () {
+                  Swal.fire({
+                     title: "API介接錯誤!",
+                     text: "tegrand_member_control_api_v1.php?action=checkuid",
+                     icon: "error"
+                  });
+               }
+            });
+         } else {
+            Swal.fire({
+               title: "請先完成登入!",
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  location.href = "tegrand_project_v4.html";
+               }
+            });
+         }
+
+         // 禁止輸入空白鍵
+         // $("#addModal_username, #addModal_password, #re_addModal_password, #addModal_address, #addModal_phone, #addModal_telephone, #addModal_fax, #updateModal_email, #updateModal_address, #updateModal_phone , #updateModal_telephone, #updateModal_fax").on("keydown", function (e) {
+         //    if (e.key === " ") {
+         //       e.preventDefault(); // 阻止輸入空白鍵
+         //    }
+         // });
+
+         //即時監聽updateModal_email  
+         $("#updateModal_email").bind("input propertychange", function () {
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var emailValue = $(this).val();
+
+            if (emailPattern.test(emailValue)) {
+               $(this).removeClass("is-invalid");
+               $(this).addClass("is-valid");
+               flag_updateModal_email = true;
+            } else {
+               $(this).removeClass("is-valid");
+               $(this).addClass("is-invalid");
+               flag_updateModal_email = false;
+            }
+         });
+
+         //即時監聽updateModal_phone
+         $("#updateModal_phone").bind("input propertychange", function () {
+            var phonePattern = /^09\d{8}$/; //必須以09開頭，後面8位數字（共10碼）
+            var phoneValue = $(this).val();
+
+            $(this).on("keypress", function (e) {
+               if (e.which < 48 || e.which > 57) {
+                  e.preventDefault(); // 阻止非數字輸入
+               }
+            });
+
+            if (phoneValue === "") {
+               // 當輸入欄位為空時，不進行任何狀態變更
+               $(this).removeClass("is-invalid");
+               flag_updateModal_phone = true;
+            } else if (phonePattern.test(phoneValue)) {
+               $(this).removeClass("is-invalid");
+               flag_updateModal_phone = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_updateModal_phone = false;
+            }
+         });
+
+         $('#close_btn_apply, #cancel_btn_apply').on('click', function () {
+            window.location.href = "tegrand_controlPanel_apply.html";  // 導向原本的頁面
+         });
+      });
+
+      function showdata_checkuid(data) {
+         console.log(data);
+         if (data.state) {
+            //顯示歡迎訊息
+            // $("#s01_username_showspan").removeClass("d-none");
+            // $("#s01_username_span").text(data.data.Username);
+
+            //顯示登出按鈕
+            // $("#s01_logout_btn").removeClass("d-none");
+
+            //渲染table資料
+            $.ajax({
+               type: "GET",
+               url: "http://localhost/web202411/tegrand_apply_control_api.php?action=getalldata",
+               success: showdata_getalldata,
+               dataType: "json",
+               error: function () {
+                  Swal.fire({
+                     title: "API介接錯誤!",
+                     text: "tegrand_apply_control_api.php?action=getalldata",
+                     icon: "error"
+                  });
+               }
+            });
+         } else {
+            Swal.fire({
+               title: "請重新登入!",
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  location.href = "tegrand_project_v4.html";
+               }
+            });
+         }
+
+         // 批量刪除按鈕
+         $("#delete_all_btn").click(function () {
+            //收集所有選中的apply_id
+            var selectedApply = [];
+            $(".row-checkbox:checked").each(function () {
+               selectedApply.push($(this).data("id"));
+            });
+
+            if (selectedApply.length === 0) {
+               Swal.fire({
+                  title: "請選擇至少一項簡歷進行刪除",
+                  icon: "warning"
+               });
+               return;
+            }
+
+            Swal.fire({
+               title: "確認刪除選中的簡歷?",
+               showDenyButton: true,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `取消`,
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  console.log(selectedApply);
+                  // 傳遞至後端API執行刪除操作
+                  var JSONdata = { "ids": selectedApply };
+                  console.log(JSON.stringify(JSONdata));
+
+                  $.ajax({
+                     type: "DELETE",
+                     url: "http://localhost/web202411/tegrand_apply_control_api.php?action=delete",
+                     data: JSON.stringify(JSONdata),
+                     dataType: "json",
+                     success: showdata_delete,
+                     error: function () {
+                        Swal.fire({
+                           title: "API介接錯誤!",
+                           text: "tegerand_apply_control_api.php?action=delete",
+                           icon: "error"
+                        });
+                     }
+                  });
+               }
+            });
+         });
+
+         // 監聽 updateModal_update_btn
+         $("#updateModal_update_btn").click(function () {
+            let errors = [];
+
+            // 先檢查 Email 是否為空
+            let emailValue = $("#updateModal_email").val().trim();
+            if (!emailValue) {
+               Swal.fire({
+                  title: "Email 為必填項目!",
+                  icon: "error"
+               });
+               return;
+            }
+
+            // 確保 flag 變數不會是 undefined
+            flag_updateModal_address = flag_updateModal_address ?? false;
+            flag_updateModal_phone = flag_updateModal_phone ?? false;
+            flag_updateModal_telephone = flag_updateModal_telephone ?? false;
+            flag_updateModal_fax = flag_updateModal_fax ?? false;
+
+            // 收集錯誤訊息
+            if (!flag_updateModal_phone) errors.push("手機號碼錯誤");
+            if (!flag_updateModal_telephone) errors.push("市內電話錯誤");
+            if (!flag_updateModal_fax) errors.push("傳真號碼錯誤");
+            if (!flag_updateModal_address) errors.push("地址錯誤");
+
+            // 如果有錯誤，顯示 Swal.fire 並停止執行
+            if (errors.length > 0) {
+               Swal.fire({
+                  title: "欄位有錯誤，請修正!",
+                  html: errors.map(err => `<div style="color: red;"> • ${err}</div>`).join(""),
+                  icon: "warning",
+                  confirmButtonColor: "#3085d6",
+                  confirmButtonText: "確認"
+               });
+               return;
+            }
+
+            // 準備要傳送的 JSON 資料
+            let JSONdata = {
+               "id": u_id,
+               "email": emailValue,
+               "city": $("#selectCity").val() || null,
+               "area": $("#selectArea").val() || null,
+               "address": $("#updateModal_address").val().trim() || null,
+               "phone": $("#updateModal_phone").val().trim() || null,
+               "telephone": $("#updateModal_telephone").val().trim() || null,
+               "fax": $("#updateModal_fax").val().trim() || null
+            };
+
+            console.log(JSON.stringify(JSONdata));
+
+            // 檢查是否有欄位變更
+            if (!Object.values(JSONdata).some(value => value !== null && value !== "")) {
+               Swal.fire({
+                  title: "無欄位內容變更!",
+                  icon: "error"
+               });
+               return;
+            }
+
+            $.ajax({
+               type: "POST",
+               url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=update",
+               data: JSON.stringify(JSONdata),
+               dataType: "json",
+               success: showdata_update,
+               error: function () {
+                  Swal.fire({
+                     title: "API介接錯誤!",
+                     text: "tegerand_member_control_api_v1.php?action=update",
+                     icon: "error"
+                  });
+               }
+            });
+         });
+      }
+
+      function showdata_getalldata(data) {
+         console.log(data);
+         let applys = data.data?.reply_all_data;
+         console.log(applys);
+
+         $("#myapplydata").empty();
+         var reply1Count = data.data.reply_1_count;
+         var reply2Count = data.data.reply_2_count;
+         var reply3Count = data.data.reply_3_count;
+         var reply4Count = data.data.reply_4_count;
+         var reply5Count = data.data.reply_5_count;
+         var reply6Count = data.data.reply_6_count;
+         var reply7Count = data.data.reply_7_count;
+         var replyAllCount = (data.data.reply_1_count + data.data.reply_2_count + data.data.reply_3_count + data.data.reply_4_count + data.data.reply_5_count + data.data.reply_6_count + data.data.reply_7_count);
+
+         // 渲染資料庫
+         var replyHTML = `<div class="row">
+                        <div class="col-lg col-6 my-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_all_data" autocomplete="off" checked>
+                           <label class="small-box btn btn-primary text-decoration-none d-flex" for="reply_all_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>${replyAllCount}&nbsp;&nbsp;&nbsp;所有簡歷</b></h5>
+                              </div>
+                              <svg class="small-box-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0" />
+                              </svg>
+                           </label>
+                        </div>
+                        <div class="col-lg col-6 my-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_1_data" autocomplete="off">
+                           <label
+                              class="small-box btn btn-danger text-decoration-none d-flex"
+                              for="reply_1_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>${reply1Count}&nbsp;&nbsp;&nbsp;尚未聯繫</b></h5>
+                              </div>
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="small-box-icon bi bi-chat-fill" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                 <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15"/>
+                              </svg>
+                           </label>
+                        </div>
+                        <div class="col-lg col-6 my-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_2_data" autocomplete="off">
+                           <label
+                              class="small-box btn btn-warning text-decoration-none d-flex"
+                              for="reply_2_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>${reply2Count}&nbsp;&nbsp;&nbsp;初次聯繫失敗</b></h5>
+                              </div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-x-fill small-box-icon" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                 <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zm9.261 1.135a.5.5 0 0 1 .708 0L13 2.793l1.146-1.147a.5.5 0 0 1 .708.708L13.707 3.5l1.147 1.146a.5.5 0 0 1-.708.708L13 4.207l-1.146 1.147a.5.5 0 0 1-.708-.708L12.293 3.5l-1.147-1.146a.5.5 0 0 1 0-.708"/>
+                              </svg>
+                           </label>
+                        </div>
+                        <div class="col-lg col-6 my-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_4_data" autocomplete="off">
+                           <label
+                              class="small-box btn btn-info text-decoration-none d-flex"
+                              for="reply_4_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>${reply4Count}&nbsp;&nbsp;&nbsp;待定面試</b></h5>
+                              </div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-bounding-box small-box-icon" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                 <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5M.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5"/>
+                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                              </svg>
+                           </label>
+                        </div>
+                        <div class="col-lg col-6 my-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_7_data" autocomplete="off">
+                           <label
+                              class="small-box btn btn-success text-decoration-none d-flex"
+                              for="reply_7_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>${reply7Count}&nbsp;&nbsp;&nbsp;面試成功</b></h5>
+                              </div>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-check small-box-icon" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                 <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                 <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+                              </svg>
+                           </label>
+                        </div>
+                        <div class="col-lg col-6 my-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_6_data" autocomplete="off">
+                           <label
+                              class="small-box btn btn-secondary text-decoration-none d-flex"
+                              for="reply_6_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>${reply6Count}&nbsp;&nbsp;&nbsp;面試失敗</b></h5>
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-slash small-box-icon" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                    <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465m-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
+                                 </svg>
+                              </div>
+                           </label>
+                        </div>
+                        <div class="col-lg col-6 my-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_3_data" autocomplete="off">
+                           <label
+                              class="small-box btn btn-secondary text-decoration-none d-flex"
+                              for="reply_3_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>${reply3Count}&nbsp;&nbsp;&nbsp;聯繫失敗(2次)</b></h5>
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ban small-box-icon" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                    <path d="M15 8a6.97 6.97 0 0 0-1.71-4.584l-9.874 9.875A7 7 0 0 0 15 8M2.71 12.584l9.874-9.875a7 7 0 0 0-9.874 9.874ZM16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0"/>
+                                  </svg>
+                              </div>
+                           </label>
+                        </div>
+                        <div class="col-lg col-6 my-2">
+                           <input type="radio" class="btn-check" name="apply" id="reply_5_data" autocomplete="off">
+                           <label
+                              class="small-box btn btn-dark text-decoration-none d-flex"
+                              for="reply_5_data">
+                              <div class="inner">
+                                 <h5 class="mt-2"><b>${reply5Count}&nbsp;&nbsp;&nbsp;應徵取消</b></h5>
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle small-box-icon text-secondary" viewBox="0 0 16 16" style="width: 45px; height: 45px;">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                                 </svg>
+                              </div>
+                           </label>
+                        </div>
+                     </div>`;
+         $("#myapplydata").append(replyHTML);
+
+         // 監聽 radio 按鈕變化
+         $("input[name='apply']").on("change", function () {
+            let selectedReply = $(this).attr("id"); // 取得選中的回復情形id
+            console.log("選中的回復情形：", selectedReply);
+
+            // 取得相對應回復情形的簡歷資料、頁數
+            let filteredReply;
+            let totalPages = 1;
+
+            if (selectedReply.startsWith("reply_")) {
+               filteredReply = data.data[selectedReply];
+               // 根據選中的 ID 獲取相應的頁數
+               switch (selectedReply) {
+                  case "reply_1_data":
+                     totalPages = data.data?.total_reply_1_pages || 1;
+                     break;
+                  case "reply_2_data":
+                     totalPages = data.data?.total_reply_2_pages || 1;
+                     break;
+                  case "reply_3_data":
+                     totalPages = data.data?.total_reply_3_pages || 1;
+                     break;
+                  case "reply_4_data":
+                     totalPages = data.data?.total_reply_4_pages || 1;
+                     break;
+                  case "reply_5_data":
+                     totalPages = data.data?.total_reply_5_pages || 1;
+                     break;
+                  case "reply_6_data":
+                     totalPages = data.data?.total_reply_6_pages || 1;
+                     break;
+                  case "reply_7_data":
+                     totalPages = data.data?.total_reply_7_pages || 1;
+                     break;
+                  case "reply_all_data":
+                     totalPages = data.data?.total_reply_pages || 1;
+                     break;
+               }
+            }
+
+            if (filteredReply.length === 0) {
+               console.log("沒有符合條件的資料");
+
+               // 獲取被選中的 label 的文字
+               let selectedLabel = $("label[for='" + selectedReply + "']").text().trim();
+               Swal.fire("提示", `<span style="color: red; font-weight: bold;">目前無< ${selectedLabel} >類型</span>`, "info");
+            } else {
+               // 輸出過濾後的資料
+               console.log("<回復情形>篩選後的資料：", filteredReply);
+
+               $("#mydata").empty();
+               // 渲染應徵簡歷資料
+               filteredReply.forEach(function (apply) {
+                  var strHTML = `<tr>
+                              <!-- 11項 -->
+                              <th data-th="勾選方框" class="text-center align-middle">
+                                 <input class="form-check-input row-checkbox" type="checkbox" data-id="${apply.apply_id}">
+                              </th>
+                              <th data-th="編號" class="text-center align-middle">${apply.apply_id}</th>
+                              <th data-th="姓名" class="text-center align-middle">${apply.apply_name}</th>
+                              <th data-th="電話" class="text-center align-middle">${apply.apply_phone}</th>
+                              <th data-th="E-mail" class="text-center align-middle">${apply.apply_email}</th>
+                              <th data-th="應徵職務" class="text-center align-middle">${apply.apply_position}</th>
+                              <th data-th="回復情形" class="text-center align-middle">${apply.apply_reply}</th>
+                              <th data-th="面試時間" class="text-center align-middle">${apply.apply_interview}</th>
+                              <th data-th="最高學歷" class="text-center align-middle">${apply.apply_education}</th>
+                              <th data-th="工作經歷" class="text-center align-middle">${apply.apply_experience}</th>
+                              <th data-th="技能證照" class="text-center align-middle">${apply.apply_skill}</th>
+                           </tr>`;
+                  $("#mydata").append(strHTML);
+               });
+            }
+            $(".checkbox-all").prop("checked", false);
+            
+            // 生成分頁按鈕
+            let currentPage = data.data?.current_page || 1;
+            $("#mypagination").empty();
+            updatePagination(totalPages, currentPage);
+         });
+         // 初始化第一個分類的資料
+         $("input[name='apply']:checked").trigger("change");
+
+         $("#update_btn").click(function () {
+            var selectedApplyId = null;
+
+            // 被選中的checkbox ID
+            $(".row-checkbox:checked").each(function () {
+               selectedApplyId = $(this).data("id");
+               console.log(selectedApplyId); // 輸出選中的 ID
+            });
+
+            // 在 applys 中查找對應的資料
+            var applyToUpdate = applys.find(apply => apply.apply_id === selectedApplyId);
+
+            // 將資料同步至updateModal
+            $("#updateModal_name").val(applyToUpdate.apply_name);
+            $("#updateModal_phone").val(applyToUpdate.apply_phone);
+            $("#updateModal_email").val(applyToUpdate.apply_email);
+            $("#updateModal_education").val(applyToUpdate.apply_education);
+            $("#updateModal_experience").val(applyToUpdate.apply_experience);
+            $("#updateModal_skill").val(applyToUpdate.apply_skill);
+            $("#updateModal_position").val(applyToUpdate.apply_position);
+            $("#updateModal_name, #updateModal_phone, #updateModal_email, #updateModal_education, #updateModal_experience, #updateModal_position").removeClass("is-invalid"); //沒有skill(非必填項目)
+         });
+      }
+
+      // 生成分頁按鈕（限制最多顯示 10 個按鈕）
+      function updatePagination(totalPages, currentPage) {
+         console.log("總頁數:", totalPages);
+         console.log("當前頁數:", currentPage);
+         let paginationHtml = "";
+
+         // 確保最大顯示的頁碼數不會超過總頁數
+         let maxPagesToShow = Math.min(10, totalPages);
+         let startPage, endPage;
+
+         // 計算起始和結束頁碼
+         if (totalPages <= maxPagesToShow) {
+            startPage = 1;
+            endPage = totalPages; // 總頁數小於或等於 10，顯示所有頁碼
+         } else {
+            startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+            endPage = startPage + maxPagesToShow - 1;
+
+            // 確保不會超出範圍
+            if (endPage > totalPages) {
+               endPage = totalPages;
+               startPage = Math.max(1, endPage - maxPagesToShow + 1);
+            }
+         }
+
+         // **上一頁 & 第一頁**
+         if (currentPage > 1) {
+            paginationHtml += `<li class="page-item">
+            <a class="page-link" href="#" data-page="1">&laquo;</a></li>`;
+            paginationHtml += `<li class="page-item">
+            <a class="page-link" href="#" data-page="${currentPage - 1}">&lt;</a></li>`;
+         }
+
+         // **產生實際有資料的頁碼**
+         for (let i = startPage; i <= endPage; i++) {
+            paginationHtml += `<li class="page-item ${i === currentPage ? 'active' : ''}">
+            <a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
+         }
+
+         // **下一頁 & 最後一頁**
+         if (currentPage < totalPages) {
+            paginationHtml += `<li class="page-item">
+            <a class="page-link" href="#" data-page="${currentPage + 1}">&gt;</a></li>`;
+            paginationHtml += `<li class="page-item">
+            <a class="page-link" href="#" data-page="${totalPages}">&raquo;</a></li>`;
+         }
+
+         $("#mypagination").html(paginationHtml);
+
+         // **當總頁數超過 1 才顯示分頁按鈕**
+         // if (totalPages > 1) {
+         //    $("#mypagination").html(paginationHtml);
+         // } else {
+         //    $("#mypagination").empty(); // 只有 1 頁時，不顯示分頁
+         // }
+      }
+
+      // 監聽分頁按鈕點擊
+      $("#mypagination").on("click", ".page-link", function (e) {
+         e.preventDefault();
+         let page = $(this).data("page");
+         fetchUserData(page);
+      });
+
+      // AJAX 請求函式
+      function fetchUserData(page) {
+         $.ajax({
+            url: "http://localhost/web202411/tegrand_apply_control_api.php?action=getalldata",
+            type: "GET",
+            data: { page: page },
+            dataType: "json",
+            success: function (response) {
+               if (response.state) {
+                  showdata_getalldata(response);
+               } else {
+                  Swal.fire("資料加載失敗", response.message, "error");
+               }
+            },
+            error: function () {
+               Swal.fire("無法取得資料", "請檢查後端 API。", "error");
+            }
+         });
+      }
+
+      // 頁面加載時載入第 1 頁
+      $(document).ready(function () {
+         fetchUserData(1);
+      });
+
+      function showdata_update(data) {
+         console.log(data);
+         if (data.state) {
+            Swal.fire({
+               title: data.message,
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               icon: "success",
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  location.href = "tegrand_controlPanel_users_V2.html";
+               }
+            })
+         } else {
+            Swal.fire({
+               title: data.message,
+               icon: "error"
+            });
+         }
+      }
+
+      function showdata_delete(data) {
+         console.log(data);
+         if (data.state) {
+            Swal.fire({
+               title: data.message,
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               icon: "success",
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  location.href = "tegrand_controlPanel_apply.html";
+               }
+            })
+         } else {
+            Swal.fire({
+               title: data.message,
+               icon: "error"
+            });
+         }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+         let username = sessionStorage.getItem("username"); // 取得用戶名稱
+
+         if (username) {
+            $("#s01_username_showspan").removeClass("d-none");
+            $("#s01_username_span").text(username);
+         } else {
+            // document.getElementById("welcome_msg").textContent = "歡迎訪客！";
+         }
+      });
+
+      //全選與單選checkbox
+      $(document).ready(function () {
+         //綁定全選checkbox
+         $(document).on("change", ".checkbox-all", function () {
+            $(".row-checkbox").prop("checked", this.checked); // 設定所有 checkbox 狀態
+            $("#update_btn").prop("disabled", true)
+               .removeClass("btn-warning")
+               .addClass("btn-secondary");  // 按鈕失效時變灰色
+         });
+
+         //監聽tbody內的checkbox
+         $(document).on("change", ".row-checkbox", function () {
+            let checkedCount = $(".row-checkbox:checked").length;
+            let isAllChecked = $(".row-checkbox").length === checkedCount;
+
+            // 更新全選 checkbox 狀態
+            $(".checkbox-all").prop("checked", isAllChecked);
+
+            // 控制 update_btn 啟用狀態及顏色
+            if (checkedCount === 1) {
+               $("#update_btn").prop("disabled", false)
+                  .removeClass("btn-secondary")
+                  .addClass("btn-warning");  // 啟用時變橘色
+            } else {
+               $("#update_btn").prop("disabled", true)
+                  .removeClass("btn-warning")
+                  .addClass("btn-secondary");  // 失效時變灰色
+            }
+         });
+      });
+
+      // document.addEventListener('DOMContentLoaded', function () {
+      //    fetch('http://localhost/web202411/tegrand_apply_control_api.php?action=getalldata')
+      //       .then(response => {
+      //          if (!response.ok) {
+      //             throw new Error('Network response was not ok');
+      //          }
+      //          return response.json();
+      //       })
+      //       .then(data => {
+      //          console.log(data); // 處理返回的數據
+      //       })
+      //       .catch(error => {
+      //          console.log('API 請求錯誤:', error);
+      //       });
+      // });
+
+      function setCookie(cname, cvalue, exdays) {
+         const d = new Date();
+         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+         let expires = "expires=" + d.toUTCString();
+         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+         console.log(document.cookie);
+      }
+
+      function getCookie(cname) {
+         let name = cname + "=";
+         let ca = document.cookie.split(';');
+         for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+               c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+               return c.substring(name.length, c.length);
+            }
+         }
+         return "";
+      }
+   </script>
+</body>
+
+</html>

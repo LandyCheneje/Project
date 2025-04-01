@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>得昌行|捷獅---中古機械</title>
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/mycolor-tegrand.css">
+   <link rel="stylesheet" href="css/all.min.css">
+   <link rel="stylesheet" href="css/animate.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css"
+      integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous">
+   <!--滾動條樣式 (OverlayScrollbars)-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
+      integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
+   <!--Bootstrap Icons（圖示庫）-->
+   <link rel="stylesheet" href="css/adminlte.css"> <!--AdminLTE（後台管理模板 CSS）-->
+   <link rel="icon" href="images/MajorProject/捷獅.webp" type="image/png">
+   <style>
+      /*連結底線顯示none*/
+      a {
+         text-decoration: none;
+      }
+
+      /* 機台管理(與會員系統btn同位置) */
+      #controlPanel_item {
+         position: fixed;
+         bottom: 180px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      }
+
+      /* 會員系統(與機台管理btn同位置) */
+      #memberSystem {
+         position: fixed;
+         bottom: 180px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      }
+
+      /* 管理系統(與購物車btn同位置) */
+      #controlPanel {
+         position: fixed;
+         bottom: 100px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      }
+
+      /* 購物車(與管理系統btn同位置) */
+      #shopping {
+         position: fixed;
+         bottom: 100px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      }
+
+      /* 回到頁面頂部 */
+      #backToTop {
+         position: fixed;
+         bottom: 20px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      }
+
+      #backToTop:hover,
+      #controlPanel:hover,
+      #memberSystem:hover,
+      #shopping:hover {
+         background-color: var(--myjumpcolor02);
+      }
+
+      /* s01 */
+      #s01 {
+         background-color: var(--myjumpcolor03);
+         height: auto;
+      }
+
+      .s01-icon {
+         color: var(--myjumpcolor01);
+         font-size: 40px;
+      }
+
+      .s01-icon-fb {
+         color: #1877f2;
+         font-size: 50px;
+      }
+
+      .s01-icon-line {
+         color: #00b900;
+         font-size: 45px;
+      }
+
+      .s01-icon-ig {
+         color: #833ab4;
+         font-size: 50px;
+      }
+
+      .s01-icon-threads {
+         color: #000000;
+         font-size: 50px;
+      }
+
+      .s01-span {
+         font-size: 30px;
+         line-height: 1;
+      }
+
+      .s01-sup {
+         font-size: 15px;
+      }
+
+      /* s02 */
+      .navbar {
+         background-color: var(--myjumpcolor01);
+      }
+
+      .navbar-brand-img {
+         width: 80px;
+         border-radius: 20px;
+      }
+
+      .navbar-brand-name {
+         font-size: 60px;
+         color: white;
+      }
+
+      .nav-link {
+         border-radius: 10px;
+         color: white;
+      }
+
+      .s02-icon {
+         color: white;
+      }
+
+      .s02-icon-span {
+         color: white;
+         font-size: 30px;
+      }
+
+      /* section02 banner按鍵動作 */
+      .navbar a:hover,
+      .navbar button:hover {
+         background-color: var(--myjumpcolor03);
+         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+         transform: translateY(-2px);
+         transition: all 0.3s ease-in-out;
+      }
+
+      .navbar a:active,
+      .navbar button:active {
+         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+         transform: translateY(6px);
+         transition: all 0.2s ease-in-out;
+      }
+
+      .navbar-toggler {
+         background-color: white;
+      }
+
+      /* s03 */
+      /* s03背景圖 */
+      .box03bg {
+         background-image: url(images/MajorProject/box06bg.png);
+         background-attachment: fixed;
+         position: relative;
+         background-position: center;
+         background-size: cover;
+         background-repeat: no-repeat;
+         z-index: 1;
+      }
+
+      .box03bg::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(255, 255, 255, 0.6);
+         z-index: -1;
+      }
+
+      /* s03 btn-group */
+      .btn-group {
+         display: flex;
+         flex-wrap: wrap;
+         /* 允許按鈕自動換行 */
+         justify-content: center;
+         gap: 10px;
+      }
+
+      .s03-outline {
+         border: 5px solid var(--myjumpcolor01);
+         color: var(--myjumpcolor01);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         padding: 5px 15px;
+         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+         transition: all 0.3s ease-in-out;
+         justify-content: center;
+         align-items: center;
+         border-radius: 15px;
+      }
+
+      .s03-outline:hover,
+      .btn-check:checked+.s03-outline {
+         background-color: var(--myjumpcolor01);
+         color: white;
+         box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+         /* 滑鼠懸停 & 被選中時陰影加強 */
+         transform: translateY(-2px);
+      }
+
+      /* s04 */
+      #item-card {
+         display: flex;
+         /* 使用 flexbox */
+         flex-wrap: wrap;
+         /* 允許換行 */
+      }
+
+      .card {
+         display: flex;
+         /* 使每個卡片成為 flex 容器 */
+         flex-direction: column;
+         /* 垂直排列內容 */
+         height: 100%;
+         /* 確保卡片高度一致 */
+      }
+
+      .card-title-color {
+         --lte-card-variant-bg: var(--myjumpcolor01);
+         --lte-card-variant-bg-rgb: 220, 53, 69;
+         --lte-card-variant-color: #fff;
+         --lte-card-variant-color-rgb: 255, 255, 255;
+      }
+
+      .card-header {
+         display: flex;
+         /* 使用 flexbox 進行佈局 */
+         justify-content: space-between;
+         /* 兩端對齊 */
+         align-items: center;
+         /* 垂直置中 */
+      }
+
+      .card-title {
+         flex: 1;
+         /* 允許標題佔用剩餘空間 */
+         white-space: nowrap;
+         /* 不換行 */
+         overflow: hidden;
+         /* 隱藏超出部分 */
+         text-overflow: ellipsis;
+         /* 使用省略號表示多餘文字 */
+         margin: 0;
+         /* 移除默認邊距 */
+      }
+
+      .card-tools {
+         margin-left: 10px;
+         /* 按鈕與標題之間的間距 */
+      }
+
+      .card-body {
+         display: flex;
+         flex: 1;
+         /* 使卡片內容區域佔滿剩餘空間 */
+         overflow: hidden;
+         background-position: center;
+         background-size: cover;
+         background-repeat: no-repeat;
+         flex-direction: column;
+         /* 預設為直向排列 */
+         align-items: center;
+         justify-content: space-between;
+         /* 在可用空間中分配內容 */
+      }
+
+      .card-body-left {
+         display: flex;
+         /* 使用 Flexbox */
+         flex-direction: column;
+         /* 垂直排列內容 */
+         justify-content: center;
+         /* 垂直居中 */
+         align-items: center;
+         /* 水平置中 */
+         height: 100%;
+         /* 使內容區域填滿 */
+      }
+
+      .card-body-img {
+         height: auto;
+         max-width: 100%;
+         /* 確保圖片不超出容器 */
+         max-height: 190px;
+         /* 設定最大高度以保持一致性 */
+         display: block;
+         /* 移除圖片下方的多餘間距 */
+      }
+
+      .card.maximized-card .card-body {
+         display: flex;
+         flex-direction: row;
+         /* 變成橫向排列 */
+         justify-content: space-between;
+         align-items: center;
+         height: 100%;
+         padding: 20px;
+         /* 增加內距，讓版面更美觀 */
+      }
+
+      .card.maximized-card .card-body-left {
+         width: 50%;
+         /* 讓圖片佔左半部 */
+         height: auto;
+         /* 保持原比例 */
+      }
+
+      .card-body-text {
+         display: none;
+      }
+
+      .card.maximized-card .card-body-text {
+         display: block;
+         /* 最大化時顯示 */
+         width: 50%;
+         /* 右側文字區佔 50% */
+         padding: 20px;
+      }
+
+      @media (max-width: 1500px) {
+         .nav-link-icon {
+            display: inline-block;
+            width: 100px;
+            text-align: center;
+            margin-left: 10px;
+            background-color: var(--myjumpcolor04);
+         }
+
+         .nav-link-span {
+            display: none;
+         }
+      }
+
+      @media (max-width: 1200px) {
+         .box01_1 {
+            font-size: 80px;
+         }
+
+         .box01_2 {
+            font-size: 40px;
+         }
+      }
+
+      @media (max-width: 1100px) {
+         .navbar-brand-name {
+            font-size: 50px;
+         }
+      }
+
+      @media (max-width: 992px) {
+         .box01_1 {
+            font-size: 60px;
+         }
+
+         .box01_2 {
+            font-size: 30px;
+         }
+
+         .navbar-brand-img {
+            width: 80px !important;
+            border-radius: 10px;
+         }
+      }
+
+      @media (max-width: 640px) {
+         .navbar-brand-name {
+            font-size: 30px;
+         }
+
+         .box01_1 {
+            font-size: 46px;
+         }
+
+         .box01_2 {
+            font-size: 23px;
+         }
+      }
+   </style>
+</head>
+
+<body oncontextmenu="window.event.returnValue=false">
+   <!-- section01 頁首連結&登入登出連結&時間提醒 -->
+   <section id="s01" class="py-2">
+      <div class="row mx-3 align-items-center text-center text-md-start d-none d-md-block">
+         <div class="col-12 d-flex flex-wrap justify-content-center justify-content-md-between align-items-center">
+            <div class="d-flex align-items-center">
+               <a href="tel:+886-04-8654937" title="得昌行電話" class="me-3">
+                  <i class="fa-solid fa-phone s01-icon"></i>
+               </a>
+               <a href="tel:+886-933562438" title="捷獅電話" class="me-3">
+                  <i class="fa-solid fa-mobile-screen-button s01-icon"></i>
+               </a>
+               <a href="mailto:XXX@gmail.com" title="Email電子信箱">
+                  <i class="fa-solid fa-envelopes-bulk s01-icon"></i>
+               </a>
+            </div>
+            <div class="mx-3 d-flex align-items-center flex-wrap justify-content-center justify-content-md-end">
+               <a href="#" class="me-2" title="Facebook">
+                  <i class="fa-brands fa-square-facebook s01-icon-fb"></i>
+               </a>
+               <a href="#" class="me-2" title="Line">
+                  <i class="fa-brands fa-line s01-icon-line"></i>
+               </a>
+               <a href="#" class="me-2" title="IG">
+                  <i class="fa-brands fa-square-instagram s01-icon-ig"></i>
+               </a>
+               <a href="#" class="me-2" title="Threads">
+                  <i class="fa-brands fa-square-threads s01-icon-threads"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+      <div class="row mx-3 mt-2 align-items-center">
+         <div class="col-lg-6 order-2 order-md-1 text-center text-md-start mt-2 d-none d-lg-block">
+            <span class="ms-2 s01-span">
+               <b>
+                  <span id="datetime"></span>（<span id="weekday"></span>）
+               </b>
+            </span>
+         </div>
+         <div class="col-lg-6 order-1 order-md-2 text-center text-md-end">
+            <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+               <span class="me-3 s01-span d-none" id="s01_username_showspan">
+                  <b><span id="s01_username_span"></span>，您好!</b>
+               </span>
+               <button class="btn btn-lg btn-outline-warning me-2" data-bs-toggle="modal"
+                  data-bs-target="#registerModal" id="s01_reg_btn_1">註冊</button>
+               <button class="btn btn-lg btn-outline-success me-2" data-bs-toggle="modal" data-bs-target="#loginModal"
+                  id="s01_login_btn_1">登入</button>
+               <button class="btn btn-lg btn-outline-danger me-2 d-none" id="s01_logout_btn">登出</button>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- section02 banner -->
+   <section id="s02">
+      <nav class="navbar navbar-expand-lg">
+         <div class="container-fluid">
+            <div class="navbar-brand fw-900 d-flex align-items-center">
+               <img class="navbar-brand-img" src="images/MajorProject/捷獅.webp" alt="得昌行-捷獅">
+               <span class="navbar-brand-name ms-1">得昌行-捷獅</span>
+               <a class="nav-link ms-5 p-2 nav-link-icon" aria-current="page" href="tegrand_project_v4.html" title="首頁">
+                  <i class="s02-icon fa-solid fa-house fa-xl"></i>
+                  <span class="s02-icon-span nav-link-span">
+                     <b>首頁</b>
+                  </span>
+               </a>
+            </div>
+         </div>
+      </nav>
+   </section>
+
+   <!-- section03 radio toggle -->
+   <section id="s03" class="box03bg">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="btn-group my-3" role="group" aria-label="Basic radio toggle button group">
+               <input type="radio" class="btn-check" name="item" id="all" autocomplete="off" checked>
+               <label class="btn s03-outline" for="all"><span class="h4"><b>所有機型</b></span></label>
+
+               <input type="radio" class="btn-check" name="item" id="1" autocomplete="off">
+               <label class="btn s03-outline" for="1"><span class="h4"><b>中古車床</b></span></label>
+
+               <input type="radio" class="btn-check" name="item" id="2" autocomplete="off">
+               <label class="btn s03-outline" for="2"><span class="h4"><b>中古銑床</b></span></label>
+
+               <input type="radio" class="btn-check" name="item" id="3" autocomplete="off">
+               <label class="btn s03-outline" for="3"><span class="h4"><b>中古鑽床</b></span></label>
+
+               <input type="radio" class="btn-check" name="item" id="4" autocomplete="off">
+               <label class="btn s03-outline" for="4"><span class="h4"><b>中古磨床</b></span></label>
+
+               <input type="radio" class="btn-check" name="item" id="5" autocomplete="off">
+               <label class="btn s03-outline" for="5"><span class="h4"><b>中古鋸床</b></span></label>
+
+               <input type="radio" class="btn-check" name="item" id="6" autocomplete="off">
+               <label class="btn s03-outline" for="6"><span class="h4"><b>中古放電加工機</b></span></label>
+
+               <input type="radio" class="btn-check" name="item" id="7" autocomplete="off">
+               <label class="btn s03-outline" for="7"><span class="h4"><b>中古沖床</b></span></label>
+
+               <input type="radio" class="btn-check" name="item" id="8" autocomplete="off">
+               <label class="btn s03-outline" for="8"><span class="h4"><b>中古鉋床</b></span></label>
+
+               <input type="radio" class="btn-check" name="item" id="9" autocomplete="off">
+               <label class="btn s03-outline" for="9"><span class="h4"><b>其他中古機械</b></span></label>
+
+               <input type="radio" class="btn-check" name="item" id="10" autocomplete="off">
+               <label class="btn s03-outline" for="10"><span class="h4"><b>新機代理</b></span></label>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- section04 cards maximizable -->
+   <section id="s04" class="box03bg">
+      <div class="container-fluid">
+         <div class="row" id="item-card">
+            <!-- <div class="col-md-3 mb-3">
+               <div class="card card-title-color">
+                  <div class="card-header">
+                     <h3 class="card-title">Maximizable</h3>
+                     <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-lte-toggle="card-maximize"><i
+                              data-lte-icon="maximize" class="bi bi-fullscreen"></i><i data-lte-icon="minimize"
+                              class="bi bi-fullscreen-exit"></i></button>
+                     </div>
+                  </div>
+                  <div class="card-body">
+                     <div class="card-body-left text-center">
+                        <img class="card-body-img" src="images/MajorProject/item/10-新機代理/世合MR-450plus自動送料CNC加工機.jpg">
+                        <button class="btn btn-primary mt-3">加入購物車</button>
+                     </div>
+                     <div class="card-body-text">
+                        <div class="h4 text-center"><b>世合MR-450plus自動送料CNC加工機</b></div>
+                        <p>型號: MR-450plus</p>
+                        <p>售價:<span class="mx-1 h4 text-danger"><b>2萬</b></span>元</p>
+                        <p>主軸鼻端至工作台距離: 180mm</p>
+                        <p>主軸中心至滑道面距離: 417mm</p>
+                        <p>工作台尺寸: 500x350mm</p>
+                        <p>T型槽尺寸: 18x3x100(寬x槽數x間距)</p>
+                        <p>工作台最大荷重: 150kgs</p>
+                        <p>主軸轉速: 12,000rpm (直結式)</p>
+                        <p>主軸馬達: 3.7/5.5kw</p>
+                        <p>BT30/14ATC</p>
+                        <p>最大刀徑 鄰刀/空鄰刀: ø90/ø150mm</p>
+                        <p>最大刀具長度: 200mm</p>
+                        <p>佔地面積: 2125x1500x2470mm (長x寬x高)</p>
+                        <p>機械重量: 2600kgs</p>
+                        <p>6軸8公斤機械手能力:</p>
+                        <p>1.可夾持重量: 4(2+2)kgs</p>
+                        <p>2.最大有效範圍半徑: 908mm</p>
+                        <p>3.週期時間: 0.35/300 sec/mm</p>
+                     </div>
+                  </div>
+               </div>
+            </div> -->
+         </div>
+      </div>
+   </section>
+
+   <!-- sectionEND 其他連結和網頁版權 -->
+   <section id="s0end" class="bg-secondary">
+      <div class="container align-items-center">
+         <ul class="nav">
+            <li class="nav-item">
+               <a class="nav-link disabled" style="color: white;">PowerBy 113年雲端技術應用實務班第2期3號陳俞蓁</a>
+            </li>
+            <li class="nav-item">
+               <a href="https://gcis.nat.gov.tw/mainNew/" class="nav-link active" aria-current="page" target="_blank"
+                  style="color: white;" rel="noopener noreferrer">全國商工行政服務入口網</a>
+            </li>
+         </ul>
+      </div>
+   </section>
+
+   <!-- 控制台 -->
+   <button class="d-none" id="controlPanel" title="控制台"><i class="fa-solid fa-list-check fa-lg"></i></button>
+
+   <!-- 機台管理 -->
+   <button class="d-none" id="controlPanel_item" title="機台管理"><svg class="small-box-icon"
+         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" style="width: 30px;height: 30px;">
+         <path
+            d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7.256A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-3.59 1.787A.5.5 0 0 0 9 9.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .39-.187A4.5 4.5 0 0 0 8.027 12H6.5a.5.5 0 0 0-.5.5V16H3a1 1 0 0 1-1-1zm2 1.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3 0v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
+         <path
+            d="M11.886 9.46c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
+      </svg>
+   </button>
+
+   <!-- 會員系統 -->
+   <button class="" id="memberSystem" title="會員系統"><i class="fa-solid fa-user fa-lg"></i></button>
+
+   <!-- 購物車 -->
+   <button class="" id="shopping" title="購物車"><i class="fa-solid fa-cart-shopping fa-lg"></i></button>
+
+   <!-- 回到頁面頂部 -->
+   <button id="backToTop" title="回到頁面頂部"><i class="fa-solid fa-angles-up fa-lg"></i></button>
+
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.7.1.min.js"></script>
+   <script src="js/jquery.transit.min.js"></script>
+   <script src="js/wow.min.js"></script>
+   <script src="js/counterup2.js"></script>
+   <script src="js/CityCountyData.json"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="js/adminlte.js"></script>
+   <script>
+      // section01 日期時間功能
+      function updateDateTime() {
+         const now = new Date();
+         const formattedDateTime = now.toLocaleString(); // 取得日期時間
+         const weekdays = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+         const weekday = weekdays[now.getDay()]; // 取得星期幾
+
+         document.getElementById("datetime").textContent = formattedDateTime;
+         document.getElementById("weekday").textContent = weekday;
+      }
+
+      updateDateTime(); // 頁面載入時執行
+      setInterval(updateDateTime, 1000); // 每秒更新
+
+      // 回到頁面頂部
+      document.getElementById("backToTop").addEventListener("click", function () {
+         window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+         });
+      });
+
+      document.getElementById("controlPanel").addEventListener("click", function () {
+         window.location.href = "tegrand_controlPanel.html";
+      });
+      document.getElementById("controlPanel_item").addEventListener("click", function () {
+         window.location.href = "tegrand_controlPanel_item.html";
+      });
+      document.getElementById("memberSystem").addEventListener("click", function () {
+         window.location.href = "tegrand_memberSystem.html";
+      });
+      document.getElementById("shopping").addEventListener("click", function () {
+         window.location.href = "tegrand_shopping.html";
+      });
+
+      var flag_username_reg = false;
+      var flag_password_reg = false;
+      var flag_re_password_reg = false;
+      var flag_chk01_reg = false;
+      var city;
+      var selectCity;
+      var selectArea;
+      var flag_username_login = false;
+      var flag_password_login = false;
+      var flag_phone_reg = false;
+      var flag_telephone_reg = false;
+      var flag_fax_reg = false;
+      $(function () {
+         //s01_logout_btn 按鈕監聽
+         $("#s01_logout_btn").click(function () {
+            Swal.fire({
+               title: '確定登出嗎?',
+               text: "您確定要登出嗎？",
+               icon: 'warning',
+               showCancelButton: true,
+               confirmButtonText: '確定',
+               cancelButtonText: '取消',
+               reverseButtons: true  // 使確定和取消按鈕的順序顛倒
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  setCookie("uid01", "", 7);
+                  Swal.fire({
+                     title: '登出成功!',
+                     text: '3秒後將自動跳轉至主頁...',
+                     icon: 'success',
+                     timer: 3000,  // 2 秒後自動關閉
+                     showConfirmButton: false
+                  });
+                  setTimeout(function () {
+                     location.href = "tegrand_project_v4.html";
+                  }, 3000);
+               } else {
+                  // // 如果用戶點擊取消
+                  // Swal.fire({
+                  //    title: '登出已取消',
+                  //    text: '您還在當前頁面！',
+                  //    icon: 'info'
+                  // });
+               }
+            });
+         });
+
+         //確認uid01是否存在
+         if (getCookie("uid01")) {
+            //將uid01傳遞至後端API執行驗證
+            //input {"uid01" : "c5e6c37a"}
+            var JSONdata = {};
+            JSONdata["uid01"] = getCookie("uid01");
+            console.log(JSON.stringify(JSONdata));
+
+            $.ajax({
+               type: "POST",
+               url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=checkuid",
+               data: JSON.stringify(JSONdata),
+               dataType: "json",
+               success: showdata_checkuid,
+               error: function () {
+                  Swal.fire({
+                     title: "API介接錯誤!",
+                     text: "member_checkuid_api_v1.php",
+                     icon: "error"
+                  });
+               }
+            });
+         } else {
+            //  Swal.fire({
+            //      title: "請先登入會員!",
+            //      icon: "info",
+            //      allowOutsideClick: false,
+            //  });
+         }
+      });
+
+      function showdata_checkuid(data) {
+         console.log(data);
+         if (data.state) {
+            //顯示歡迎訊息
+            $("#s01_username_showspan").removeClass("d-none");
+            $("#s01_username_span").text(data.data.username);
+
+            //隱藏註冊與登入按鈕
+            $("#s01_reg_btn_1").addClass("d-none");
+            $("#s01_login_btn_1").addClass("d-none");
+
+            //顯示登出按鈕
+            $("#s01_logout_btn").removeClass("d-none");
+
+            // 顯示控制台、會員系統、購物車、收購機台填入資訊、聯絡得昌行按鈕
+            let userRole = parseInt(data.data.role, 10);
+            if (userRole === 0) {
+               $("#controlPanel").removeClass("d-none");
+               $("#controlPanel_item").removeClass("d-none");
+               $("#memberSystem").addClass("d-none");
+               $("#shopping").addClass("d-none");
+               $("#s07_item_information").addClass("d-none");
+               $("#s06-more-logined").addClass("d-none");
+               $(".s10-contact").addClass("d-none");
+            } else if (userRole === 1) {
+               $("#controlPanel").addClass("d-none");
+               $("#controlPanel_item").addClass("d-none");
+               $("#memberSystem").removeClass("d-none");
+               $("#shopping").removeClass("d-none");
+               $("#s07_item_information").removeClass("d-none");
+               $("#s06-more-logined").removeClass("d-none");
+               $(".s10-contact").removeClass("d-none");
+            } else {
+               console.warn("未知的角色:", userRole);
+            }
+
+            //渲染table資料
+            $.ajax({
+               type: "GET",
+               url: "http://localhost/web202411/tegrand_item_control_api.php?action=getalldata",
+               dataType: "json",
+               success: showdata_getalldata,
+               async: false,
+               error: function () {
+                  Swal.fire({
+                     title: "API介接錯誤!",
+                     text: "tegrand_item_control_api.php?action=getalldata",
+                     icon: "error"
+                  });
+               }
+            });
+         } else {
+            Swal.fire({
+               title: "請先登入會員!",
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  location.href = "tegrand_project_v4.html";
+               }
+            });
+         }
+      }
+
+      function showdata_getalldata(data) {
+         console.log("收到的資料：", data);
+
+         if (!data || !data.data || !data.data.items_category_allpage) {
+            console.error("資料格式錯誤，items_category_allpage 不存在", data);
+            Swal.fire("錯誤", "無法取得分類後的機台資料(不分頁)", "error");
+            return;
+         }
+         let itemsByCategory = data.data.items_category_allpage; // 分類後的機台資料(不分頁)
+         console.log(itemsByCategory);
+
+         // 監聽 radio 按鈕變化
+         $("input[name='item']").on("change", function () {
+            let selectedCategory = $(this).attr("id"); // 取得選中的分類id
+            console.log("選中的分類：", selectedCategory);
+
+            // 取得相對應類別的資料
+            let filteredItems;
+            if(selectedCategory === "all"){
+               // 當選擇「所有機型」時，顯示所有機台資料
+               filteredItems = [].concat(...Object.values(itemsByCategory)); // 將所有類別的資料合併為一個陣列
+            }else{
+               // 檢查是否有對應類別的資料
+               filteredItems = itemsByCategory[selectedCategory] || [];
+            }
+
+            if(filteredItems.length === 0){
+               console.log("沒有符合條件的資料");
+
+               // 獲取被選中的 label 的文字
+               let selectedLabel = $("label[for='" + selectedCategory + "']").text().trim();
+               Swal.fire("提示", `<span style="color: red; font-weight: bold;">${selectedLabel} 目前無機台庫存</span>`, "info");
+            }else{
+               console.log("篩選後的資料：", filteredItems);
+
+               // 清空之前的卡片
+               $("#item-card").empty();
+
+               // 渲染篩選後的資料
+               filteredItems.forEach(function (item) {
+                  var strHTML = `<div class="col-md-3 mb-3">
+                              <div class="card card-title-color">
+                                 <div class="card-header">
+                                    <h3 class="card-title">${item.item_brand} ${item.item_name} ${item.item_type}</h3>
+                                    <div class="card-tools">
+                                       <button type="button" class="btn btn-tool" data-lte-toggle="card-maximize">
+                                          <i data-lte-icon="maximize" class="bi bi-fullscreen py-1 px-2" style="font-size: 1.5rem;background-color: rgb(169,106,65);"></i>
+                                          <i data-lte-icon="minimize" class="bi bi-fullscreen-exit py-1 px-2" style="font-size: 1.5rem;background-color: rgb(169,106,65);"></i>
+                                       </button>
+                                    </div>
+                                 </div>
+                                 <div class="card-body">
+                                    <div class="card-body-left text-center">
+                                       <img class="card-body-img" src="${item.item_photo}">
+                                       <button class="btn btn-primary mt-3" id="add_to_cart_btn">加入購物車</button>
+                                    </div>
+                                    <div class="card-body-text">
+                                       <div class="h4 text-center"><b>${item.item_brand} ${item.item_name} ${item.item_type}</b></div>
+                                       <p class="mt-3">年份: ${item.item_age}</p>
+                                       <p>售價:<span class="mx-1 h4 text-danger"><b>${item.item_price}萬</b></span>元</p>
+                                       <p>${item.item_description}</p>
+                                       <p>${item.item_remark}</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>`;
+                  $("#item-card").append(strHTML);
+               });
+            }
+         });
+         // 初始化第一個分類的資料
+         $("input[name='item']:checked").trigger("change");
+      }
+
+      $(document).on("click", '[data-lte-toggle="card-maximize"]', function () {
+         var card = $(this).closest(".card");
+         var isMaximized = card.toggleClass("maximized-card").hasClass("maximized-card");
+
+         // 找到按鈕內的圖示
+         var maximizeIcon = $(this).find('[data-lte-icon="maximize"]');
+         var minimizeIcon = $(this).find('[data-lte-icon="minimize"]');
+
+         if (isMaximized) {
+            maximizeIcon.hide(); // 隱藏放大圖示
+            minimizeIcon.show(); // 顯示縮小圖示
+         } else {
+            maximizeIcon.show(); // 顯示放大圖示
+            minimizeIcon.hide(); // 隱藏縮小圖示
+         }
+      });
+
+
+      function setCookie(cname, cvalue, exdays) {
+         const d = new Date();
+         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+         let expires = "expires=" + d.toUTCString();
+         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+         console.log(document.cookie);
+      }
+
+      function getCookie(cname) {
+         let name = cname + "=";
+         let ca = document.cookie.split(';');
+         for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+               c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+               return c.substring(name.length, c.length);
+            }
+         }
+         return "";
+      }
+   </script>
+</body>
+
+</html>

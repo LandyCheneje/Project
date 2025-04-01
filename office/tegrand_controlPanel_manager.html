@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>得昌行|捷獅---管理系統</title>
+   <link rel="stylesheet" href="css/bootstrap.min.css" />
+   <link rel="stylesheet" href="css/mycolor-tegrand.css" />
+   <link rel="stylesheet" href="css/all.min.css" />
+   <link rel="stylesheet" href="css/animate.min.css" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css"
+      integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous" />
+   <!--滾動條樣式 (OverlayScrollbars)-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
+      integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous" />
+   <!--Bootstrap Icons（圖示庫）-->
+   <link rel="stylesheet" href="css/adminlte.css" /> <!--AdminLTE（後台管理模板 CSS）-->
+   <link rel="icon" href="images/MajorProject/捷獅.webp" type="image/png" />
+   <style>
+      /*連結底線顯示none*/
+      a {
+         text-decoration: none;
+      }
+
+      /* s01 */
+      #s01 {
+         background-color: var(--myjumpcolor03);
+         height: auto;
+      }
+
+      .s01-icon {
+         color: var(--myjumpcolor01);
+         font-size: 40px;
+      }
+
+      .s01-icon-fb {
+         color: #1877f2;
+         font-size: 50px;
+      }
+
+      .s01-icon-line {
+         color: #00b900;
+         font-size: 45px;
+      }
+
+      .s01-icon-ig {
+         color: #833ab4;
+         font-size: 50px;
+      }
+
+      .s01-icon-threads {
+         color: #000000;
+         font-size: 50px;
+      }
+
+      .s01-span {
+         font-size: 30px;
+         line-height: 1;
+      }
+
+      .s01-sup {
+         font-size: 15px;
+      }
+
+      /* s02 */
+      .navbar {
+         background-color: var(--myjumpcolor01);
+      }
+
+      .navbar-brand-img {
+         width: 80px;
+         border-radius: 20px;
+      }
+
+      .navbar-brand-name {
+         font-size: 60px;
+         color: white;
+      }
+
+      .nav-link {
+         border-radius: 10px;
+         color: white;
+      }
+
+      .s02-icon {
+         color: white;
+      }
+
+      .s02-icon-span {
+         color: white;
+         font-size: 30px;
+      }
+
+      .s02-icon-dropdown {
+         color: var(--myjumpcolor01);
+         font-size: 25px;
+      }
+
+      .s02-icon-dropdown-span {
+         color: var(--myjumpcolor01);
+         font-size: 30px;
+      }
+
+      /* section02 banner按鍵動作 */
+      .navbar a:hover,
+      .navbar button:hover {
+         background-color: var(--myjumpcolor03);
+         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+         transform: translateY(-2px);
+         transition: all 0.3s ease-in-out;
+      }
+
+      .navbar a:active,
+      .navbar button:active {
+         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+         transform: translateY(6px);
+         transition: all 0.2s ease-in-out;
+      }
+
+      .navbar-toggler {
+         background-color: white;
+      }
+
+      .nav-link-icon {
+         display: flex;
+         align-items: center;
+         /* 讓內部內容垂直置中 */
+      }
+
+      .nav-small-box-icon {
+         width: 40px;
+         height: 40px;
+         /* 設定 SVG 圖示大小 */
+         vertical-align: middle;
+         /* 讓 SVG 與文字垂直置中 */
+      }
+
+      /* 背景圖 */
+      .boxbg {
+         background-image: url(images/MajorProject/s06_02img.png);
+         background-attachment: fixed;
+         position: relative;
+         z-index: 1;
+         background-position: center;
+         background-size: cover;
+         background-repeat: no-repeat;
+      }
+
+      .boxbg::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(255, 255, 255, 0.6);
+         z-index: -1;
+      }
+
+      /* s04 checkox */
+      input[type="checkbox"] {
+         appearance: none;
+         width: 25px;
+         height: 25px;
+         border: 2px solid #007bff;
+         border-radius: 5px;
+         position: relative;
+         cursor: pointer;
+      }
+
+      input[type="checkbox"]:checked {
+         background-color: #007bff;
+      }
+
+      input[type="checkbox"]::after {
+         color: white;
+         font-size: 20px;
+         position: absolute;
+         top: 0;
+         left: 4px;
+         display: none;
+      }
+
+      input[type="checkbox"]:checked::after {
+         display: block;
+      }
+
+      @media (max-width: 1500px) {
+         .nav-link-icon {
+            display: inline-block;
+            width: 100px;
+            text-align: center;
+            margin-left: 10px;
+            background-color: var(--myjumpcolor04);
+         }
+
+         .nav-link-span {
+            display: none;
+         }
+      }
+
+      @media (max-width: 1200px) {
+         .box01_1 {
+            font-size: 80px;
+         }
+
+         .box01_2 {
+            font-size: 40px;
+         }
+      }
+
+      @media (max-width: 1100px) {
+         .navbar-brand-name {
+            font-size: 50px;
+         }
+      }
+
+      @media (max-width: 992px) {
+         .box01_1 {
+            font-size: 60px;
+         }
+
+         .box01_2 {
+            font-size: 30px;
+         }
+
+         .nav-link-icon {
+            width: 80%;
+            height: 90px;
+            text-align: center;
+            margin-left: 10px;
+            background-color: var(--myjumpcolor03);
+            margin-top: 10px;
+         }
+
+         .nav-link-span {
+            display: inline;
+         }
+
+         .navbar-brand-img {
+            width: 60px !important;
+            border-radius: 10px;
+         }
+      }
+
+      @media (max-width: 640px) {
+         .navbar-brand-name {
+            font-size: 30px;
+         }
+
+         .box01_1 {
+            font-size: 46px;
+         }
+
+         .box01_2 {
+            font-size: 23px;
+         }
+      }
+   </style>
+</head>
+
+<body oncontextmenu="window.event.returnValue=false">
+   <!-- section01 頁首連結&登入登出連結&時間提醒 -->
+   <section id="s01" class="py-2">
+      <div class="row mx-3 mt-2 align-items-center">
+         <div class="col-lg-6 order-2 order-md-1 text-center text-md-start mt-2 d-none d-lg-block">
+            <span class="ms-2 s01-span">
+               <b> <span id="datetime"></span>（<span id="weekday"></span>） </b>
+            </span>
+         </div>
+         <div class="col-lg-6 order-1 order-md-2 text-center text-md-end">
+            <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+               <span class="me-3 s01-span d-none" id="s01_username_showspan">
+                  <b><span id="s01_username_span"></span>，您好!</b>
+               </span>
+               <button class="btn btn-lg btn-outline-danger me-2" id="s01_logout_btn">
+                  登出
+               </button>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- section02 banner -->
+   <section id="s02">
+      <nav class="navbar navbar-expand-lg">
+         <div class="container-fluid">
+            <div class="navbar-brand fw-900 d-flex align-items-center">
+               <a href="tegrand_project_v4.html" class="d-flex align-items-center" style="border-radius: 10px">
+                  <img class="navbar-brand-img" src="images/MajorProject/捷獅.webp" alt="得昌行-捷獅" />
+                  <span class="navbar-brand-name ms-1">得昌行</span>
+               </a>
+               <a href="tegrand_controlPanel.html"><span class="h3 text-info ms-1">管理系統</span></a>
+            </div>
+            <button class="navbar-toggler border border-3 p-2" type="button" data-bs-toggle="collapse"
+               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+               aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav w-80 d-flex justify-content-around mb-2 mb-lg-0">
+                  <!-- 使用者管理 -->
+                  <li class="nav-item active ms-1">
+                     <!-- 已經在管理者系統，把a拿掉改div -->
+                     <div class="nav-link p-4 nav-link-icon" aria-current="page" href="#" title="使用者管理">
+                        <svg class="nav-small-box-icon" fill="currentColor" viewBox="0 0 24 24"
+                           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                           <path
+                              d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z">
+                           </path>
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>使用者管理</b>
+                        </span>
+                     </div>
+                  </li>
+                  <!-- 機台管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="tegrand_controlPanel_item.html" title="機台管理">
+                        <svg class="bi bi-building-fill-gear nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7.256A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-3.59 1.787A.5.5 0 0 0 9 9.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .39-.187A4.5 4.5 0 0 0 8.027 12H6.5a.5.5 0 0 0-.5.5V16H3a1 1 0 0 1-1-1zm2 1.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3 0v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
+                           <path
+                              d="M11.886 9.46c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>機台管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 訂單管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#" title="訂單管理">
+                        <svg class="bi bi-cart3 nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>訂單管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 購機管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#" title="購機管理">
+                        <svg class="bi bi-bag-plus-fill nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path fill-rule="evenodd"
+                              d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5z" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>購機管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 留言管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="#" title="留言管理">
+                        <svg class="bi bi-chat-left-text-fill nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>留言管理</b>
+                        </span>
+                     </a>
+                  </li>
+                  <!-- 徵才管理 -->
+                  <li class="nav-item ms-1">
+                     <a class="nav-link p-4 nav-link-icon" href="tegrand_controlPanel_apply.html" title="徵才徵才管理">
+                        <svg class="bi bi-person-vcard-fill nav-small-box-icon" xmlns="http://www.w3.org/2000/svg"
+                           width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                           <path
+                              d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0" />
+                        </svg>
+                        <span class="s02-icon-span nav-link-span">
+                           <b>徵才管理</b>
+                        </span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+   </section>
+
+   <div class="boxbg py-1">
+      <!-- section03 管理系統small-icon -->
+      <section id="s03" class="boxbg mb-0">
+         <ol class="breadcrumb ms-3 mb-0">
+            <li class="breadcrumb-item h4">
+               <a href="tegrand_project_v4.html"><b>首頁</b></a>
+            </li>
+            <li class="breadcrumb-item h4">
+               <a href="tegrand_controlPanel.html"><b>管理系統</b></a>
+            </li>
+            <li class="breadcrumb-item active h4" aria-current="page">
+               <b>管理者管理</b>
+            </li>
+         </ol>
+         <main class="app-main mb-0">
+            <div class="app-content">
+               <div class="container-fluid">
+                  <!-- Small Box (Stat card) -->
+                  <div class="row" id="myroledata">
+                     <!-- 會員管理 -->
+                     <div class="col-lg-2 col-6">
+                        <!-- small box -->
+                        <a class="small-box text-bg-primary text-decoration-none"
+                           href="tegrand_controlPanel_users_V2.html">
+                           <div class="inner">
+                              <h3></h3>
+                              <h5><b>會員數量</b></h5>
+                           </div>
+                           <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                              <path
+                                 d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z">
+                              </path>
+                           </svg>
+                        </a>
+                     </div>
+                     <!-- 管理員管理 -->
+                     <div class="col-lg-2 col-6">
+                        <!-- small box -->
+                        <!-- 把a拿掉改div -->
+                        <div class="small-box text-bg-success text-decoration-none">
+                           <div class="inner">
+                              <h3></h3>
+                              <h5><b>管理員數量</b></h5>
+                           </div>
+                           <svg class="small-box-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                              viewBox="0 0 16 16">
+                              <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+                              <path
+                                 d="M1 1a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h.5a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h.5a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H6.707L6 1.293A1 1 0 0 0 5.293 1zm0 1h4.293L6 2.707A1 1 0 0 0 6.707 3H15v10h-.085a1.5 1.5 0 0 0-2.4-.63C11.885 11.223 10.554 10 8 10c-2.555 0-3.886 1.224-4.514 2.37a1.5 1.5 0 0 0-2.4.63H1z" />
+                           </svg>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+      </section>
+
+      <!-- section04 管理員管理員資料庫 -->
+      <div class="container-fluid mt-1">
+         <section id="s04">
+            <div class="card">
+               <div class="card-header d-flex align-items-center">
+                  <svg class="small-box-icon text-primary" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                     viewBox="0 0 16 16" style="width: 30px;height: 30px;">
+                     <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+                     <path
+                        d="M1 1a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h.5a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h.5a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H6.707L6 1.293A1 1 0 0 0 5.293 1zm0 1h4.293L6 2.707A1 1 0 0 0 6.707 3H15v10h-.085a1.5 1.5 0 0 0-2.4-.63C11.885 11.223 10.554 10 8 10c-2.555 0-3.886 1.224-4.514 2.37a1.5 1.5 0 0 0-2.4.63H1z" />
+                  </svg>
+                  <span class="h1 card-title"><b class="ms-1">管理員資料庫</b></span>
+               </div>
+               <div class="card-body p-0">
+                  <div class="table-responsive">
+                     <table class="table m-0">
+                        <!-- table-rwd暫不啟用，目前使用滾輪條左右滑動 -->
+                        <thead>
+                           <tr>
+                              <!-- 9項 -->
+                              <th width="5%" class="text-center align-middle">
+                                 <input class="form-check-input checkbox-all" type="checkbox" title="全選"
+                                    placeholder="全選">
+                              </th>
+                              <th width="5%" class="text-center align-middle">編號</th>
+                              <th width="7%" class="text-center align-middle">帳號</th>
+                              <th width="20%" class="text-center align-middle">
+                                 E-mail
+                              </th>
+                              <th width="22%" class="text-center align-middle">地址</th>
+                              <th width="9%" class="text-center align-middle">手機</th>
+                              <th width="9%" class="text-center align-middle">座機</th>
+                              <th width="9%" class="text-center align-middle">
+                                 傳真電話
+                              </th>
+                              <th width="14%" class="text-center align-middle" id="delete_all_btn">
+                                 <button class="btn btn-danger ms-3 align-middle">
+                                    <input class="form-check-input" type="checkbox" placeholder="單選" checked
+                                       disabled><span class="ms-1 align-middle">刪除</span>
+                                 </button>
+                              </th>
+                           </tr>
+                        </thead>
+                        <tbody id="mydata">
+                           <!-- <tr>
+                              <td data-th="勾選方框" class="text-center align-middle">
+                                 <input class="form-check-input row-checkbox" type="checkbox" data-id="row-checkbox">
+                              </td>
+                              <td data-th="編號" class="text-center align-middle">1</td>
+                              <td data-th="帳號" class="text-center align-middle">
+                                 admin
+                              </td>
+                              <td data-th="E-mail" class="text-center align-middle">
+                                 admin@test.com
+                              </td>
+                              <td data-th="地址" class="text-center align-middle">
+                                 address123456
+                              </td>
+                              <td data-th="手機" class="text-center align-middle">
+                                 0928654937
+                              </td>
+                              <td data-th="座機" class="text-center align-middle">
+                                 048654937
+                              </td>
+                              <td data-th="傳真電話" class="text-center align-middle">
+                                 48654937
+                              </td>
+                              <td data-th="功能" class="text-center align-middle">
+                                 <button class="btn btn-warning" id="update_btn" data-bs-toggle="modal"
+                                    data-bs-target="#updateModal" data-id="" data-username="" data-email="" data-city="" data-area="" data-address="" data-phone="" data-telephone="" data-fax="">
+                                    更新
+                                 </button>
+                                 <button class="btn btn-danger ms-3" id="delete_btn" data-id="">刪除</button>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th colspan="9" class="text-center">
+                                 <a href="#" style="text-decoration: underline">123456789</a>
+                              </th>
+                           </tr> -->
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="card-footer clearfix p-2 align-items-center">
+                  <div class="row d-flex align-items-center">
+                     <div class="col-2">
+                        <button class="btn btn-info" id="add_btn" data-bs-toggle="modal" data-bs-target="#addModal"
+                           data-id="" data-username="" data-email="" data-city="" data-area="" data-address=""
+                           data-phone="" data-telephone="" data-fax="">
+                           新增管理員
+                        </button>
+                     </div>
+                     <div class="col-8 d-flex justify-content-center">
+                        <nav aria-label="Page navigation example" class="align-self-center">
+                           <ul class="pagination m-0" id="mypagination">
+                              <!-- <li class="page-item disabled">
+                                 <a class="page-link">Previous</a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item"><a class="page-link" href="#">2</a></li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                 <a class="page-link" href="#">Next</a>
+                              </li> -->
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+         </section>
+      </div>
+   </div>
+
+   <!-- updateModal -->
+   <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+      data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+         <div class="modal-content">
+            <div class="modal-header text-bg-warning fw-900">
+               <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  管理員資料更新
+               </h1>
+               <div class="col-6 text-danger ms-3">
+                  <sup class="s01-sup">*</sup>為必填項目
+               </div>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <div class="mb-3">
+                  <label for="updateModal_username" class="form-label">帳號</label>
+                  <input type="text" class="form-control" id="updateModal_username" name="updateModal_username"
+                     disabled />
+               </div>
+               <div class="mb-2">
+                  <label for="updateModal_email" class="form-label">Email<sup
+                        class="s01-sup text-danger">*</sup></label>
+                  <input type="email" class="form-control" id="updateModal_email" name="updateModal_email" />
+                  <div class="valid-feedback">Email格式正確</div>
+                  <div class="invalid-feedback">Email格式不正確</div>
+               </div>
+               <div class="mb-2">
+                  <label for="updateModal_address" class="form-label">地址</label>
+                  <div class="mb-2" style="display: flex; align-items: center">
+                     <select name="selectCity" id="selectCity" class="form-select" style="margin-bottom: 1px">
+                        <!-- <option value="" class="text-center" selected disabled>---選擇縣市---</option>
+                        <option value="臺中市" class="text-center">臺中市</option> -->
+                     </select>
+                     <div class="invalid-feedback d-none" id="selectCityError_update">請選擇縣市</div>
+                     <select name="selectArea" id="selectArea" class="form-select ms-2">
+                        <!-- <option value="" class="text-center" selected disabled>---選擇鄉鎮市區---</option>
+                        <option value="太平區" class="text-center">太平區</option> -->
+                     </select>
+                     <div class="invalid-feedback d-none" id="selectAreaError_update">請選擇鄉鎮市區</div>
+                  </div>
+                  <input type="text" class="form-control" placeholder="請輸入地址" id="updateModal_address"
+                     name="updateModal_address">
+                  <div class="invalid-feedback d-none" id="addressError_update">請輸入完整地址</div>
+               </div>
+               <div class="mb-2">
+                  <label for="updateModal_phone" class="form-label" style="margin-bottom: 2px">手機號碼</label>
+                  <input type="tel" class="form-control" placeholder="填入數字，不含符號" id="updateModal_phone"
+                     name="updateModal_phone">
+                  <div class="invalid-feedback">手機號碼格式不正確</div>
+               </div>
+               <div class="mb-2">
+                  <label for="updateModal_telephone" class="form-label" style="margin-bottom: 2px">座機號碼</label>
+                  <input type="tel" class="form-control" placeholder="填入數字，不含符號" id="updateModal_telephone"
+                     name="updateModal_telephone">
+                  <div class="invalid-feedback">座機號碼格式不正確</div>
+               </div>
+               <div class="mb-2">
+                  <label for="updateModal_fax" class="form-label" style="margin-bottom: 2px">傳真電話號碼</label>
+                  <input type="tel" class="form-control" placeholder="填入數字，不含符號" id="updateModal_fax"
+                     name="updateModal_fax" />
+                  <div class="invalid-feedback">傳真電話號碼格式不正確</div>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" id="updateModal_cancel_btn" data-bs-dismiss="modal">
+                  取消
+               </button>
+               <button type="button" class="btn btn-primary" id="updateModal_update_btn">
+                  確認更新
+               </button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- addModal -->
+   <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+      data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+         <div class="modal-content">
+            <div class="modal-header text-bg-info fw-900">
+               <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  新增管理員
+               </h1>
+               <div class="col-6 text-danger ms-3">
+                  <sup class="s01-sup">*</sup>為必填項目
+               </div>
+               <button type="button" class="btn-close" id="addModal_close_btn" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <div class="mb-3">
+                  <label for="addModal_username" class="form-label">帳號<sup class="s01-sup text-danger">*</sup></label>
+                  <input type="text" class="form-control is-invalid" id="addModal_username" name="addModal_username"
+                     placeholder="3-15字數">
+                  <div class="valid-feedback" id="addModal_username_valid_feedback">符合規則</div>
+                  <div class="invalid-feedback" id="addModal_username_invalid_feedback">不符合規則</div>
+               </div>
+               <div class="mb-2">
+                  <label for="addModal_password" class="form-label" style="margin-bottom: 2px;">密碼<sup
+                        class="s01-sup text-danger">*</sup></label>
+                  <div class="input-group" style="display: flex;align-items: center;">
+                     <input type="password" class="form-control is-invalid" id="addModal_password"
+                        name="addModal_password" placeholder="8-20字數">
+                     <i class="toggle-password fas fa-eye-slash ms-2" id="togglePassword1"></i>
+                     <div class="valid-feedback">符合規則</div>
+                     <div class="invalid-feedback">不符合規則</div>
+                  </div>
+               </div>
+               <div class="mb-2">
+                  <label for="re_addModal_password" class="form-label" style="margin-bottom: 2px;">確認密碼<sup
+                        class="s01-sup text-danger">*</sup></label>
+                  <div class="input-group" style="display: flex;align-items: center;">
+                     <input type="password" class="form-control" id="re_addModal_password" name="re_addModal_password">
+                     <i class="toggle-password fas fa-eye-slash ms-2" id="togglePassword1"></i>
+                     <div class="valid-feedback">密碼相符</div>
+                     <div class="invalid-feedback">與密碼不符</div>
+                  </div>
+               </div>
+               <div class="mb-2">
+                  <label for="addModal_email" class="form-label">Email<sup class="s01-sup text-danger">*</sup></label>
+                  <input type="email" class="form-control" id="addModal_email" name="addModal_email" />
+                  <div class="valid-feedback">Email格式正確</div>
+                  <div class="invalid-feedback">Email格式不正確</div>
+               </div>
+               <div class="mb-2">
+                  <label for="addModal_address" class="form-label">地址</label>
+                  <div class="mb-2" style="display: flex; align-items: center">
+                     <select name="addModal_selectCity" id="addModal_selectCity" class="form-select"
+                        style="margin-bottom: 1px">
+                        <!-- <option value="" class="text-center" selected disabled>---選擇縣市---</option>
+                        <option value="臺中市" class="text-center">臺中市</option> -->
+                     </select>
+                     <div class="invalid-feedback d-none" id="selectCityError">請選擇縣市</div>
+                     <select name="addModal_selectArea" id="addModal_selectArea" class="form-select ms-2">
+                        <!-- <option value="" class="text-center" selected disabled>---選擇鄉鎮市區---</option>
+                        <option value="太平區" class="text-center">太平區</option> -->
+                     </select>
+                     <div class="invalid-feedback d-none" id="selectAreaError">請選擇鄉鎮市區</div>
+                  </div>
+                  <input type="text" class="form-control" placeholder="請輸入地址" id="addModal_address"
+                     name="addModal_address">
+                  <div class="invalid-feedback d-none" id="addressError">請輸入完整地址</div>
+               </div>
+               <div class="mb-2">
+                  <label for="addModal_phone" class="form-label" style="margin-bottom: 2px">手機號碼</label>
+                  <input type="tel" class="form-control" placeholder="填入數字，不含符號" id="addModal_phone"
+                     name="addModal_phone">
+                  <div class="invalid-feedback">手機號碼格式不正確</div>
+               </div>
+               <div class="mb-2">
+                  <label for="addModal_telephone" class="form-label" style="margin-bottom: 2px">座機號碼</label>
+                  <input type="tel" class="form-control" placeholder="填入數字，不含符號" id="addModal_telephone"
+                     name="addModal_telephone">
+                  <div class="invalid-feedback">座機號碼格式不正確</div>
+               </div>
+               <div class="mb-2">
+                  <label for="addModal_fax" class="form-label" style="margin-bottom: 2px">傳真電話號碼</label>
+                  <input type="tel" class="form-control" placeholder="填入數字，不含符號" id="addModal_fax"
+                     name="addModal_fax" />
+                  <div class="invalid-feedback">傳真電話號碼格式不正確</div>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" id="addModal_cancel_btn" data-bs-dismiss="modal">
+                  取消
+               </button>
+               <button type="button" class="btn btn-primary" id="addModal_update_btn">
+                  確認新增管理員
+               </button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- sectionEND 其他連結和網頁版權 -->
+   <section id="s0end" class="bg-secondary">
+      <div class="container align-items-center">
+         <ul class="nav">
+            <li class="nav-item">
+               <a class="nav-link disabled" style="color: white">PowerBy 113年雲端技術應用實務班第2期3號陳俞蓁</a>
+            </li>
+            <li class="nav-item">
+               <a href="https://gcis.nat.gov.tw/mainNew/" class="nav-link active" aria-current="page" target="_blank"
+                  style="color: white" rel="noopener noreferrer">全國商工行政服務入口網</a>
+            </li>
+         </ul>
+      </div>
+   </section>
+
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.7.1.min.js"></script>
+   <script src="js/jquery.transit.min.js"></script>
+   <script src="js/wow.min.js"></script>
+   <script src="js/counterup2.js"></script>
+   <script src="js/CityCountyData.json"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script>
+      // section01 日期時間功能
+      function updateDateTime() {
+         const now = new Date();
+         const formattedDateTime = now.toLocaleString(); // 取得日期時間
+         const weekdays = [
+            "星期日",
+            "星期一",
+            "星期二",
+            "星期三",
+            "星期四",
+            "星期五",
+            "星期六",
+         ];
+         const weekday = weekdays[now.getDay()]; // 取得星期幾
+
+         document.getElementById("datetime").textContent = formattedDateTime;
+         document.getElementById("weekday").textContent = weekday;
+      }
+
+      updateDateTime(); //頁面載入時執行
+      setInterval(updateDateTime, 1000); //每秒更新
+
+      var city = [];
+      var area;
+      var selectCity;
+      var selectArea;
+
+      var flag_updateModal_email = false;
+      var flag_updateModal_phone = true;
+      var flag_updateModal_telephone = true;
+      var flag_updateModal_fax = true;
+      var flag_updateModal_address = true;
+      var u_id; //for update
+
+      var flag_addModal_username = false;
+      var flag_addModal_password = false;
+      var flag_re_addModal_password = false;
+      var flag_addModal_email = false;
+
+      var flag_addModal_address = true;
+      var flag_addModal_phone = true;
+      var flag_addModal_telephone = true;
+      var flag_addModal_fax = true;
+      var addModal_selectCity;
+      var addModal_selectArea;
+      var addModal_address;
+      $(function () {
+         //s01_logout_btn 按鈕監聽
+         $("#s01_logout_btn").click(function () {
+            Swal.fire({
+               title: "確定登出嗎?",
+               text: "您確定要登出嗎？",
+               icon: "warning",
+               showCancelButton: true,
+               confirmButtonText: "確定",
+               cancelButtonText: "取消",
+               reverseButtons: true, // 使確定和取消按鈕的順序顛倒
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  sessionStorage.clear(); // 清除所有 sessionStorage
+                  localStorage.clear(); // 若有使用 localStorage 也一併清除
+                  document.cookie = "uid01=; max-age=0; path=/;"; //清除cookie
+                  Swal.fire({
+                     title: "登出成功!",
+                     text: "3秒後將自動跳轉至主頁...",
+                     icon: "success",
+                     timer: 3000, // 2 秒後自動關閉
+                     showConfirmButton: false,
+                  });
+                  setTimeout(function () {
+                     location.href = "tegrand_project_v4.html";
+                  }, 3000);
+               } else {
+                  // // 如果用戶點擊取消
+                  // Swal.fire({
+                  //    title: '登出已取消',
+                  //    text: '您還在當前頁面！',
+                  //    icon: 'info'
+                  // });
+               }
+            });
+         });
+
+         //確認uid是否合法
+         if (getCookie("uid01")) {
+            //將uid01傳遞至後端API執行驗證
+            //input {"uid01" : "c5e6c37a"}
+            var JSONdata = {};
+            JSONdata["uid01"] = getCookie("uid01");
+            console.log(JSON.stringify(JSONdata));
+
+            $.ajax({
+               type: "POST",
+               url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=checkuid",
+               data: JSON.stringify(JSONdata),
+               dataType: "json",
+               success: showdata_checkuid,
+               error: function () {
+                  Swal.fire({
+                     title: "API介接錯誤!",
+                     text: "tegrand_member_control_api_v1.php?action=checkuid",
+                     icon: "error"
+                  });
+               }
+            });
+         } else {
+            Swal.fire({
+               title: "請完成登入!",
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  location.href = "tegrand_project_v4.html";
+               }
+            });
+         }
+
+         $('#addModal').on('show.bs.modal', function () {
+            // 清空選項
+            $("#addModal_selectCity").empty();
+            $("#addModal_selectArea").empty();
+
+            // 填充縣市選單
+            $("#addModal_selectCity").append('<option value="" class="text-center" selected disabled>---選擇縣市---</option>');
+            city.forEach(function (item) {
+               $("#addModal_selectCity").append(`<option value="${item.CityName}">${item.CityName}</option>`);
+            });
+
+            // 監聽縣市選單變更事件
+            $("#addModal_selectCity").off('change').on('change', function () {
+               var addModal_selectedCity = $(this).val();
+
+               // 清空地址輸入框
+               $("#addModal_address").val('');
+
+               city.forEach(function (item) {
+                  if (item.CityName === addModal_selectedCity) {
+                     $("#addModal_selectArea").empty();
+
+                     $("#addModal_selectArea").append('<option value="" class="text-center" selected disabled>---選擇鄉鎮市區---</option>');
+                     item.AreaList.forEach(function (areaItem) {
+                        $("#addModal_selectArea").append(`<option value="${areaItem.AreaName}">${areaItem.AreaName}</option>`);
+                     });
+                  }
+               });
+            });
+
+            // 密碼可視切換
+            $(".toggle-password").on("click", function () {
+               const input = $(this).siblings("input");
+               const type = input.attr("type") === "password" ? "text" : "password";
+               input.attr("type", type);
+               $(this).toggleClass("fa-eye fa-eye-slash");
+            });
+         });
+
+         $('#updateModal').on('show.bs.modal', function () {
+            // 清空選項
+            $("#selectCity").empty();
+            $("#selectArea").empty();
+
+            // 填充縣市選單
+            $("#selectCity").append('<option value="" class="text-center" selected disabled>---選擇縣市---</option>');
+            city.forEach(function (item) {
+               $("#selectCity").append(`<option value="${item.CityName}">${item.CityName}</option>`);
+            });
+
+            // 監聽縣市選單變更事件
+            $("#selectCity").off('change').on('change', function () {
+               var selectedCity = $(this).val();
+
+               // 清空地址輸入框
+               $("#updateModal_address").val('');
+
+               city.forEach(function (item) {
+                  if (item.CityName === selectedCity) {
+                     $("#selectArea").empty();
+
+                     $("#selectArea").append('<option value="" class="text-center" selected disabled>---選擇鄉鎮市區---</option>');
+                     item.AreaList.forEach(function (myitem) {
+                        console.log(myitem.AreaName);
+                        var strHTML = `<option value="${myitem.AreaName}">${myitem.AreaName}</option> -->`;
+                        $("#selectArea").append(strHTML);
+                     });
+                  }
+               });
+            });
+         });
+
+         // 禁止輸入空白鍵
+         $("#addModal_username, #addModal_password, #re_addModal_password, #addModal_address, #addModal_phone, #addModal_telephone, #addModal_fax, #updateModal_email, #updateModal_address, #updateModal_phone , #updateModal_telephone, #updateModal_fax").on("keydown", function (e) {
+            if (e.key === " ") {
+               e.preventDefault(); // 阻止輸入空白鍵
+            }
+         });
+
+         //即時監聽updateModal_email  
+         $("#updateModal_email").bind("input propertychange", function () {
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var emailValue = $(this).val();
+
+            if (emailPattern.test(emailValue)) {
+               $(this).removeClass("is-invalid");
+               $(this).addClass("is-valid");
+               flag_updateModal_email = true;
+            } else {
+               $(this).removeClass("is-valid");
+               $(this).addClass("is-invalid");
+               flag_updateModal_email = false;
+            }
+         });
+
+         $("#selectCity, #selectArea, #updateModal_address").on("input change", function () {
+            var city = $("#selectCity").val();
+            var area = $("#selectArea").val();
+            var address = $("#updateModal_address").val().trim();
+
+            var isCityEmpty = !city || city === "---選擇縣市---";
+            var isAreaEmpty = !area || area === "---選擇鄉鎮市區---";
+            var isAddressEmpty = address === "";
+
+            // **如果選擇 city，area 和 address 會被清空，應該強制設定 flag 為 false**
+            if ($(this).attr("id") === "selectCity") {
+               $("#selectArea").val(""); // 清空區域
+               $("#updateModal_address").val(""); // 清空地址
+               isAreaEmpty = true;
+               isAddressEmpty = true;
+               flag_updateModal_address = false;
+            }
+
+            // 狀況 1：全為空值（不顯示錯誤）
+            if (isCityEmpty && isAreaEmpty && isAddressEmpty) {
+               $("#selectCity, #selectArea, #updateModal_address").removeClass("is-invalid is-valid");
+               $("#selectCityError_update, #selectAreaError_update, #addressError_update").addClass("d-none");
+               flag_updateModal_address = true;
+               console.log("flag_updateModal_address =", flag_updateModal_address);
+               return;
+            }
+            // 狀況 2：全部有值（顯示 valid）
+            if (!isCityEmpty && !isAreaEmpty && !isAddressEmpty) {
+               $("#selectCity, #selectArea, #updateModal_address").removeClass("is-invalid").addClass("is-valid");
+               $("#selectCityError_update, #selectAreaError_update, #addressError_update").addClass("d-none");
+               flag_updateModal_address = true;
+               console.log("flag_updateModal_address =", flag_updateModal_address);
+               return;
+            }
+            // 狀況 3：部分有填但不完整（顯示錯誤）
+            flag_updateModal_address = false;
+            if (isCityEmpty) {
+               $("#selectCity").removeClass("is-valid").addClass("is-invalid");
+               $("#selectCityError_update").removeClass("d-none");
+
+            } else {
+               $("#selectCity").removeClass("is-invalid").addClass("is-valid");
+               $("#selectCityError_update").addClass("d-none");
+            }
+
+            if (isAreaEmpty) {
+               $("#selectArea").removeClass("is-valid").addClass("is-invalid");
+               $("#selectAreaError_update").removeClass("d-none");
+            } else {
+               $("#selectArea").removeClass("is-invalid").addClass("is-valid");
+               $("#selectAreaError_update").addClass("d-none");
+            }
+
+            if (isAddressEmpty) {
+               $("#updateModal_address").removeClass("is-valid").addClass("is-invalid");
+               $("#addressError_update").removeClass("d-none");
+            } else {
+               $("#updateModal_address").removeClass("is-invalid").addClass("is-valid");
+               $("#addressError_update").addClass("d-none");
+            }
+
+            console.log("flag_updateModal_address =", flag_updateModal_address);
+         });
+
+         //即時監聽updateModal_phone
+         $("#updateModal_phone").bind("input propertychange", function () {
+            var phonePattern = /^09\d{8}$/; //必須以09開頭，後面8位數字（共10碼）
+            var phoneValue = $(this).val();
+
+            $(this).on("keypress", function (e) {
+               if (e.which < 48 || e.which > 57) {
+                  e.preventDefault(); // 阻止非數字輸入
+               }
+            });
+
+            if (phoneValue === "") {
+               // 當輸入欄位為空時，不進行任何狀態變更
+               $(this).removeClass("is-invalid");
+               flag_updateModal_phone = true;
+            } else if (phonePattern.test(phoneValue)) {
+               $(this).removeClass("is-invalid");
+               flag_updateModal_phone = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_updateModal_phone = false;
+            }
+         });
+
+         //即時監聽updateModal_telephone
+         $("#updateModal_telephone").bind("input propertychange", function () {
+            var telephonePattern = /^0\d{8,9}$/; //必須以0開頭，長度為9或10碼的數字
+            var telephoneValue = $(this).val();
+
+            $(this).on("keypress", function (e) {
+               if (e.which < 48 || e.which > 57) {
+                  e.preventDefault(); // 阻止非數字輸入
+               }
+            });
+
+            if (telephoneValue === "") {
+               // 當輸入欄位為空時，不進行任何狀態變更
+               $(this).removeClass("is-invalid");
+               flag_updateModal_telephone = true;
+            } else if (telephonePattern.test(telephoneValue)) {
+               $(this).removeClass("is-invalid");
+               flag_updateModal_telephone = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_updateModal_telephone = false;
+            }
+         });
+
+         //即時監聽updateModal_fax
+         $("#updateModal_fax").bind("input propertychange", function () {
+            var faxPattern = /^0\d{8,9}$/; //必須以0開頭，長度為9或10碼的數字
+            var faxValue = $(this).val();
+
+            $(this).on("keypress", function (e) {
+               if (e.which < 48 || e.which > 57) {
+                  e.preventDefault(); // 阻止非數字輸入
+               }
+            });
+
+            if (faxValue === "") {
+               // 當輸入欄位為空時，不進行任何狀態變更
+               $(this).removeClass("is-invalid");
+               flag_updateModal_fax = true;
+            } else if (faxPattern.test(faxValue)) {
+               $(this).removeClass("is-invalid");
+               flag_updateModal_fax = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_updateModal_fax = false;
+            }
+         });
+
+         $('#updateModal_cancel_btn').on('click', function () {
+            window.location.href = "tegrand_controlPanel_manager.html";  // 導向原本的頁面
+         });
+
+         // 即時監聽addModal_username
+         $("#addModal_username").bind("input propertychange", function () {
+            if ($(this).val().length > 2 && $(this).val().length < 16) {
+               //傳遞至後端API確認帳號是否可以使用
+               //input: {"username" : "xxxxxx"}
+               var JSONdata = {};
+               JSONdata["username"] = $("#addModal_username").val();
+               console.log(JSON.stringify(JSONdata));
+
+               $(this).removeClass("is-invalid");
+               $(this).addClass("is-valid");
+               $("#addModal_username_valid_feedback").text("符合規則");
+               flag_addModal_username = true;
+
+               $.ajax({
+                  type: "POST",
+                  url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=checkuni",
+                  data: JSON.stringify(JSONdata),
+                  dataType: "json",
+                  success: showdata_checkuni,
+                  error: function () {
+                     Swal.fire({
+                        title: "API介接錯誤!",
+                        text: "member_control_api_v1.php?action=checkuni",
+                        icon: "error"
+                     });
+                  }
+               });
+            } else {
+               $(this).removeClass("is-valid");
+               $(this).addClass("is-invalid");
+               $("#addModal_username_invalid_feedback").text("不符合規則");
+               flag_addModal_username = false;
+            }
+         });
+
+         //即時監聽addModal_password
+         $("#addModal_password").bind("input propertychange", function () {
+            if ($(this).val().length > 7 && $(this).val().length < 21) {
+               $(this).removeClass("is-invalid").addClass("is-valid");
+               flag_addModal_password = true;
+
+               // 在這裡檢查確認密碼欄位
+               if ($("#re_addModal_password").val() === $(this).val()) {
+                  $("#re_addModal_password").removeClass("is-invalid").addClass("is-valid");
+                  flag_re_addModal_password = true;
+               } else {
+                  $("#re_addModal_password").removeClass("is-valid").addClass("is-invalid");
+                  flag_re_addModal_password = false;
+               }
+            } else {
+               $(this).removeClass("is-valid").addClass("is-invalid");
+               flag_addModal_password = false;
+
+               // 如果密碼無效，則確認密碼也要設為無效
+               $("#re_addModal_password").removeClass("is-valid").addClass("is-invalid");
+               flag_re_addModal_password = false;
+            }
+         });
+
+
+         //即時監聽re_addModal_password
+         $("#re_addModal_password").bind("input propertychange", function () {
+            if ($(this).val() === "") {
+               // 當輸入欄位為空時，不進行任何狀態變更
+               $(this).removeClass("is-valid is-invalid");
+               flag_re_addModal_password = false;
+            } else if (flag_addModal_password && $(this).val() === $("#addModal_password").val()) {
+               $(this).removeClass("is-invalid");
+               $(this).addClass("is-valid");
+               flag_re_addModal_password = true;
+            } else {
+               $(this).removeClass("is-valid");
+               $(this).addClass("is-invalid");
+               flag_re_addModal_password = false;
+            }
+         });
+
+         //即時監聽addModal_email
+         $("#addModal_email").bind("input propertychange", function () {
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var emailValue = $(this).val();
+
+            if (emailPattern.test(emailValue)) {
+               $(this).removeClass("is-invalid");
+               $(this).addClass("is-valid");
+               flag_addModal_email = true;
+            } else {
+               $(this).removeClass("is-valid");
+               $(this).addClass("is-invalid");
+               flag_addModal_email = false;
+            }
+         });
+
+         $("#addModal_selectCity, #addModal_selectArea, #addModal_address").on("input change", function () {
+            var city = $("#addModal_selectCity").val();
+            var area = $("#addModal_selectArea").val();
+            var address = $("#addModal_address").val().trim();
+
+            var isCityEmpty = !city || city === "---選擇縣市---";
+            var isAreaEmpty = !area || area === "---選擇鄉鎮市區---";
+            var isAddressEmpty = address === "";
+
+            // **如果選擇 city，area 和 address 會被清空，應該強制設定 flag 為 false**
+            if ($(this).attr("id") === "addModal_selectCity") {
+               $("#addModal_selectArea").val(""); // 清空區域
+               $("#addModal_address").val(""); // 清空地址
+               isAreaEmpty = true;
+               isAddressEmpty = true;
+               flag_addModal_address = false;
+            }
+
+            // 狀況 1：全為空值（不顯示錯誤）
+            if (isCityEmpty && isAreaEmpty && isAddressEmpty) {
+               $("#addModal_selectCity, #addModal_selectArea, #addModal_address").removeClass("is-invalid is-valid");
+               $("#selectCityError, #selectAreaError, #addressError").addClass("d-none");
+               flag_addModal_address = true;
+               console.log("flag_addModal_address =", flag_addModal_address);
+               return;
+            }
+            // 狀況 2：全部有值（顯示 valid）
+            if (!isCityEmpty && !isAreaEmpty && !isAddressEmpty) {
+               $("#addModal_selectCity, #addModal_selectArea, #addModal_address").removeClass("is-invalid").addClass("is-valid");
+               $("#selectCityError, #selectAreaError, #addressError").addClass("d-none");
+               flag_addModal_address = true;
+               console.log("flag_addModal_address =", flag_addModal_address);
+               return;
+            }
+            // 狀況 3：部分有填但不完整（顯示錯誤）
+            flag_addModal_address = false;
+            if (isCityEmpty) {
+               $("#addModal_selectCity").removeClass("is-valid").addClass("is-invalid");
+               $("#selectCityError").removeClass("d-none");
+            } else {
+               $("#addModal_selectCity").removeClass("is-invalid").addClass("is-valid");
+               $("#selectCityError").addClass("d-none");
+            }
+
+            if (isAreaEmpty) {
+               $("#addModal_selectArea").removeClass("is-valid").addClass("is-invalid");
+               $("#selectAreaError").removeClass("d-none");
+            } else {
+               $("#addModal_selectArea").removeClass("is-invalid").addClass("is-valid");
+               $("#selectAreaError").addClass("d-none");
+            }
+
+            if (isAddressEmpty) {
+               $("#addModal_address").removeClass("is-valid").addClass("is-invalid");
+               $("#addressError").removeClass("d-none");
+            } else {
+               $("#addModal_address").removeClass("is-invalid").addClass("is-valid");
+               $("#addressError").addClass("d-none");
+            }
+
+            console.log("flag_addModal_address =", flag_addModal_address);
+         });
+
+         //即時監聽addModal_phone
+         $("#addModal_phone").bind("input propertychange", function () {
+            var phonePattern = /^09\d{8}$/; //必須以09開頭，後面8位數字（共10碼）
+            var phoneValue = $(this).val();
+
+            $(this).on("keypress", function (e) {
+               if (e.which < 48 || e.which > 57) {
+                  e.preventDefault(); // 阻止非數字輸入
+               }
+            });
+
+            if (phoneValue === "") {
+               // 當輸入欄位為空時，不進行任何狀態變更
+               $(this).removeClass("is-invalid");
+               flag_addModal_phone = true;
+            } else if (phonePattern.test(phoneValue)) {
+               $(this).removeClass("is-invalid");
+               flag_addModal_phone = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_addModal_phone = false;
+            }
+         });
+
+         //即時監聽addModal_telephone
+         $("#addModal_telephone").bind("input propertychange", function () {
+            var telephonePattern = /^0\d{8,9}$/; //必須以0開頭，長度為9或10碼的數字
+            var telephoneValue = $(this).val();
+
+            $(this).on("keypress", function (e) {
+               if (e.which < 48 || e.which > 57) {
+                  e.preventDefault(); // 阻止非數字輸入
+               }
+            });
+
+            if (telephoneValue === "") {
+               // 當輸入欄位為空時，不進行任何狀態變更
+               $(this).removeClass("is-invalid");
+               flag_addModal_telephone = true;
+            } else if (telephonePattern.test(telephoneValue)) {
+               $(this).removeClass("is-invalid");
+               flag_addModal_telephone = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_addModal_telephone = false;
+            }
+         });
+
+         //即時監聽addModal_fax
+         $("#addModal_fax").bind("input propertychange", function () {
+            var faxPattern = /^0\d{8,9}$/; //必須以0開頭，長度為9或10碼的數字
+            var faxValue = $(this).val();
+
+            $(this).on("keypress", function (e) {
+               if (e.which < 48 || e.which > 57) {
+                  e.preventDefault(); // 阻止非數字輸入
+               }
+            });
+
+            if (faxValue === "") {
+               // 當輸入欄位為空時，不進行任何狀態變更
+               $(this).removeClass("is-invalid");
+               flag_addModal_fax = true;
+            } else if (faxPattern.test(faxValue)) {
+               $(this).removeClass("is-invalid");
+               flag_addModal_fax = true;
+            } else {
+               $(this).addClass("is-invalid");
+               flag_addModal_fax = false;
+            }
+         });
+      });
+
+      function showdata_checkuid(data) {
+         console.log(data);
+         if (data.state) {
+            //顯示歡迎訊息
+            // $("#s01_username_showspan").removeClass("d-none");
+            // $("#s01_username_span").text(data.data.Username);
+
+            //顯示登出按鈕
+            // $("#s01_logout_btn").removeClass("d-none");
+
+            //渲染table資料
+            $.when(
+               $.ajax({
+                  type: "GET",
+                  url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=getalldata",
+                  dataType: "json",
+                  async: false
+               }),
+               $.ajax({
+                  type: "GET",
+                  url: "http://localhost/web202411/tegrand_member_control_api_v1.php?action=getallrolecounts",
+                  dataType: "json",
+                  async: false
+               })
+            ).done(function (data1, data2) {
+               showdata_getalldata(data1[0]); // 取第一個 API 的回應
+               showdata_getallrolecounts(data2[0]); // 取第二個 API 的回應
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+               Swal.fire({
+                  title: "API介接錯誤!",
+                  text: "請檢查 API: getalldata 或 getallrolecounts",
+                  icon: "error"
+               });
+            });
+
+            // 批量刪除按鈕
+            $("#delete_all_btn").click(function () {
+               //收集所有選中的管理員id
+               var selectedMembers = [];
+               $(".row-checkbox:checked").each(function () {
+                  selectedMembers.push($(this).data("id"));
+               });
+
+               if (selectedMembers.length === 0) {
+                  Swal.fire({
+                     title: "請選擇至少一個管理員進行刪除",
+                     icon: "warning"
+                  });
+                  return;
+               }
+
+               Swal.fire({
+                  title: "確認刪除選中的管理員?",
+                  showDenyButton: true,
+                  showCancelButton: false,
+                  confirmButtonText: "確認",
+                  denyButtonText: `取消`,
+                  allowOutsideClick: false
+               }).then((result) => {
+                  if (result.isConfirmed) {
+                     console.log(selectedMembers);
+                     // 傳遞至後端API執行刪除操作
+                     var JSONdata = { "ids": selectedMembers };
+                     console.log(JSON.stringify(JSONdata));
+
+                     $.ajax({
+                        type: "DELETE",
+                        url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=delete_selected",
+                        data: JSON.stringify(JSONdata),
+                        dataType: "json",
+                        success: showdata_delete,
+                        error: function () {
+                           Swal.fire({
+                              title: "API介接錯誤!",
+                              text: "tegerand_member_control_api_v1.php?action=delete",
+                              icon: "error"
+                           });
+                        }
+                     });
+                  }
+               });
+            });
+
+            //按鈕監聽 updateModal_update_btn
+            $("#updateModal_update_btn").click(function () {
+               let errors = [];
+
+               // 先檢查 Email 是否為空
+               let emailValue = $("#updateModal_email").val().trim();
+               if (!emailValue) {
+                  Swal.fire({
+                     title: "Email 為必填項目!",
+                     icon: "error"
+                  });
+                  return;
+               }
+
+               // 確保 flag 變數不會是 undefined
+               flag_updateModal_address = flag_updateModal_address ?? false;
+               flag_updateModal_phone = flag_updateModal_phone ?? false;
+               flag_updateModal_telephone = flag_updateModal_telephone ?? false;
+               flag_updateModal_fax = flag_updateModal_fax ?? false;
+
+               // 收集錯誤訊息
+               if (!flag_updateModal_phone) errors.push("手機號碼錯誤");
+               if (!flag_updateModal_telephone) errors.push("市內電話錯誤");
+               if (!flag_updateModal_fax) errors.push("傳真號碼錯誤");
+               if (!flag_updateModal_address) errors.push("地址錯誤");
+
+               // 如果有錯誤，顯示 Swal.fire 並停止執行
+               if (errors.length > 0) {
+                  Swal.fire({
+                     title: "欄位有錯誤，請修正!",
+                     html: errors.map(err => `<div style="color: red;">• ${err}</div>`).join(""),
+                     icon: "warning",
+                     confirmButtonColor: "#3085d6",
+                     confirmButtonText: "確認"
+                  });
+                  return;
+               }
+
+               // 準備要傳送的 JSON 資料
+               let JSONdata = {
+                  "id": u_id,
+                  "email": emailValue,
+                  "city": $("#selectCity").val() || null,
+                  "area": $("#selectArea").val() || null,
+                  "address": $("#updateModal_address").val().trim() || null,
+                  "phone": $("#updateModal_phone").val().trim() || null,
+                  "telephone": $("#updateModal_telephone").val().trim() || null,
+                  "fax": $("#updateModal_fax").val().trim() || null
+               };
+
+               console.log(JSON.stringify(JSONdata));
+
+               // 檢查是否有欄位變更
+               if (!Object.values(JSONdata).some(value => value !== null && value !== "")) {
+                  Swal.fire({
+                     title: "無欄位內容變更!",
+                     icon: "error"
+                  });
+                  return;
+               }
+
+               $.ajax({
+                  type: "POST",
+                  url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=update",
+                  data: JSON.stringify(JSONdata),
+                  dataType: "json",
+                  success: showdata_update,
+                  error: function () {
+                     Swal.fire({
+                        title: "API介接錯誤!",
+                        text: "tegerand_member_control_api_v1.php?action=update",
+                        icon: "error"
+                     });
+                  }
+               });
+            });
+
+            //addModal_update_btn按鈕監聽
+            $("#addModal_update_btn").click(function () {
+               // $(this).prop("disabled", true); // **註冊時禁用按鈕，防止重複提交**
+               if (flag_addModal_username && flag_addModal_password && flag_re_addModal_password && flag_addModal_email && flag_addModal_address && flag_addModal_phone && flag_addModal_telephone && flag_addModal_fax) {
+                  //傳遞至後端API執行註冊行為
+                  //input: {"username" : "owner04", "password" : "123456", "email" : "owner01@test.com"}
+                  var JSONdata = {};
+                  JSONdata["username"] = $("#addModal_username").val();
+                  JSONdata["password"] = $("#addModal_password").val();
+                  JSONdata["email"] = $("#addModal_email").val();
+
+                  JSONdata["city"] = $("#addModal_selectCity").val(); //縣市
+                  JSONdata["area"] = $("#addModal_selectArea").val(); //鄉鎮市區
+                  JSONdata["address"] = $("#addModal_address").val(); //地址
+
+                  JSONdata["phone"] = $("#addModal_phone").val();
+                  JSONdata["telephone"] = $("#addModal_telephone").val();
+                  JSONdata["fax"] = $("#addModal_fax").val();
+                  console.log(JSON.stringify(JSONdata));
+
+                  $.ajax({
+                     type: "POST",
+                     url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=register_0",
+                     data: JSON.stringify(JSONdata),
+                     dataType: "json",
+                     success: showdata_reg,
+                     error: function () {
+                        Swal.fire({
+                           title: "API介接錯誤!",
+                           text: "member_control_api_v1.php?action=register",
+                           icon: "error"
+                        });
+                        // $("#addModal_update_btn").prop("disabled", false); // 失敗時恢復按鈕
+                     }
+                  });
+               } else {
+                  let errors = [];
+
+                  if (!flag_addModal_username) errors.push("使用者名稱錯誤");
+                  if (!flag_addModal_password) errors.push("密碼錯誤");
+                  if (!flag_re_addModal_password) errors.push("確認密碼錯誤");
+                  if (!flag_addModal_email) errors.push("電子郵件錯誤");
+                  if (!flag_addModal_phone) errors.push("手機號碼錯誤");
+                  if (!flag_addModal_telephone) errors.push("市內電話錯誤");
+                  if (!flag_addModal_fax) errors.push("傳真號碼錯誤");
+                  if (!flag_addModal_address) errors.push("地址錯誤");
+
+                  Swal.fire({
+                     title: "欄位有錯誤，請修正!",
+                     html: errors.map(err => `<div style="color: red;">• ${err}</div>`).join(""), // 顯示錯誤列表
+                     icon: "warning",
+                     showCancelButton: false,
+                     confirmButtonColor: "#3085d6",
+                     cancelButtonColor: "#d33",
+                     confirmButtonText: "確認"
+                  }).then((result) => {
+                     // if (result.isConfirmed) {
+                     //     Swal.fire({
+                     //         title: "Deleted!",
+                     //         text: "Your file has been deleted.",
+                     //         icon: "success"
+                     //     });
+                     // }
+                  });
+               }
+            });
+
+            // addModal關閉後初始化
+            $('#addModal_close_btn, #addModal_cancel_btn').on('click', function () {
+               window.location.reload();
+            });
+         } else {
+            Swal.fire({
+               title: "請先完成登入!",
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  location.href = "tegrand_project_v4.html";
+               }
+            });
+         }
+      }
+
+      function showdata_getalldata(data) {
+         console.log(data);
+         let currentPage = data.data?.current_page || 1;
+         let totalPages = data.data?.total_manager_pages || 1;
+         let managers = data.data?.manager;
+
+         $("#mydata").empty();
+         $("#mypagination").empty();
+
+         if (!Array.isArray(managers)) {
+            console.error("管理員資料格式錯誤", data);
+            Swal.fire("資料格式錯誤", "無法解析管理員資料。", "error");
+            return;
+         }
+
+         // 渲染管理員資料
+         managers.forEach(function (manager) {
+            var strHTML = `<tr>
+                              <td data-th="勾選方框" class="text-center align-middle">
+                                 <input class="form-check-input row-checkbox" type="checkbox" data-id="${manager.id}">
+                              </td>
+                              <td data-th="編號" class="text-center align-middle">${manager.id}</td>
+                              <td data-th="帳號" class="text-center align-middle">${manager.username}</td>
+                              <td data-th="E-mail" class="text-center align-middle">${manager.email}</td>
+                              <td data-th="地址" class="text-center align-middle">${manager.city} ${manager.area} ${manager.address}</td>
+                              <td data-th="手機" class="text-center align-middle">${manager.phone}</td>
+                              <td data-th="座機" class="text-center align-middle">${manager.telephone}</td>
+                              <td data-th="傳真電話" class="text-center align-middle">${manager.fax}</td>
+                              <td data-th="功能" class="text-center align-middle">
+                                 <button class="btn btn-warning" id="update_btn" data-bs-toggle="modal"
+                                    data-bs-target="#updateModal" data-id="${manager.id}" data-username="${manager.username}" data-email="${manager.email}" data-city="${manager.city}" data-area="${manager.area}"
+                                    data-address="${manager.address}" data-phone="${manager.phone}" data-telephone="${manager.telephone}" data-fax="${manager.fax}">
+                                    更新
+                                 </button>
+                                 <button class="btn btn-danger ms-3" id="delete_btn" data-id="${manager.id}">刪除</button>
+                              </td>
+                           </tr>`;
+            $("#mydata").append(strHTML);
+         });
+
+         $("#mydata #update_btn").click(function () {
+            console.log($(this).data("id"));
+            console.log($(this).data("username"));
+            console.log($(this).data("email"));
+            console.log($(this).data("city"));
+            console.log($(this).data("area"));
+            console.log($(this).data("address"));
+            console.log($(this).data("phone"));
+            console.log($(this).data("telephone"));
+            console.log($(this).data("fax"));
+
+            //將資料同步至modal
+            u_id = $(this).data("id");
+            $("#updateModal_username").val($(this).data("username"));
+            $("#updateModal_email").val($(this).data("email"));
+            $("#updateModal_phone").val($(this).data("phone"));
+            $("#updateModal_telephone").val($(this).data("telephone"));
+            $("#updateModal_fax").val($(this).data("fax"));
+
+            // 填充城市選項
+            const selectedCity = $(this).data("city");
+            $("#selectCity").val(selectedCity); // 設置選中的城市
+
+            // 清空鄉鎮市區選單
+            $("#selectArea").empty();
+            $("#selectArea").append(
+               '<option value="" class="text-center" selected disabled>---選擇鄉鎮市區---</option>'
+            );
+
+            // 根據城市填充鄉鎮市區
+            city.forEach(function (item) {
+               if (item.CityName === selectedCity) {
+                  // 填充鄉鎮市區
+                  item.AreaList.forEach(function (myitem) {
+                     const strHTML = `<option value="${myitem.AreaName}">${myitem.AreaName}</option>`;
+                     $("#selectArea").append(strHTML);
+                  });
+               }
+            });
+
+            // 設置選中的鄉鎮市區
+            const selectedArea = $(this).data("area");
+            $("#selectArea").val(selectedArea); // 設置選中的鄉鎮市區
+            $("#updateModal_address").val($(this).data("address"));
+         });
+
+         //按鈕監聽 delete_btn
+         $("#mydata #delete_btn").click(function () {
+            Swal.fire({
+               title: "確認刪除管理員?",
+               showDenyButton: true,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `取消`,
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  console.log($(this).data("id"));
+                  //傳遞至後端API執行刪除行為
+                  var JSONdata = {};
+                  JSONdata["id"] = $(this).data("id");
+                  console.log(JSON.stringify(JSONdata));
+                  $.ajax({
+                     type: "DELETE",
+                     url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=delete",
+                     data: JSON.stringify(JSONdata),
+                     dataType: "json",
+                     success: showdata_delete,
+                     error: function () {
+                        Swal.fire({
+                           title: "API介接錯誤!",
+                           text: "tegerand_member_control_api_v1.php?action=delete",
+                           icon: "error"
+                        });
+                     }
+                  });
+               }
+            })
+         });
+
+         // 生成分頁按鈕
+         updatePagination(totalPages, currentPage);
+      }
+
+      // 生成分頁按鈕（限制最多顯示 10 個按鈕）
+      function updatePagination(totalPages, currentPage) {
+         let paginationHtml = "";
+
+         // 確保最大顯示的頁碼數不會超過總頁數
+         let maxPagesToShow = Math.min(10, totalPages);
+         let startPage, endPage;
+
+         // 計算起始和結束頁碼
+         if (totalPages <= maxPagesToShow) {
+            startPage = 1;
+            endPage = totalPages; // 總頁數小於或等於 10，顯示所有頁碼
+         } else {
+            startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+            endPage = startPage + maxPagesToShow - 1;
+
+            // 確保不會超出範圍
+            if (endPage > totalPages) {
+               endPage = totalPages;
+               startPage = Math.max(1, endPage - maxPagesToShow + 1);
+            }
+         }
+
+         // **上一頁 & 第一頁**
+         if (currentPage > 1) {
+            paginationHtml += `<li class="page-item">
+            <a class="page-link" href="#" data-page="1">&laquo;</a> 
+        </li>`;
+            paginationHtml += `<li class="page-item">
+            <a class="page-link" href="#" data-page="${currentPage - 1}">&lt;</a> 
+        </li>`;
+         }
+
+         // **產生實際有資料的頁碼**
+         for (let i = startPage; i <= endPage; i++) {
+            paginationHtml += `<li class="page-item ${i === currentPage ? 'active' : ''}">
+            <a class="page-link" href="#" data-page="${i}">${i}</a> 
+        </li>`;
+         }
+
+         // **下一頁 & 最後一頁**
+         if (currentPage < totalPages) {
+            paginationHtml += `<li class="page-item">
+            <a class="page-link" href="#" data-page="${currentPage + 1}">&gt;</a> 
+        </li>`;
+            paginationHtml += `<li class="page-item">
+            <a class="page-link" href="#" data-page="${totalPages}">&raquo;</a> 
+        </li>`;
+         }
+
+         // **當總頁數超過 1 才顯示分頁按鈕**
+         if (totalPages > 1) {
+            $("#mypagination").html(paginationHtml);
+         } else {
+            $("#mypagination").empty(); // 只有 1 頁時，不顯示分頁
+         }
+      }
+
+      // 測試示例
+      updatePagination(4, 1); // 假設總頁數為 4，當前頁數為 1
+
+
+      // 監聽分頁按鈕點擊
+      $("#mypagination").on("click", ".page-link", function (e) {
+         e.preventDefault();
+         let page = $(this).data("page");
+         fetchUserData(page);
+      });
+
+      // AJAX 請求函式
+      function fetchUserData(page) {
+         $.ajax({
+            url: "http://localhost/web202411/tegrand_member_control_api_v2.php?action=getalldata",
+            type: "GET",
+            data: { page: page },
+            dataType: "json",
+            success: function (response) {
+               if (response.state) {
+                  showdata_getalldata(response);
+               } else {
+                  Swal.fire("資料加載失敗", response.message, "error");
+               }
+            },
+            error: function () {
+               Swal.fire("無法取得資料", "請檢查後端 API。", "error");
+            }
+         });
+      }
+
+      // 頁面加載時載入第 1 頁
+      $(document).ready(function () {
+         fetchUserData(1);
+      });
+
+      function showdata_getallrolecounts(data) {
+         console.log(data);
+         $("#myroledata").empty();
+
+         //假設返回的資料格式是{ member_count: 100, manager_count: 5 }
+         var memberCount = data.data.member_count;
+         var managerCount = data.data.manager_count;
+
+         var memberHTML = `
+         <div class="col-lg-2 col-6">
+            <a class="small-box text-bg-primary text-decoration-none" href="tegrand_controlPanel_users_V2.html">
+                <div class="inner">
+                    <h3>${memberCount}</h3>
+                    <h5><b>會員數量</b></h5>
+                </div>
+                <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z"></path>
+                </svg>
+            </a>
+         </div>`;
+         var managerHTML = `
+         <div class="col-lg-2 col-6">
+            <div class="small-box text-bg-success text-decoration-none">
+                <div class="inner">
+                    <h3>${managerCount}</h3>
+                    <h5><b>管理員數量</b></h5>
+                </div>
+                <svg class="small-box-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"></path>
+                    <path d="M1 1a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h.5a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h.5a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H6.707L6 1.293A1 1 0 0 0 5.293 1zm0 1h4.293L6 2.707A1 1 0 0 0 6.707 3H15v10h-.085a1.5 1.5 0 0 0-2.4-.63C11.885 11.223 10.554 10 8 10c-2.555 0-3.886 1.224-4.514 2.37a1.5 1.5 0 0 0-2.4.63H1z"></path>
+                </svg>
+            </div>
+         </div>`;
+         $("#myroledata").append(memberHTML);
+         $("#myroledata").append(managerHTML);
+      }
+
+      function showdata_update(data) {
+         console.log(data);
+         if (data.state) {
+            Swal.fire({
+               title: data.message,
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               icon: "success",
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  location.href = "tegrand_controlPanel_manager.html";
+               }
+            })
+         } else {
+            Swal.fire({
+               title: data.message,
+               icon: "error"
+            });
+         }
+      }
+
+      function showdata_delete(data) {
+         console.log(data);
+         if (data.state) {
+            Swal.fire({
+               title: data.message,
+               showDenyButton: false,
+               showCancelButton: false,
+               confirmButtonText: "確認",
+               denyButtonText: `Don't save`,
+               icon: "success",
+               allowOutsideClick: false
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  location.href = "tegrand_controlPanel_manager.html";
+               }
+            })
+         } else {
+            Swal.fire({
+               title: data.message,
+               icon: "error"
+            });
+         }
+      }
+
+      function showdata_reg(data) {
+         console.log(data);
+         if (data.state) {
+            Swal.fire({
+               title: data.message,
+               icon: "success",
+               returnFocus: false,
+               allowOutsideClick: false, // 禁止點擊外部關閉
+               confirmButtonText: "OK",
+               didOpen: () => {
+                  $(document).off("keydown"); // **關閉 Swal 時移除 Enter 監聽**
+               }
+            }).then((result) => {
+               $("#addModal_update_btn").prop("disabled", true); // 註冊成功後禁用按鈕
+               if (result.isConfirmed) {
+                  location.href = "tegrand_controlPanel_manager.html";
+               }
+            });
+         } else {
+            Swal.fire({
+               title: data.message,
+               icon: "error",
+            });
+         }
+      }
+
+      function showdata_checkuni(data) {
+         console.log(data);  // 確認回應資料
+         if (data.state) {
+            //帳號不存在可以使用
+            $("#addModal_username").removeClass("is-invalid");
+            $("#addModal_username").addClass("is-valid");
+            $("#addModal_username_valid_feedback").text(data.message);
+            flag_addModal_username = true;
+         } else {
+            //帳號已存在不可以使用
+            $("#addModal_username").removeClass("is-valid");
+            $("#addModal_username").addClass("is-invalid");
+            $("#addModal_username_invalid_feedback").text(data.message);
+            flag_addModal_username = false;
+         }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+         let username = sessionStorage.getItem("username"); // 取得用戶名稱
+
+         if (username) {
+            $("#s01_username_showspan").removeClass("d-none");
+            $("#s01_username_span").text(username);
+         } else {
+            // document.getElementById("welcome_msg").textContent = "歡迎訪客！";
+         }
+      });
+
+      $(document).ready(function () {
+         // 載入縣市、鄉鎮市區資料
+         $.ajax({
+            url: "js/CityCountyData.json",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+               city = data; // 將資料存儲到全局變數
+            },
+            error: function () {
+               console.log("Error loading CityCountyData.json");
+            },
+         });
+      });
+
+      //全選與單選checkbox
+      $(document).ready(function () {
+         //綁定全選checkbox
+         $(document).on("change", ".checkbox-all", function () {
+            $(".row-checkbox").prop("checked", this.checked); // 設定所有 checkbox 狀態
+         });
+
+         //監聽tbody內的checkbox
+         $(document).on("change", ".row-checkbox", function () {
+            $(".checkbox-all").prop(
+               "checked",
+               $(".row-checkbox").length === $(".row-checkbox:checked").length
+            );
+         });
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+         fetch('http://localhost/web202411/tegrand_member_control_api_v2.php?action=getalldata')
+            .then(response => {
+               if (!response.ok) {
+                  throw new Error('Network response was not ok');
+               }
+               return response.json();
+            })
+            .then(data => {
+               console.log(data); // 處理返回的數據
+            })
+            .catch(error => {
+               console.error('API 請求錯誤:', error);
+            });
+      });
+
+      function setCookie(cname, cvalue, exdays) {
+         const d = new Date();
+         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+         let expires = "expires=" + d.toUTCString();
+         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+         console.log(document.cookie);
+      }
+
+      function getCookie(cname) {
+         let name = cname + "=";
+         let ca = document.cookie.split(';');
+         for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+               c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+               return c.substring(name.length, c.length);
+            }
+         }
+         return "";
+      }
+   </script>
+</body>
+
+</html>

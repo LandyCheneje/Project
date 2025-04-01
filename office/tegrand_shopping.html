@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>得昌行|捷獅---購物車</title>
+   <link rel="stylesheet" href="css/bootstrap.min.css" />
+   <link rel="stylesheet" href="css/mycolor-tegrand.css" />
+   <link rel="stylesheet" href="css/all.min.css" />
+   <link rel="stylesheet" href="css/animate.min.css" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css"
+      integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous" />
+   <!--滾動條樣式 (OverlayScrollbars)-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
+      integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous" />
+   <!--Bootstrap Icons（圖示庫）-->
+   <link rel="stylesheet" href="css/adminlte.css" />
+   <!--AdminLTE（後台管理模板 CSS）-->
+   <link rel="icon" href="images/MajorProject/捷獅.webp" type="image/png" />
+   <style>
+      /*連結底線顯示none*/
+      a {
+         text-decoration: none;
+      }
+
+      /* 查看機臺清單 */
+      #moreitem {
+         position: fixed;
+         bottom: 180px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      }
+
+      /* 會員系統 */
+      #memberSystem {
+         position: fixed;
+         bottom: 100px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      }
+
+      /* 購物車(與管理系統btn同位置) */
+      /* #shopping {
+         position: fixed;
+         bottom: 100px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      } */
+
+      /* 回到頁面頂部 */
+      #backToTop {
+         position: fixed;
+         bottom: 20px;
+         right: 20px;
+         z-index: 999;
+         height: 70px;
+         width: 70px;
+         background-color: var(--myjumpcolor01);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+         transition: background-color 0.3s ease;
+      }
+
+      #moreitem:hover,
+      #memberSystem:hover,
+      #backToTop:hover {
+         background-color: var(--myjumpcolor02);
+      }
+
+      /* s01 */
+      #s01 {
+         background-color: var(--myjumpcolor03);
+         height: auto;
+      }
+
+      .s01-icon {
+         color: var(--myjumpcolor01);
+         font-size: 40px;
+      }
+
+      .s01-icon-fb {
+         color: #1877f2;
+         font-size: 50px;
+      }
+
+      .s01-icon-line {
+         color: #00b900;
+         font-size: 45px;
+      }
+
+      .s01-icon-ig {
+         color: #833ab4;
+         font-size: 50px;
+      }
+
+      .s01-icon-threads {
+         color: #000000;
+         font-size: 50px;
+      }
+
+      .s01-span {
+         font-size: 30px;
+         line-height: 1;
+      }
+
+      .s01-sup {
+         font-size: 15px;
+      }
+
+      /* s02 */
+      .navbar {
+         background-color: var(--myjumpcolor01);
+      }
+
+      .navbar-brand-img {
+         width: 80px;
+         border-radius: 20px;
+      }
+
+      .navbar-brand-name {
+         font-size: 60px;
+         color: white;
+      }
+
+      .nav-link {
+         border-radius: 10px;
+         color: white;
+      }
+
+      .s02-icon {
+         color: white;
+      }
+
+      .s02-icon-span {
+         color: white;
+         font-size: 30px;
+      }
+
+      .s02-icon-dropdown {
+         color: var(--myjumpcolor01);
+         font-size: 25px;
+      }
+
+      .s02-icon-dropdown-span {
+         color: var(--myjumpcolor01);
+         font-size: 30px;
+      }
+
+      /* section02 banner按鍵動作 */
+      .navbar a:hover,
+      .navbar button:hover {
+         background-color: var(--myjumpcolor03);
+         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+         transform: translateY(-2px);
+         transition: all 0.3s ease-in-out;
+      }
+
+      .navbar a:active,
+      .navbar button:active {
+         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+         transform: translateY(6px);
+         transition: all 0.2s ease-in-out;
+      }
+
+      .navbar-toggler {
+         background-color: white;
+      }
+
+      /* s03 */
+      .cart-button {
+         transition: background-color 0.2s ease, transform 0.2s ease;
+      }
+
+      .cart-button:hover {
+         transform: translateY(-2px);
+      }
+
+      .cart-item {
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .cart-item:hover {
+         transform: scale(1.03);
+         box-shadow: 0 5px 13px rgba(0, 0, 0, 0.1);
+      }
+
+      .remove:hover {
+         transform: scale(1.2);
+      }
+
+      /* 背景圖 */
+      .boxbg {
+         background-image: url(images/MajorProject/cartbg.jpg);
+         background-attachment: fixed;
+         position: relative;
+         z-index: 1;
+         background-position: center;
+         background-size: cover;
+         background-repeat: no-repeat;
+      }
+
+      .boxbg::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(255, 255, 255, 0.5);
+         z-index: -1;
+      }
+
+      @media (max-width: 1500px) {
+         .nav-link-icon {
+            display: inline-block;
+            width: 100px;
+            text-align: center;
+            margin-left: 10px;
+            background-color: var(--myjumpcolor04);
+         }
+
+         .nav-link-span {
+            display: none;
+         }
+      }
+
+      @media (max-width: 1200px) {
+         .box01_1 {
+            font-size: 80px;
+         }
+
+         .box01_2 {
+            font-size: 40px;
+         }
+      }
+
+      @media (max-width: 1100px) {
+         .navbar-brand-name {
+            font-size: 50px;
+         }
+      }
+
+      @media (max-width: 992px) {
+         .box01_1 {
+            font-size: 60px;
+         }
+
+         .box01_2 {
+            font-size: 30px;
+         }
+
+         .navbar-brand-img {
+            width: 80px !important;
+            border-radius: 10px;
+         }
+      }
+
+      @media (max-width: 640px) {
+         .navbar-brand-name {
+            font-size: 30px;
+         }
+
+         .box01_1 {
+            font-size: 46px;
+         }
+
+         .box01_2 {
+            font-size: 23px;
+         }
+      }
+   </style>
+</head>
+
+<body oncontextmenu="window.event.returnValue=false">
+   <!-- section01 頁首連結&登入登出連結&時間提醒 -->
+   <section id="s01" class="py-2">
+      <div class="row mx-3 align-items-center text-center text-md-start d-none d-md-block">
+         <div class="col-12 d-flex flex-wrap justify-content-center justify-content-md-between align-items-center">
+            <div class="d-flex align-items-center">
+               <a href="tel:+886-04-8654937" title="得昌行電話" class="me-3">
+                  <i class="fa-solid fa-phone s01-icon"></i>
+               </a>
+               <a href="tel:+886-933562438" title="捷獅電話" class="me-3">
+                  <i class="fa-solid fa-mobile-screen-button s01-icon"></i>
+               </a>
+               <a href="mailto:XXX@gmail.com" title="Email電子信箱">
+                  <i class="fa-solid fa-envelopes-bulk s01-icon"></i>
+               </a>
+            </div>
+            <div class="mx-3 d-flex align-items-center flex-wrap justify-content-center justify-content-md-end">
+               <a href="#" class="me-2" title="Facebook">
+                  <i class="fa-brands fa-square-facebook s01-icon-fb"></i>
+               </a>
+               <a href="#" class="me-2" title="Line">
+                  <i class="fa-brands fa-line s01-icon-line"></i>
+               </a>
+               <a href="#" class="me-2" title="IG">
+                  <i class="fa-brands fa-square-instagram s01-icon-ig"></i>
+               </a>
+               <a href="#" class="me-2" title="Threads">
+                  <i class="fa-brands fa-square-threads s01-icon-threads"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+      <div class="row mx-3 mt-2 align-items-center">
+         <div class="col-lg-6 order-2 order-md-1 text-center text-md-start mt-2 d-none d-lg-block">
+            <span class="ms-2 s01-span">
+               <b> <span id="datetime"></span>（<span id="weekday"></span>） </b>
+            </span>
+         </div>
+         <div class="col-lg-6 order-1 order-md-2 text-center text-md-end">
+            <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+               <span class="me-3 s01-span d-none" id="s01_username_showspan">
+                  <b><span id="s01_username_span"></span>，您好!</b>
+               </span>
+               <button class="btn btn-lg btn-outline-danger me-2" id="s01_logout_btn">
+                  登出
+               </button>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- section02 banner -->
+   <section id="s02">
+      <nav class="navbar navbar-expand-lg">
+         <div class="container-fluid">
+            <div class="navbar-brand fw-900 d-flex align-items-center">
+               <img class="navbar-brand-img" src="images/MajorProject/捷獅.webp" alt="得昌行-捷獅" />
+               <span class="navbar-brand-name ms-1">得昌行-捷獅</span>
+               <a class="nav-link ms-5 p-2 nav-link-icon" aria-current="page" href="tegrand_project_v4.html" title="首頁">
+                  <i class="s02-icon fa-solid fa-house fa-xl"></i>
+                  <span class="s02-icon-span nav-link-span">
+                     <b>首頁</b>
+                  </span>
+               </a>
+            </div>
+         </div>
+      </nav>
+   </section>
+
+   <!-- 購機內容 -->
+   <div class="container-fluid boxbg">
+      <section id="s03" class="p-6">
+         <div class="max-w-7xl mx-auto p-6 rounded-lg shadow-lg">
+            <div class="mb-8 d-flex align-items-center justify-content-center text-4xl font-bold gap-3">
+               <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                  class="bi bi-card-checklist" viewBox="0 0 16 16">
+                  <path
+                     d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
+                  <path
+                     d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0" />
+               </svg>
+               <h1>購機清單</h1>
+            </div>
+            <div id="cart-items" class="space-y-3">
+               <div class="cart-item flex flex-col md:flex-row items-center justify-between border-b pb-6 px-4 bg-gray-50 rounded-lg p-4 shadow-sm" data-price="100">
+                  <!-- 圖片 15% -->
+                  <div class="w-full md:w-[15%] flex justify-center">
+                     <img src="images/MajorProject/item/01-車床/哈斯ST-25Y CNC車床.jpg" alt="機台圖片"
+                        class="w-20 h-20 rounded-lg shadow-md" />
+                  </div>
+
+                  <!-- 品牌、型號、類型 25% -->
+                  <div class="w-full md:w-[25%]">
+                     <h2 class="text-lg font-semibold text-gray-700" name="item_brand" id="item_brand">
+                        哈斯
+                     </h2>
+                     <h2 class="text-lg font-semibold text-gray-700" name="item_name" id="item_name">
+                        CNC車床
+                     </h2>
+                     <h2 class="text-lg font-semibold text-gray-700" name="item_type" id="item_type">
+                        ST-25Y
+                     </h2>
+                  </div>
+
+                  <!-- 金額 10% -->
+                  <div class="w-full md:w-[10%] text-center">
+                     <p class="text-lg font-bold text-gray-700">
+                        <span name="item_price" id="item_price">96</span>萬元
+                     </p>
+                  </div>
+
+                  <!-- 備註 35% -->
+                  <div class="w-full md:w-[35%]">
+                     <textarea
+                        class="w-full p-2 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="請填寫備註" name="order_note" id="order_note"></textarea>
+                  </div>
+
+                  <!-- 刪除 10% -->
+                  <div class="w-full md:w-[10%] flex justify-center">
+                     <div class="remove cart-button text-red-500 hover:text-red-700 transition duration-200">
+                        <button class="d-flex align-items-center justify-content-center gap-1">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                              <path
+                                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+                           </svg>
+                           移除
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                              <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                           </svg>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+               <div class="cart-item flex flex-col md:flex-row items-center justify-between border-b pb-6 px-4 bg-gray-50 rounded-lg p-4 shadow-sm" data-price="100">
+                  <div class="w-full md:w-[15%] flex justify-center">
+                     <img src="images/MajorProject/item/01-車床/MAZAK Integrex J300 CNC車銑複合機.jpg" alt="機台圖片"
+                        class="w-20 h-20 rounded-lg shadow-md" />
+                  </div>
+
+                  <!-- 品牌、型號、類型 25% -->
+                  <div class="w-full md:w-[25%]">
+                     <h2 class="text-lg font-semibold text-gray-700" name="item_brand" id="item_brand">
+                        MAZAK
+                     </h2>
+                     <h2 class="text-lg font-semibold text-gray-700" name="item_name" id="item_name">
+                        複合加工機
+                     </h2>
+                     <h2 class="text-lg font-semibold text-gray-700" name="item_type" id="item_type">
+                        INTEGREX j-300
+                     </h2>
+                  </div>
+
+                  <!-- 金額 10% -->
+                  <div class="w-full md:w-[10%] text-center">
+                     <p class="text-lg font-bold text-gray-700">
+                        <span name="item_price" id="item_price">50.6</span>萬元
+                     </p>
+                  </div>
+
+                  <!-- 備註 35% -->
+                  <div class="w-full md:w-[35%]">
+                     <textarea
+                        class="w-full p-2 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="請填寫備註" name="order_note" id="order_note"></textarea>
+                  </div>
+
+                  <!-- 刪除 10% -->
+                  <div class="w-full md:w-[10%] flex justify-center">
+                     <div class="remove cart-button text-red-500 hover:text-red-700 transition duration-200">
+                        <button class="d-flex align-items-center justify-content-center gap-1">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                              <path
+                                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+                           </svg>
+                           移除
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                              <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                           </svg>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+               <div class="cart-item flex flex-col md:flex-row items-center justify-between border-b pb-6 px-4 bg-gray-50 rounded-lg p-4 shadow-sm" data-price="100">
+                  <div class="w-full md:w-[15%] flex justify-center">
+                     <img src="images/MajorProject/item/03-鑽床/高明.jpg" alt="機台圖片"
+                        class="w-20 h-20 rounded-lg shadow-md" />
+                  </div>
+
+                  <!-- 品牌、型號、類型 25% -->
+                  <div class="w-full md:w-[25%]">
+                     <h2 class="text-lg font-semibold text-gray-700" name="item_brand" id="item_brand">
+                        高明
+                     <h2 class="text-lg font-semibold text-gray-700" name="item_name" id="item_name">
+                        旋臂鑽床
+                     </h2>
+                     <h2 class="text-lg font-semibold text-gray-700" name="item_type" id="item_type">
+                        KMR-1600DH
+                     </h2>
+                  </div>
+
+                  <!-- 金額 10% -->
+                  <div class="w-full md:w-[10%] text-center">
+                     <p class="text-lg font-bold text-gray-700">
+                        <span name="item_price" id="item_price">9.8</span>萬元
+                     </p>
+                  </div>
+
+                  <!-- 備註 35% -->
+                  <div class="w-full md:w-[35%]">
+                     <textarea
+                        class="w-full p-2 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="請填寫備註" name="order_note" id="order_note"></textarea>
+                  </div>
+
+                  <!-- 刪除 10% -->
+                  <div class="w-full md:w-[10%] flex justify-center">
+                     <div class="remove cart-button text-red-500 hover:text-red-700 transition duration-200">
+                        <button class="d-flex align-items-center justify-content-center gap-1">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                              <path
+                                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+                           </svg>
+                           移除
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                              <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                           </svg>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- 總計 -->
+            <div class="mt-4 border-t pt-4 text-center">
+               <div class="flex justify-around text-xl font-semibold text-gray-800">
+                  <span>總計:</span>
+                  <span id="total-price"></span>
+               </div>
+               <div class="flex justify-center mt-3">
+                  <button
+                     class="cart-button w-50 bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-200 text-lg shadow-md flex items-center justify-center gap-2">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-check2-square" viewBox="0 0 16 16">
+                        <path
+                           d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z" />
+                        <path
+                           d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0" />
+                     </svg>
+                     結帳
+                  </button>
+               </div>
+               <div class="flex justify-around text-lg font-semibold text-gray-800 mt-1">
+                  <span>(購機清單顯示價格非正式交易完成之金額，以最後議價總價為準)</span>
+               </div>
+            </div>
+         </div>
+      </section>
+   </div>
+
+   <!-- sectionEND 其他連結和網頁版權 -->
+   <section id="s0end" class="bg-secondary">
+      <div class="container align-items-center">
+         <ul class="nav">
+            <li class="nav-item">
+               <a class="nav-link disabled" style="color: white">PowerBy 113年雲端技術應用實務班第2期3號陳俞蓁</a>
+            </li>
+            <li class="nav-item">
+               <a href="https://gcis.nat.gov.tw/mainNew/" class="nav-link active" aria-current="page" target="_blank"
+                  style="color: white" rel="noopener noreferrer">全國商工行政服務入口網</a>
+            </li>
+         </ul>
+      </div>
+   </section>
+
+   <!-- 會員系統 -->
+   <button class="" id="memberSystem" title="會員系統">
+      <i class="fa-solid fa-user fa-lg"></i>
+   </button>
+
+   <!-- 查看機臺清單 -->
+   <button class="" id="moreitem" title="查看機臺頁面">
+      <i class="fa-regular fa-rectangle-list"></i>
+   </button>
+
+   <!-- 購物車 -->
+   <!-- <button class="" id="shopping" title="購物車"><i class="fa-solid fa-cart-shopping fa-lg"></i></button> -->
+
+   <!-- 回到頁面頂部 -->
+   <button id="backToTop" title="回到頁面頂部">
+      <i class="fa-solid fa-angles-up fa-lg"></i>
+   </button>
+
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.7.1.min.js"></script>
+   <script src="js/jquery.transit.min.js"></script>
+   <script src="js/wow.min.js"></script>
+   <script src="js/counterup2.js"></script>
+   <script src="js/CityCountyData.json"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+      // section01 日期時間功能
+      function updateDateTime() {
+         const now = new Date();
+         const formattedDateTime = now.toLocaleString(); // 取得日期時間
+         const weekdays = [
+            "星期日",
+            "星期一",
+            "星期二",
+            "星期三",
+            "星期四",
+            "星期五",
+            "星期六",
+         ];
+         const weekday = weekdays[now.getDay()]; // 取得星期幾
+
+         document.getElementById("datetime").textContent = formattedDateTime;
+         document.getElementById("weekday").textContent = weekday;
+      }
+
+      updateDateTime(); // 頁面載入時執行
+      setInterval(updateDateTime, 1000); // 每秒更新
+
+      document
+         .getElementById("moreitem")
+         .addEventListener("click", function () {
+            window.location.href = "tegrand_project_moreitem.html";
+         });
+
+      document
+         .getElementById("memberSystem")
+         .addEventListener("click", function () {
+            window.location.href = "tegrand_memberSystem.html";
+         });
+
+      // 回到頁面頂部
+      document
+         .getElementById("backToTop")
+         .addEventListener("click", function () {
+            window.scrollTo({
+               top: 0,
+               behavior: "smooth",
+            });
+         });
+
+      $(function () {
+         //s01_logout_btn 按鈕監聽
+         $("#s01_logout_btn").click(function () {
+            Swal.fire({
+               title: "確定登出嗎?",
+               text: "您確定要登出嗎？",
+               icon: "warning",
+               showCancelButton: true,
+               confirmButtonText: "確定",
+               cancelButtonText: "取消",
+               reverseButtons: true, // 使確定和取消按鈕的順序顛倒
+            }).then((result) => {
+               if (result.isConfirmed) {
+                  sessionStorage.clear(); // 清除所有 sessionStorage
+                  localStorage.clear(); // 若有使用 localStorage 也一併清除
+                  document.cookie = "uid01=; max-age=0; path=/;"; //清除cookie
+                  Swal.fire({
+                     title: "登出成功!",
+                     text: "3秒後將自動跳轉至主頁...",
+                     icon: "success",
+                     timer: 3000, // 2 秒後自動關閉
+                     showConfirmButton: false,
+                  });
+                  setTimeout(function () {
+                     location.href = "tegrand_project_v4.html";
+                  }, 3000);
+               } else {
+                  // // 如果用戶點擊取消
+                  // Swal.fire({
+                  //    title: '登出已取消',
+                  //    text: '您還在當前頁面！',
+                  //    icon: 'info'
+                  // });
+               }
+            });
+         });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+         let username = sessionStorage.getItem("username"); // 取得用戶名稱
+         // let role = sessionStorage.getItem("role"); // 取得角色
+
+         if (username) {
+            $("#s01_username_showspan").removeClass("d-none");
+            $("#s01_username_span").text(username);
+         } else {
+            // document.getElementById("welcome_msg").textContent = "歡迎訪客！";
+         }
+      });
+
+      // 購物車功能 JS
+      function updateTotal() {
+         let total = 0;
+         document.querySelectorAll(".cart-item").forEach((item) => {
+            const priceText = item
+               .querySelector("[name='item_price']")
+               .textContent.trim(); // 取得價格文字
+            const price = parseFloat(priceText) * 10000; // 轉換成數字（萬元 → 元）
+            total += price;
+         });
+
+         // 轉換回萬元顯示
+         document.getElementById("total-price").textContent = `\$${total / 10000
+            } 萬元`;
+      }
+
+      // 綁定刪除按鈕事件
+      document.querySelectorAll(".remove button").forEach((button) => {
+         button.addEventListener("click", function () {
+            this.closest(".cart-item").remove();
+            updateTotal();
+         });
+      });
+
+      // 頁面載入時更新總計
+      updateTotal();
+
+      function setCookie(cname, cvalue, exdays) {
+         const d = new Date();
+         d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+         let expires = "expires=" + d.toUTCString();
+         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+         console.log(document.cookie);
+      }
+
+      function getCookie(cname) {
+         let name = cname + "=";
+         let ca = document.cookie.split(";");
+         for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == " ") {
+               c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+               return c.substring(name.length, c.length);
+            }
+         }
+         return "";
+      }
+   </script>
+</body>
+
+</html>

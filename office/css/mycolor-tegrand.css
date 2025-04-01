@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap');
+
+body{
+   font-family: "Zen Kaku Gothic Antique", serif;
+}
+
+.fw-100{
+   font-weight: 100;
+}
+.fw-200{
+   font-weight: 200;
+}
+.fw-300{
+   font-weight: 300;
+}
+.fw-400{
+   font-weight: 400;
+}
+.fw-500{
+   font-weight: 500;
+}
+.fw-600{
+   font-weight: 600;
+}
+.fw-700{
+   font-weight: 700;
+}
+.fw-800{
+   font-weight: 800;
+}
+.fw-900{
+   font-weight: 900;
+}
+
+:root{
+   --mycolor01: #CCB9A1;
+   --mycolor02: #63564B;
+   --mycolor03: #40332B;
+   --mycolor04: #BA8F57;
+   --mycolor05: #A46E3F;
+   --mycolor06: #734624;
+
+   --textcolor01: #FFFFFF;
+   --textcolor02: #000000;
+   --textcolor03: red;
+   --textcolor04: rgb(1, 1, 168);
+   --textcolor05: rgb(9, 128, 122);
+
+   --mylandywebcolor01: #F0E4D4;
+   --mylandywebcolor02: #F9D9CA;
+   --mylandywebcolor03: #D18063;
+   --mylandywebcolor04: #917B56;
+   --mylandywebcolor05: #5854A2;
+   --mylandywebcolor06: #87C1CC;
+
+   --myfairytalecolor01: #EF798A;
+   --myfairytalecolor02: #F7A9A8;
+   --myfairytalecolor03: #7d82b8;
+   --myfairytalecolor04: #613F75;
+   --myfairytalecolor05: #E5C3D1;
+
+   --mynipponcutecolor01: #FEDFE1;
+   --mynipponcutecolor02: #D7C4BB;
+   --mynipponcutecolor03: #DC9FB4;
+   --mynipponcutecolor04: #FFFFFF;
+   --mynipponcutecolor05: #A5DEE4;
+   --mynipponcutecolor06: #9E7A7A;
+
+   --myindustrycolor01: #A19EA9;
+   --myindustrycolor02: #5D6A7D;
+   --myindustrycolor03: #955242;
+   --myindustrycolor04: #E4E7F0;
+   --myindustrycolor05: #191009;
+
+   --myloftcolor01: #3E3B42;
+   --myloftcolor02: #968C83;
+   --myloftcolor03: #F4F1F8;
+   --myloftcolor04: #525232;
+   --myloftcolor05: #BBBCC0;
+
+   --mynortheurope01: #A59387;
+   --mynortheurope02: #CCCBC9;
+   --mynortheurope03: #F8F9EE;
+   --mynortheurope04: #717171;
+   --mynortheurope05: #384C65;
+
+   --mywoodencolor01: #DDDDDD;
+   --mywoodencolor02: #BFBFBF;
+   --mywoodencolor03: #CFBEB4;
+   --mywoodencolor04: #3C2917;
+   --mywoodencolor05: #625850;
+
+   --myjumpcolor01: #073760; /* rgb(7,55,96) */
+   --myjumpcolor02: #C7815D; /* rgb(199,129,93) */
+   --myjumpcolor03: #A8BDD7; /* rgb(168,189,215) */
+   --myjumpcolor04: #B5A49A; /* rgb(181,164,154) */
+   --myjumpcolor05: #A96A41; /* rgb(169,106,65) */
+}
+/* 右側滑入 */
+.rollerr{
+   position: relative;
+   overflow: hidden;
+}
+.rollerr .roller{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   right: -100%;
+   background-color: rgba(0, 0, 25, 0.3);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.rollerr:hover .roller{
+   right: 0;
+   transition: right 1s;
+   background-image: linear-gradient(90deg, rgba(255, 0, 0, 0.151), rgba(0, 0, 255, 0.151));
+}
+.rollerr:hover .roller a{
+   text-decoration: none;
+   display: block;
+   top: 50%;
+   left: 50%;
+   text-align: center;
+   font-size: 30px;
+   line-height: 30px;
+   color: #FFFFFF;
+}
+/* 左側滑入 */
+.rollerx{
+   position: relative;
+   overflow: hidden;
+}
+.rollerx .roller{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: -100%;
+   background-color: rgba(0, 0, 25, 0.3);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.rollerx:hover .roller{
+   left: 0;
+   transition: left 1s;
+   background-image: linear-gradient(90deg, rgba(255, 0, 0, 0.151), rgba(0, 0, 255, 0.151));
+}
+.rollerx:hover .roller a{
+   text-decoration: none;
+   display: block;
+   top: 50%;
+   left: 50%;
+   text-align: center;
+   font-size: 30px;
+   line-height: 30px;
+   color: #FFFFFF;
+}
+/* 上方滑入 */
+.rollert{
+   position: relative;
+   overflow: hidden;
+}
+.rollert .roller{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: -100%;
+   background-color: rgba(0, 0, 25, 0.3);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.rollert:hover .roller{
+   top: 0;
+   transition: top 1s;
+   background-image: linear-gradient(90deg, rgba(255, 0, 0, 0.151), rgba(0, 0, 255, 0.151));
+}
+.rollert:hover .roller a{
+   text-decoration: none;
+   display: block;
+   top: 50%;
+   left: 50%;
+   text-align: center;
+   font-size: 30px;
+   line-height: 30px;
+   color: #FFFFFF;
+}
+/* 下方滑入 */
+.rollerb{
+   position: relative;
+   overflow: hidden;
+}
+.rollerb .roller{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   bottom: -100%;
+   background-color: rgba(0, 0, 25, 0.3);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.rollerb:hover .roller{
+   bottom: 0;
+   transition: bottom 1s;
+   background-image: linear-gradient(90deg, rgba(255, 0, 0, 0.151), rgba(0, 0, 255, 0.151));
+}
+.rollerb:hover .roller a{
+   text-decoration: none;
+   display: block;
+   top: 50%;
+   left: 50%;
+   text-align: center;
+   font-size: 30px;
+   line-height: 30px;
+   color: #FFFFFF;
+}
+/* 背景圖 */
+.bg-cover{
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 768px) {
+   .table-rwd{
+      width: 100%;
+      
+   }
+   .table-rwd thead{
+      display: none;
+   } 
+   .table-rwd tbody tr{
+      display: block;
+      border: 5px solid var(--mycolor01);
+      margin-bottom: 10px;
+   }
+   .table-rwd tbody tr td{
+      display: block;
+      border: 1px solid var(--mycolor01);
+      overflow: hidden;
+   }
+   .table-rwd tbody tr td::before{
+      content: attr(data-th)":";
+      font-weight: 900;
+      color: var(--mycolor05);
+      font-size: 16px;
+      float: left;
+      width: 30%;
+      text-align: right;
+      padding-right: 20px;
+   }
+   .table-rwd tbody tr td span.table.col{
+      display: block;
+      float: left;
+      width: 70%;
+   }
+}
