@@ -71,7 +71,7 @@
 ---
 
 ## 🔗Figma連結
--  [Figma--專題(中古機械行-得昌行|捷獅)]([https://www.figma.com/design/06pza9HIq9AiYhsaWd2IAy/%E4%BE%BF%E5%88%A9%E8%B2%BC%E8%A8%88%E7%AE%97%E6%A9%9F?node-id=22-16&m=dev&t=o2I7e6h9DV6knzuh-1](https://www.figma.com/design/TAOAt55tdyBemtmtWhhjww/%E5%B0%88%E9%A1%8C-%E4%B8%AD%E5%8F%A4%E6%A9%9F%E6%A2%B0%E8%A1%8C-%E5%BE%97%E6%98%8C%E8%A1%8C%7C%E6%8D%B7%E7%8D%85-?node-id=20-10465&t=LZ5Yrk0Ctmg23UXh-0))
+-  [Figma--專題(中古機械行-得昌行|捷獅)](https://www.figma.com/design/TAOAt55tdyBemtmtWhhjww/%E5%B0%88%E9%A1%8C-%E4%B8%AD%E5%8F%A4%E6%A9%9F%E6%A2%B0%E8%A1%8C-%E5%BE%97%E6%98%8C%E8%A1%8C%7C%E6%8D%B7%E7%8D%85-?node-id=20-10465&t=LZ5Yrk0Ctmg23UXh-0)
 
 ---
 
